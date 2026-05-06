@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9fb",
+                        "secondary": "#28628f",
+                        "primary-fixed": "#d5e3ff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#161e31",
+                        "on-secondary": "#ffffff",
+                        "outline": "#737780",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#3a5f94",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#dae2fd",
+                        "tertiary-container": "#2b3347",
+                        "on-surface-variant": "#43474f",
+                        "inverse-primary": "#a7c8ff",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "on-tertiary-container": "#949bb4",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-container": "#003366",
+                        "on-primary-container": "#799dd6",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "primary": "#001e40",
+                        "on-primary-fixed": "#001b3c",
+                        "on-secondary-container": "#175683",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#131b2e",
+                        "outline-variant": "#c3c6d1",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "surface-container": "#eceef0",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#97ccfe",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#cee5ff",
+                        "on-secondary-fixed": "#001d32",
+                        "on-background": "#191c1e",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "64px",
+                        "lg": "48px",
+                        "sm": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "base": "4px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "label-bold": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .login-card-shadow {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col justify-center items-center p-md">
+<!-- Main Login Shell -->
+<main class="w-full max-w-[480px] flex flex-col items-center">
+<!-- Login Card Container -->
+<div class="w-full bg-surface-container-lowest login-card-shadow border border-outline-variant rounded-lg p-xl flex flex-col items-center">
+<!-- Branding Header -->
+<div class="mb-lg flex flex-col items-center gap-sm">
+<div class="w-16 h-16 bg-primary-container rounded-lg flex items-center justify-center mb-base">
+<span class="material-symbols-outlined text-on-primary text-[40px]" data-icon="account_balance">account_balance</span>
+</div>
+<h1 class="font-h3 text-h3 text-primary text-center">MFCB Portal Sign In</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center px-sm">
+                    Enter your credentials to access the secure Botswana Credit Bureau management dashboard.
+                </p>
+</div>
+<!-- Login Form -->
+<form class="w-full space-y-md">
+<!-- Email Field -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface uppercase tracking-wider" for="email">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-sm flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="mail">mail</span>
+</div>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-DEFAULT font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary-container focus:border-secondary transition-all" id="email" name="email" placeholder="e.g. name@institution.bw" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between items-end">
+<label class="font-label-bold text-label-bold text-on-surface uppercase tracking-wider" for="password">Password</label>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-sm flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="lock">lock</span>
+</div>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-DEFAULT font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary-container focus:border-secondary transition-all" id="password" name="password" placeholder="Enter secure password" required="" type="password"/>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full py-sm px-md bg-primary-container text-on-primary font-label-bold text-label-bold rounded-DEFAULT hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-xs" type="submit">
+                    Sign In
+                    <span class="material-symbols-outlined text-[18px]" data-icon="login">login</span>
+</button>
+<!-- Secondary Actions -->
+<div class="flex justify-center pt-base">
+<a class="font-body-sm text-body-sm text-secondary hover:underline transition-colors" href="#">Forgot password?</a>
+</div>
+</form>
+</div>
+<!-- Security Disclaimer Card -->
+<div class="mt-lg w-full flex gap-sm items-center p-sm bg-surface-container-low border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                This is a secure system authorized by the <span class="font-bold">Bank of Botswana</span>. All access and activity is logged and monitored.
+            </p>
+</div>
+<!-- Footer -->
+<footer class="mt-xl text-center">
+<p class="font-body-sm text-body-sm text-outline">
+                © 2026 Botswana Credit Bureau (MFCB). All rights reserved.
+            </p>
+</footer>
+</main>
+<!-- Background Decoration (Institutional feel) -->
+<div class="fixed top-0 left-0 w-full h-1 bg-primary-container z-50"></div>
+<div class="fixed bottom-0 right-0 p-lg opacity-10 pointer-events-none">
+<img alt="Botswana Institutional Seal" class="w-48 h-48 grayscale" data-alt="A professional, high-resolution watermark of a financial regulatory seal featuring heraldic elements of Botswana. The image is rendered in a subtle, monochromatic light gray against a clean white background, maintaining a corporate and authoritative aesthetic. The lighting is perfectly flat and clinical, reinforcing a sense of institutional security and trust. The overall composition is minimalist and formal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrDcnVnxqU2VHB11DJRxaJlHxQ2C4bGlollq7ZDgKd3oLIGyzh-R-s7gVL_8yzh2tbptcWOmWdPzsP8Q4D2y-ETD023190G3Sxg2odaLCmwmIaJksZzpYGCmCJAM3yzKa1yIB1L9OUV836t16ojnm7u9ZDfbWwproleW7Caig3BJoWHyEgIN0SFpUIfHPUdbC17bM65Rg7wZhX9gqBJGosiBKeX0y1XEGERVQwqgtMSznaI3VvzCaRFN8IxfTtWyWWYf6qdyqOabsh"/>
+</div>
+</body></html>

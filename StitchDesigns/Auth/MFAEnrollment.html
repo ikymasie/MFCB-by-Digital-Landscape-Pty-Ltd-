@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-fixed": "#dae2fd",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a7c8ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-error": "#ffffff",
+                        "tertiary": "#161e31",
+                        "secondary-container": "#97ccfe",
+                        "on-tertiary-container": "#949bb4",
+                        "surface-dim": "#d8dadc",
+                        "secondary-fixed": "#cee5ff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-secondary-container": "#175683",
+                        "surface-tint": "#3a5f94",
+                        "primary-fixed": "#d5e3ff",
+                        "on-surface": "#191c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#001e40",
+                        "outline-variant": "#c3c6d1",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#43474f",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-container": "#003366",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-container": "#2b3347",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#001d32",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "outline": "#737780",
+                        "surface-container": "#eceef0",
+                        "secondary": "#28628f",
+                        "on-primary-container": "#799dd6",
+                        "on-primary-fixed": "#001b3c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "container-max": "1280px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { @apply border-primary-container text-primary-container font-label-bold; }
+        .step-inactive { @apply border-outline-variant text-on-surface-variant font-body-sm; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest shadow-sm border-b border-outline-variant">
+<nav class="flex justify-between items-center w-full px-md md:px-lg max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-primary">MFCB Portal</span>
+<div class="hidden md:flex items-center gap-sm ml-lg">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md hover:text-primary hover:bg-surface-container-low transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md hover:text-primary hover:bg-surface-container-low transition-colors duration-200" href="#">Credit Reports</a>
+<a class="text-primary border-b-2 border-primary font-label-bold pb-1" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs rounded-full hover:bg-surface-container-low transition-colors duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container-low transition-colors duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden ml-xs border border-outline-variant">
+<span class="material-symbols-outlined text-on-secondary-container">person</span>
+</div>
+</div>
+</nav>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center p-md md:p-xl">
+<div class="w-full max-w-3xl bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden">
+<!-- Header Section -->
+<div class="p-lg text-center border-b border-outline-variant bg-surface-bright">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-container text-white mb-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<h1 class="font-h2 text-h2 text-primary">Enable Multi-Factor Authentication</h1>
+<p class="text-on-surface-variant font-body-md mt-xs">Enhance your account security with institutional-grade protection.</p>
+</div>
+<!-- Stepper -->
+<div class="px-lg py-md bg-surface-container-low/50">
+<div class="flex items-center justify-between max-w-md mx-auto">
+<div class="flex flex-col items-center gap-base">
+<div class="w-8 h-8 rounded-full border-2 flex items-center justify-center border-primary bg-primary text-white">
+<span class="text-xs font-bold">1</span>
+</div>
+<span class="text-[12px] font-label-bold text-primary">Setup</span>
+</div>
+<div class="flex-grow h-[2px] bg-primary mx-xs"></div>
+<div class="flex flex-col items-center gap-base">
+<div class="w-8 h-8 rounded-full border-2 flex items-center justify-center border-primary bg-primary text-white">
+<span class="text-xs font-bold">2</span>
+</div>
+<span class="text-[12px] font-label-bold text-primary">Scan</span>
+</div>
+<div class="flex-grow h-[2px] bg-outline-variant mx-xs"></div>
+<div class="flex flex-col items-center gap-base">
+<div class="w-8 h-8 rounded-full border-2 flex items-center justify-center border-outline-variant text-on-surface-variant">
+<span class="text-xs font-bold">3</span>
+</div>
+<span class="text-[12px] font-body-sm text-on-surface-variant">Verify</span>
+</div>
+</div>
+</div>
+<!-- Enrollment Steps Content -->
+<div class="p-lg space-y-lg">
+<!-- Step 1 & 2 Combined (Current View) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-start">
+<!-- Left: Instructions -->
+<div class="space-y-md">
+<div class="space-y-xs">
+<h3 class="font-h3 text-h3 text-primary">Step 1: Install Authenticator</h3>
+<p class="text-on-surface-variant font-body-sm">
+                                Install an authenticator app like <span class="font-bold">Google Authenticator</span> or <span class="font-bold">Microsoft Authenticator</span> on your mobile device.
+                            </p>
+</div>
+<div class="space-y-xs">
+<h3 class="font-h3 text-h3 text-primary">Step 2: Scan QR Code</h3>
+<p class="text-on-surface-variant font-body-sm">
+                                Open the app and scan the QR code to link your Botswana Credit Bureau account.
+                            </p>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg border border-outline-variant">
+<p class="text-[12px] text-on-surface-variant uppercase font-label-bold mb-base">Can't scan? Enter manually:</p>
+<code class="text-primary font-mono text-body-md tracking-wider bg-white px-sm py-xs rounded block border border-outline-variant select-all">ABCD-EFGH-IJKL-MNOP</code>
+</div>
+</div>
+<!-- Right: QR Code -->
+<div class="flex flex-col items-center justify-center p-md bg-white border border-outline-variant rounded-xl shadow-sm">
+<img alt="MFA QR Code Setup" class="w-48 h-48 md:w-56 md:h-56 object-contain" data-alt="A meticulously clean and professional QR code designed for a high-security mobile application setup. The QR code is perfectly centered on a pristine white background, encased within a subtle, thin gray border that suggests institutional precision. The lighting is flat and uniform, typical of a professional digital interface, creating a high-contrast and minimalist aesthetic. The overall visual style is corporate and trustworthy, aligning with the branding of a financial credit bureau." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC8SG13n4rh8RxCGcBT0v8Dfta-6bGqa6fQ_8rBMesdpollOepB4ZaQRXzw9XGCyfAb6Ble2LGN9vl6f_QIo5XXv9s7p0hQ6YWriK-xBHoY5TDksafIRjjtU1oTM2_5O-oVYso1V7XpzdpV0Lzqcj-bB9BymKseUjdtp9QcqkHZ7ZdDNXYNtuqnW0nSLTWCvw0YnEZYo1VUk5O-WBR5YzPnIPxLTkMfWI3lVRsx2bjFjqOn3e3TRJ2xhJUbQN9BTE6uVdJPdO50fz5"/>
+<div class="mt-md flex items-center gap-xs text-on-surface-variant text-[12px]">
+<span class="material-symbols-outlined text-[18px]">security</span>
+<span>Secure encrypted link</span>
+</div>
+</div>
+</div>
+<!-- Step 3: Verification -->
+<div class="pt-lg border-t border-outline-variant">
+<div class="max-w-md mx-auto text-center space-y-md">
+<div>
+<h3 class="font-h3 text-h3 text-primary">Step 3: Verify Setup</h3>
+<p class="text-on-surface-variant font-body-sm">Enter the 6-digit code generated by your app to complete the enrollment.</p>
+</div>
+<div class="flex justify-center gap-sm">
+<input class="w-12 h-14 text-center text-h3 font-bold border border-outline-variant rounded-lg bg-white focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" maxlength="1" placeholder="•" type="text"/>
+<input class="w-12 h-14 text-center text-h3 font-bold border border-outline-variant rounded-lg bg-white focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" maxlength="1" placeholder="•" type="text"/>
+<input class="w-12 h-14 text-center text-h3 font-bold border border-outline-variant rounded-lg bg-white focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" maxlength="1" placeholder="•" type="text"/>
+<div class="w-4"></div>
+<input class="w-12 h-14 text-center text-h3 font-bold border border-outline-variant rounded-lg bg-white focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" maxlength="1" placeholder="•" type="text"/>
+<input class="w-12 h-14 text-center text-h3 font-bold border border-outline-variant rounded-lg bg-white focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" maxlength="1" placeholder="•" type="text"/>
+<input class="w-12 h-14 text-center text-h3 font-bold border border-outline-variant rounded-lg bg-white focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" maxlength="1" placeholder="•" type="text"/>
+</div>
+<div class="pt-md flex flex-col items-center gap-sm">
+<button class="w-full bg-primary-container text-white py-sm rounded-lg font-label-bold shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-200">
+                                Enable MFA
+                            </button>
+<a class="text-secondary font-body-sm hover:underline decoration-1 underline-offset-4" href="#">Skip for now</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Compliance Note -->
+<div class="px-lg py-sm bg-surface-container border-t border-outline-variant flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">lock</span>
+<span class="text-[12px] text-on-surface-variant font-body-sm">Botswana Credit Bureau Security Standard Protocol</span>
+</div>
+</div>
+</main>
+<!-- Footer Space -->
+<footer class="py-md text-center text-on-surface-variant text-[12px] font-body-sm">
+        © 2024 Botswana Credit Bureau (MFCB). All rights reserved.
+    </footer>
+</body></html>

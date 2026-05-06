@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Institution Profile - MFCB Bureau Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#737780",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#a7c8ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#161e31",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#28628f",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "surface-tint": "#3a5f94",
+                        "secondary-fixed": "#cee5ff",
+                        "primary-container": "#003366",
+                        "secondary-container": "#97ccfe",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "outline-variant": "#c3c6d1",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-tertiary-container": "#949bb4",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-fixed": "#d5e3ff",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#175683",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#dae2fd",
+                        "on-primary-container": "#799dd6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed": "#001d32",
+                        "tertiary-container": "#2b3347",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "primary": "#001e40",
+                        "on-surface-variant": "#43474f",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "base": "4px",
+                        "xl": "64px",
+                        "xs": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .zebra-stripe:nth-child(even) { background-color: #F1F5F9; }
+        body { background-color: #f7f9fb; font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 max-w-container-max mx-auto bg-primary dark:bg-primary-fixed border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-on-primary dark:text-on-primary-fixed">MFCB Bureau Manager</span>
+<div class="hidden md:flex gap-sm ml-xl">
+<a class="font-body-md text-body-md text-on-primary-container opacity-80 hover:bg-primary-container transition-colors duration-200 cursor-pointer active:opacity-90" href="#">Dashboard</a>
+<a class="font-body-md text-body-md text-on-primary font-bold border-b-2 border-secondary-container pb-1 cursor-pointer active:opacity-90" href="#">Institutions</a>
+<a class="font-body-md text-body-md text-on-primary-container opacity-80 hover:bg-primary-container transition-colors duration-200 cursor-pointer active:opacity-90" href="#">Reports</a>
+<a class="font-body-md text-body-md text-on-primary-container opacity-80 hover:bg-primary-container transition-colors duration-200 cursor-pointer active:opacity-90" href="#">Compliance</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-primary cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-primary cursor-pointer" data-icon="settings">settings</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-outline-variant">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate administrator in a bright, modern office setting. The person is dressed in business attire, looking confident and approachable. The background is a blurred high-end office with soft sunlight and corporate blue accents, reflecting a sense of dependability and institutional rigor consistent with the Botswana Credit Bureau's identity." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</div>
+</nav>
+<main class="mt-16 pt-lg pb-xl px-gutter max-w-container-max mx-auto">
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row md:items-center justify-between mb-lg gap-md">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm">
+<h1 class="font-h1 text-h1 text-primary">First National Bank Botswana</h1>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-label-bold font-label-bold">
+<span class="w-2 h-2 rounded-full bg-emerald-600 mr-2"></span>
+                        Active
+                    </span>
+</div>
+<nav class="flex items-center gap-xs text-outline font-body-sm text-body-sm">
+<span>Institutions</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface">Institution Profile</span>
+</nav>
+</div>
+<button class="inline-flex items-center justify-center gap-xs px-md py-sm border-[1.5px] border-secondary text-secondary rounded-lg hover:bg-secondary-fixed transition-colors font-label-bold text-label-bold">
+<span class="material-symbols-outlined" data-icon="file_download">file_download</span>
+                Export Profile
+            </button>
+</header>
+<!-- Tab Navigation -->
+<div class="flex overflow-x-auto border-b border-outline-variant mb-lg gap-lg scrollbar-hide">
+<a class="pb-md font-label-bold text-label-bold border-b-2 border-primary text-primary whitespace-nowrap" href="#">Overview</a>
+<a class="pb-md font-label-bold text-label-bold border-b-2 border-transparent text-outline hover:text-secondary transition-colors whitespace-nowrap" href="#">API Credentials</a>
+<a class="pb-md font-label-bold text-label-bold border-b-2 border-transparent text-outline hover:text-secondary transition-colors whitespace-nowrap" href="#">Contacts</a>
+<a class="pb-md font-label-bold text-label-bold border-b-2 border-transparent text-outline hover:text-secondary transition-colors whitespace-nowrap" href="#">Submission History</a>
+<a class="pb-md font-label-bold text-label-bold border-b-2 border-transparent text-outline hover:text-secondary transition-colors whitespace-nowrap" href="#">Audit</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Left & Right Columns (Overview Content) -->
+<div class="lg:col-span-2 space-y-lg">
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md shadow-sm">
+<h2 class="font-h3 text-h3 text-primary mb-md">Institution Information</h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Left Column -->
+<div class="space-y-md">
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Institution Name</label>
+<input class="w-full px-sm py-md bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none font-body-md text-body-md" type="text" value="First National Bank Botswana"/>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">SRN (System Reference Number)</label>
+<div class="w-full px-sm py-md bg-surface-container-low border border-outline-variant rounded-lg font-data-tabular text-data-tabular text-outline cursor-not-allowed">
+                                    FNB-BW-9920-MAIN
+                                </div>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Legal Entity Type</label>
+<select class="w-full px-sm py-md bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none font-body-md text-body-md">
+<option>Commercial Bank</option>
+<option>Microfinance Institution</option>
+<option>Insurance Provider</option>
+<option>Public Utility</option>
+</select>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Registration Number</label>
+<input class="w-full px-sm py-md bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none font-body-md text-body-md" type="text" value="BW/CO/1988/0231"/>
+</div>
+</div>
+<!-- Right Column -->
+<div class="space-y-md">
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Operational Status</label>
+<select class="w-full px-sm py-md bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none font-body-md text-body-md">
+<option>Active</option>
+<option>Suspended</option>
+<option>Dormant</option>
+</select>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Enabled Products</label>
+<div class="flex flex-wrap gap-xs p-xs border border-outline-variant rounded-lg bg-white min-h-[48px]">
+<span class="inline-flex items-center gap-xs px-3 py-1 bg-secondary-fixed text-on-secondary-container rounded-full text-body-sm font-data-tabular">
+                                        Personal Loan <span class="material-symbols-outlined text-sm cursor-pointer" data-icon="close">close</span>
+</span>
+<span class="inline-flex items-center gap-xs px-3 py-1 bg-secondary-fixed text-on-secondary-container rounded-full text-body-sm font-data-tabular">
+                                        Credit Card <span class="material-symbols-outlined text-sm cursor-pointer" data-icon="close">close</span>
+</span>
+<span class="inline-flex items-center gap-xs px-3 py-1 bg-secondary-fixed text-on-secondary-container rounded-full text-body-sm font-data-tabular">
+                                        Home Loan <span class="material-symbols-outlined text-sm cursor-pointer" data-icon="close">close</span>
+</span>
+<button class="text-secondary font-label-bold text-body-sm px-2">+ Add Product</button>
+</div>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Allowed IP Ranges</label>
+<textarea class="w-full px-sm py-md bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none font-data-tabular text-data-tabular" rows="2">192.168.1.1/24, 41.21.192.5</textarea>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Integration Channel</label>
+<div class="flex items-center px-sm py-md bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface">
+<span class="material-symbols-outlined mr-sm text-secondary" data-icon="hub">hub</span>
+                                    REST API
+                                </div>
+</div>
+</div>
+</form>
+<div class="mt-lg pt-md border-t border-outline-variant flex justify-end">
+<button class="px-xl py-sm bg-primary-container text-on-primary rounded-lg font-label-bold text-label-bold hover:opacity-90 transition-opacity">
+                            Save Changes
+                        </button>
+</div>
+</section>
+<!-- Statistics / Snapshot (Extra Design Value) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest p-md border border-outline-variant rounded-xl shadow-sm">
+<span class="text-outline font-label-bold text-body-sm">MTD Submissions</span>
+<div class="font-h2 text-h2 text-primary mt-xs">14,282</div>
+<div class="text-emerald-600 text-body-sm font-data-tabular mt-xs">↑ 12.4% vs prev. month</div>
+</div>
+<div class="bg-surface-container-lowest p-md border border-outline-variant rounded-xl shadow-sm">
+<span class="text-outline font-label-bold text-body-sm">Data Integrity Score</span>
+<div class="font-h2 text-h2 text-primary mt-xs">98.4%</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full mt-sm overflow-hidden">
+<div class="bg-emerald-500 h-full w-[98.4%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md border border-outline-variant rounded-xl shadow-sm">
+<span class="text-outline font-label-bold text-body-sm">Support Tickets</span>
+<div class="font-h2 text-h2 text-primary mt-xs">02</div>
+<div class="text-amber-600 text-body-sm font-data-tabular mt-xs">Awaiting client response</div>
+</div>
+</section>
+</div>
+<!-- Side Panel (API Credentials Panel) -->
+<div class="space-y-lg">
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md shadow-sm">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-h3 text-h3 text-primary">API Access</h2>
+<span class="material-symbols-outlined text-outline" data-icon="key">key</span>
+</div>
+<div class="space-y-md">
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Client ID</label>
+<div class="flex items-center justify-between px-sm py-md bg-surface-container-low border border-outline-variant rounded-lg font-data-tabular text-data-tabular">
+<span class="truncate">8829-3321-MFCB-001</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer text-sm ml-sm" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Client Secret</label>
+<div class="flex items-center justify-between px-sm py-md bg-surface-container-low border border-outline-variant rounded-lg font-data-tabular text-data-tabular mb-xs">
+<span>••••••••••••••••</span>
+<span class="material-symbols-outlined text-outline cursor-pointer text-sm ml-sm" data-icon="visibility">visibility</span>
+</div>
+<button class="text-secondary font-label-bold text-body-sm hover:underline flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+                                Regenerate Secret
+                            </button>
+</div>
+<div class="pt-md border-t border-outline-variant">
+<label class="block font-label-bold text-label-bold text-on-surface mb-xs">Authorized Scopes</label>
+<div class="flex flex-wrap gap-xs">
+<code class="px-2 py-1 bg-surface-container-high rounded text-body-sm font-data-tabular">read:reports</code>
+<code class="px-2 py-1 bg-surface-container-high rounded text-body-sm font-data-tabular">write:submissions</code>
+<code class="px-2 py-1 bg-surface-container-high rounded text-body-sm font-data-tabular">read:identity</code>
+</div>
+</div>
+<div class="bg-primary-container/5 p-sm rounded-lg border border-primary/10">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-bold text-label-bold text-primary">Token Expiry</span>
+<span class="font-data-tabular text-data-tabular text-primary">90 days</span>
+</div>
+<div class="w-full bg-surface-container-low h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-2/3"></div>
+</div>
+<p class="text-[10px] text-outline mt-xs">Next rotation required by Oct 24, 2024</p>
+</div>
+</div>
+</section>
+<!-- Security Alert / Action Card -->
+<div class="bg-on-tertiary-fixed-variant p-md rounded-xl text-white">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-amber-400" data-icon="shield_lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+<div>
+<h4 class="font-label-bold text-label-bold mb-xs">Security Protocol</h4>
+<p class="font-body-sm text-body-sm opacity-90 leading-snug">Ensure all API calls use TLS 1.3. Credentials should never be stored in plaintext.</p>
+<button class="mt-md text-white font-label-bold text-body-sm border-b border-white pb-0.5">Read Security Docs</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-md px-gutter flex flex-col md:flex-row justify-between items-center gap-sm border-t border-outline-variant bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row items-center gap-md">
+<span class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed">MFCB Bureau Manager</span>
+<span class="font-body-sm text-body-sm text-on-surface dark:text-on-surface-variant">© 2024 Botswana Credit Bureau (MFCB). All rights reserved.</span>
+</div>
+<div class="flex gap-md">
+<a class="font-body-sm text-body-sm text-outline hover:text-secondary transition-colors inline-block" href="#">Legal</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-secondary transition-colors inline-block" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-secondary transition-colors inline-block" href="#">Support Center</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-secondary transition-colors inline-block" href="#">API Documentation</a>
+</div>
+</footer>
+</body></html>

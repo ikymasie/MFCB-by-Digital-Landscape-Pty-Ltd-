@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.*.local
+*.log
+.turbo/
+.firebase/
+firebase-debug.log
+.DS_Store
+coverage/
+*.tsbuildinfo
+.pnpm-store/

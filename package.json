@@ -1,0 +1,30 @@
+{
+  "name": "mfcb-platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "functions"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "db:migrate": "pnpm --filter @mfcb/db migrate:latest",
+    "db:migrate:test": "pnpm --filter @mfcb/db migrate:latest --env test",
+    "db:seed": "pnpm --filter @mfcb/db seed:run",
+    "db:rollback": "pnpm --filter @mfcb/db migrate:rollback"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0",
+    "prettier": "^3.0.0",
+    "eslint": "^9.0.0"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

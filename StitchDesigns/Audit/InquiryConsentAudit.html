@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MFCB Compliance Portal - Inquiry Audit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#a7c8ff",
+                        "surface-dim": "#d8dadc",
+                        "inverse-primary": "#a7c8ff",
+                        "on-secondary": "#ffffff",
+                        "primary": "#001e40",
+                        "inverse-on-surface": "#eff1f3",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#949bb4",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#737780",
+                        "tertiary-fixed": "#dae2fd",
+                        "primary-container": "#003366",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#001d32",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#161e31",
+                        "surface": "#f7f9fb",
+                        "tertiary-container": "#2b3347",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed": "#131b2e",
+                        "secondary": "#28628f",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-container": "#97ccfe",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "surface-tint": "#3a5f94",
+                        "surface-bright": "#f7f9fb",
+                        "on-surface-variant": "#43474f",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#d5e3ff",
+                        "on-background": "#191c1e",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#799dd6",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed": "#cee5ff",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "on-primary-fixed": "#001b3c",
+                        "outline-variant": "#c3c6d1",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-secondary-container": "#175683"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "sm": "16px",
+                        "base": "4px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "xl": "64px",
+                        "lg": "48px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "body-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .zebra-table tr:nth-child(even) { background-color: #F1F5F9; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-md h-xl bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-primary">MFCB Compliance Portal</span>
+<div class="hidden md:flex items-center bg-surface-container-low px-sm py-base rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-outline mr-xs">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-xl" placeholder="Search Audit Logs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="flex items-center gap-xs px-sm py-xs text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center gap-xs px-sm py-xs text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-base w-px bg-outline-variant mx-xs"></div>
+<span class="text-label-bold font-label-bold text-on-surface-variant cursor-pointer hover:text-secondary">Admin Settings</span>
+<img alt="Administrator Profile" class="w-lg h-lg rounded-full border-2 border-primary object-cover" data-alt="A professional headshot of a financial regulatory administrator in a modern office environment. The setting is clean and high-key with soft daylight filtering through large windows, creating a bright and transparent mood. The aesthetic is corporate and trustworthy, using a palette of deep blues and crisp whites to align with a secure banking portal. The image is framed as a circular profile avatar with high resolution and sharp detail." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col p-sm z-40 bg-primary-container w-[280px] pt-[80px]">
+<div class="flex items-center gap-sm px-sm mb-lg">
+<div class="w-lg h-lg bg-on-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container">shield</span>
+</div>
+<div>
+<div class="font-h3 text-h3 text-on-primary">MFCB Portal</div>
+<div class="font-label-bold text-label-bold text-on-primary-container opacity-80">Regulatory Oversight</div>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-xs text-on-primary-container hover:bg-primary rounded-lg px-sm py-xs transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-xs text-on-primary-container hover:bg-primary rounded-lg px-sm py-xs transition-all" href="#">
+<span class="material-symbols-outlined">rule</span>
+<span class="font-label-bold text-label-bold">Submission Compliance</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center gap-xs bg-secondary-container text-on-secondary-container rounded-lg px-sm py-xs scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-bold text-label-bold">Inquiry Audit</span>
+</a>
+<a class="flex items-center gap-xs text-on-primary-container hover:bg-primary rounded-lg px-sm py-xs transition-all" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-bold text-label-bold">Data Quality</span>
+</a>
+<a class="flex items-center gap-xs text-on-primary-container hover:bg-primary rounded-lg px-sm py-xs transition-all" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-bold text-label-bold">Regulatory Reports</span>
+</a>
+<button class="mt-md bg-secondary text-on-secondary font-label-bold py-xs px-sm rounded-lg flex items-center justify-center gap-xs hover:bg-primary-container border border-secondary transition-all">
+<span class="material-symbols-outlined">add</span>
+                    New Report
+                </button>
+</div>
+<div class="border-t border-on-primary-container/20 pt-sm mt-auto">
+<a class="flex items-center gap-xs text-on-primary-container hover:bg-primary rounded-lg px-sm py-xs mb-xs transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+<a class="flex items-center gap-xs text-on-primary-container hover:bg-primary rounded-lg px-sm py-xs transition-all" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-bold text-label-bold">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[280px] flex-grow p-xl">
+<!-- Content Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md mb-lg">
+<div>
+<h1 class="font-h1 text-h1 text-primary mb-base">Inquiry &amp; Consent Audit</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitoring institutional compliance and data access legitimacy.</p>
+</div>
+<div class="flex items-center gap-sm">
+<button class="flex items-center gap-xs px-sm py-xs border border-outline rounded-lg font-label-bold text-label-bold text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+                        Last 30 Days
+                    </button>
+<button class="flex items-center gap-xs px-sm py-xs bg-primary text-on-primary rounded-lg font-label-bold text-label-bold hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined">file_download</span>
+                        Export Regulatory Report
+                    </button>
+</div>
+</div>
+<!-- Stats Summary - Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-lg">
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-sm">
+<div class="text-on-surface-variant font-label-bold text-label-bold uppercase tracking-wider mb-xs">Total Inquiries (30d)</div>
+<div class="flex items-end justify-between">
+<span class="font-h2 text-h2 text-primary">1.2M</span>
+<span class="text-success text-body-sm flex items-center text-green-700 font-bold">
+<span class="material-symbols-outlined text-[18px]">trending_up</span> 12%
+                        </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-sm">
+<div class="text-on-surface-variant font-label-bold text-label-bold uppercase tracking-wider mb-xs">Consent Match Rate</div>
+<div class="flex items-end justify-between">
+<span class="font-h2 text-h2 text-primary">99.8%</span>
+<div class="bg-green-100 text-green-800 px-xs py-0.5 rounded text-[12px] font-bold">OPTIMAL</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-sm border-l-4 border-l-error">
+<div class="text-on-surface-variant font-label-bold text-label-bold uppercase tracking-wider mb-xs">High-Risk Patterns</div>
+<div class="flex items-end justify-between">
+<span class="font-h2 text-h2 text-error">3</span>
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-sm">
+<div class="text-on-surface-variant font-label-bold text-label-bold uppercase tracking-wider mb-xs">Audit Coverage</div>
+<div class="flex items-end justify-between">
+<span class="font-h2 text-h2 text-primary">100%</span>
+<span class="material-symbols-outlined text-secondary">verified</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Global Inquiry Audit Table -->
+<div class="xl:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-h3 text-h3 text-primary">Global Audit Logs</h3>
+<div class="flex items-center gap-xs">
+<button class="p-xs hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined">filter_list</span></button>
+<button class="p-xs hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined">refresh</span></button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full zebra-table text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b-2 border-primary-container">
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Institution Name</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Inquiry Reason</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Consent Ref ID</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Timestamp</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Result</th>
+</tr>
+</thead>
+<tbody class="font-data-tabular text-data-tabular text-on-surface">
+<tr>
+<td class="px-md py-sm font-bold">Standard Chartered Botswana</td>
+<td class="px-md py-sm">Credit Application</td>
+<td class="px-md py-sm text-secondary">REF-90231-BW</td>
+<td class="px-md py-sm">2024-05-20 09:12:44</td>
+<td class="px-md py-sm">
+<span class="px-xs py-0.5 rounded-full bg-green-100 text-green-800 text-[12px] font-bold border border-green-200">MATCH</span>
+</td>
+</tr>
+<tr>
+<td class="px-md py-sm font-bold">First National Bank (FNB)</td>
+<td class="px-md py-sm">Debt Collection</td>
+<td class="px-md py-sm text-secondary">REF-88412-BW</td>
+<td class="px-md py-sm">2024-05-20 09:10:02</td>
+<td class="px-md py-sm">
+<span class="px-xs py-0.5 rounded-full bg-green-100 text-green-800 text-[12px] font-bold border border-green-200">MATCH</span>
+</td>
+</tr>
+<tr>
+<td class="px-md py-sm font-bold">Absa Bank Botswana</td>
+<td class="px-md py-sm">Account Monitoring</td>
+<td class="px-md py-sm text-error font-bold">MISSING</td>
+<td class="px-md py-sm">2024-05-20 08:55:31</td>
+<td class="px-md py-sm">
+<span class="px-xs py-0.5 rounded-full bg-red-100 text-red-800 text-[12px] font-bold border border-red-200">FLAGGED</span>
+</td>
+</tr>
+<tr>
+<td class="px-md py-sm font-bold">Botswana Savings Bank</td>
+<td class="px-md py-sm">Mortgage Assessment</td>
+<td class="px-md py-sm text-secondary">REF-11204-BW</td>
+<td class="px-md py-sm">2024-05-20 08:42:15</td>
+<td class="px-md py-sm">
+<span class="px-xs py-0.5 rounded-full bg-green-100 text-green-800 text-[12px] font-bold border border-green-200">MATCH</span>
+</td>
+</tr>
+<tr>
+<td class="px-md py-sm font-bold">Lethego Financial</td>
+<td class="px-md py-sm">Unsecured Loan</td>
+<td class="px-md py-sm text-secondary">REF-77123-BW</td>
+<td class="px-md py-sm">2024-05-20 08:30:00</td>
+<td class="px-md py-sm">
+<span class="px-xs py-0.5 rounded-full bg-green-100 text-green-800 text-[12px] font-bold border border-green-200">MATCH</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-sm bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
+<span class="text-body-sm text-on-surface-variant">Showing 1-5 of 14,200 audit events</span>
+<div class="flex gap-xs">
+<button class="p-xs hover:bg-surface-container-high rounded border border-outline-variant"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-xs hover:bg-surface-container-high rounded border border-outline-variant"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Specialized Consent Verification Panel -->
+<div class="flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden border-t-4 border-t-primary">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-h3 text-h3 text-primary">Consent Verification</h3>
+<span class="bg-error text-on-error px-xs py-base rounded text-[10px] font-bold">ACTION REQUIRED</span>
+</div>
+<div class="p-md space-y-md">
+<p class="text-body-sm text-on-surface-variant italic">The following cases exhibit invalid or absent consent references and require immediate institutional clarification.</p>
+<!-- Issue Item 1 -->
+<div class="p-sm bg-surface-container rounded-lg border border-outline-variant border-l-4 border-l-error">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-bold text-label-bold text-primary">Absa Bank Botswana</span>
+<span class="text-body-sm font-bold text-error">Ref: NULL</span>
+</div>
+<div class="text-body-sm mb-sm">Unattributed inquiry detected during 'Account Monitoring' routine.</div>
+<div class="flex gap-xs">
+<button class="flex-1 text-label-bold py-base bg-primary text-on-primary rounded text-[12px]">Request Evidence</button>
+<button class="flex-1 text-label-bold py-base border border-outline rounded text-[12px] hover:bg-surface-container-high">Flag Institution</button>
+</div>
+</div>
+<!-- Issue Item 2 -->
+<div class="p-sm bg-surface-container rounded-lg border border-outline-variant border-l-4 border-l-amber-500">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-bold text-label-bold text-primary">Stanbic Bank</span>
+<span class="text-body-sm font-bold text-amber-700">Ref: EXPIRED</span>
+</div>
+<div class="text-body-sm mb-sm">Consent reference REF-66521-BW has expired (14 days past validity).</div>
+<div class="flex gap-xs">
+<button class="flex-1 text-label-bold py-base bg-primary text-on-primary rounded text-[12px]">Notify Compliance</button>
+<button class="flex-1 text-label-bold py-base border border-outline rounded text-[12px] hover:bg-surface-container-high">Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Credit Score Gauge / Compliance Pulse -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-md flex flex-col items-center text-center">
+<h4 class="font-label-bold text-label-bold text-primary uppercase mb-md">System Integrity Score</h4>
+<div class="relative w-xl h-lg flex items-center justify-center">
+<!-- Simple SVG Gauge Visualization -->
+<svg class="w-xl h-xl -rotate-90">
+<circle cx="32" cy="32" fill="none" r="28" stroke="#F1F5F9" stroke-width="8"></circle>
+<circle cx="32" cy="32" fill="none" r="28" stroke="#059669" stroke-dasharray="176" stroke-dashoffset="18" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-h2 text-h2 text-primary">982</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Excellent</span>
+</div>
+</div>
+<p class="mt-md text-body-sm text-on-surface-variant">The current audit ecosystem maintains a "Superior" trust rating based on 2.4M validated transactions.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full py-md px-xl flex flex-col items-center gap-sm mt-auto bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline" href="#">Legal Disclaimer</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline" href="#">Authorized Bureau Links</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline" href="#">Contact Regulatory Body</a>
+</div>
+<div class="text-primary font-label-bold text-label-bold">MFCB BOTSWANA CREDIT BUREAU</div>
+<p class="font-body-sm text-body-sm text-on-surface text-center">© 2024 Botswana Credit Bureau (MFCB). Institutional rigor in financial data oversight.</p>
+</footer>
+</body></html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Submission Compliance Monitor | MFCB Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#737780",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#a7c8ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#161e31",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#28628f",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "surface-tint": "#3a5f94",
+                        "secondary-fixed": "#cee5ff",
+                        "primary-container": "#003366",
+                        "secondary-container": "#97ccfe",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "outline-variant": "#c3c6d1",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-tertiary-container": "#949bb4",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-fixed": "#d5e3ff",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#175683",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#dae2fd",
+                        "on-primary-container": "#799dd6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed": "#001d32",
+                        "tertiary-container": "#2b3347",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "primary": "#001e40",
+                        "on-surface-variant": "#43474f",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "xl": "64px",
+                        "base": "4px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "data-tabular": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .heatmap-cell { width: 100%; height: 32px; border-radius: 2px; }
+        .stripe-bg { background-image: linear-gradient(45deg, #f1f5f9 25%, transparent 25%, transparent 50%, #f1f5f9 50%, #f1f5f9 75%, transparent 75%, transparent); background-size: 20px 20px; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-low docked full-width top-0 z-50 border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center w-full px-md h-16 fixed">
+<div class="flex items-center gap-sm">
+<span class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed">MFCB Platform</span>
+<div class="hidden md:flex ml-lg gap-md">
+<a class="text-on-surface-variant dark:text-on-tertiary-container font-medium hover:text-secondary transition-colors" href="#">Monitoring</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container font-medium hover:text-secondary transition-colors" href="#">Institutions</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container font-medium hover:text-secondary transition-colors" href="#">Data Validation</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container border border-outline-variant rounded-full pl-10 pr-4 py-2 text-body-sm w-64 focus:outline-none focus:ring-2 focus:ring-secondary-container" placeholder="Search registry..." type="text"/>
+</div>
+<div class="flex items-center gap-xs">
+<button class="p-2 text-outline hover:bg-surface-container-high rounded-full transition-all"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-outline hover:bg-surface-container-high rounded-full transition-all"><span class="material-symbols-outlined">help</span></button>
+<button class="p-2 text-outline hover:bg-surface-container-high rounded-full transition-all"><span class="material-symbols-outlined">settings</span></button>
+</div>
+<div class="flex items-center gap-xs pl-sm border-l border-outline-variant">
+<img alt="User Avatar" class="w-8 h-8 rounded-full object-cover" data-alt="A professional headshot of a middle-aged woman in business attire, looking confident and approachable. The lighting is soft and even, typical of a corporate environment. The background is a clean, modern office with soft-focus glass partitions and a hint of warm wood textures, maintaining a high-fidelity light-mode aesthetic suitable for a financial institution portal." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div class="hidden sm:block">
+<p class="font-label-bold text-label-bold text-primary">K. Molefe</p>
+<p class="text-[10px] text-outline uppercase tracking-wider">Compliance Officer</p>
+</div>
+</div>
+</div>
+</header>
+<div class="flex pt-16">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-dim docked left-0 top-16 h-[calc(100vh-64px)] w-64 border-r border-outline-variant dark:border-outline fixed hidden md:flex flex-col py-md space-y-xs overflow-y-auto">
+<div class="px-md mb-md">
+<p class="font-label-bold text-label-bold text-primary opacity-60">ADMIN PORTAL</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-sm px-md py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg mx-2 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-md py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg mx-2 scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">rule</span>
+<span class="font-label-bold text-label-bold">Compliance Monitoring</span>
+</a>
+<a class="flex items-center gap-sm px-md py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg mx-2 transition-all" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-bold text-label-bold">Institution Registry</span>
+</a>
+<a class="flex items-center gap-sm px-md py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg mx-2 transition-all" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-bold text-label-bold">Submission Logs</span>
+</a>
+<a class="flex items-center gap-sm px-md py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg mx-2 transition-all" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-bold text-label-bold">Risk Reports</span>
+</a>
+<a class="flex items-center gap-sm px-md py-3 text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg mx-2 transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-bold text-label-bold">Audit Trail</span>
+</a>
+</nav>
+<div class="px-md mt-lg">
+<button class="w-full bg-primary-container text-white py-3 rounded-lg font-label-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Export Reports
+                </button>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-sm">
+<a class="flex items-center gap-sm px-md py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+<a class="flex items-center gap-sm px-md py-3 text-error hover:bg-error-container rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-bold text-label-bold">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 p-gutter max-w-container-max mx-auto">
+<!-- Page Header -->
+<div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="font-h1 text-h1 text-primary">Submission Compliance Monitor</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Monitor institutional reporting health and data submission consistency across the national financial network.</p>
+</div>
+<div class="flex items-center gap-sm">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center text-[10px] font-bold border-2 border-white">FNB</div>
+<div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-[10px] font-bold border-2 border-white">STB</div>
+<div class="w-8 h-8 rounded-full bg-outline text-white flex items-center justify-center text-[10px] font-bold border-2 border-white">ABS</div>
+</div>
+<span class="text-body-sm text-outline">+107 Active Institutions</span>
+</div>
+</div>
+<!-- Summary Metrics Bento Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md mb-lg">
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<p class="text-label-bold font-label-bold text-outline uppercase">Overall Compliance Rate</p>
+<h2 class="text-h2 font-h2 text-primary mt-xs">94.2%</h2>
+</div>
+<div class="mt-sm flex items-center gap-xs text-[12px] text-green-600 font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+1.4% from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<p class="text-label-bold font-label-bold text-outline uppercase">Currently Overdue</p>
+<h2 class="text-h2 font-h2 text-error mt-xs">5 Institutions</h2>
+</div>
+<div class="mt-sm flex items-center gap-xs text-[12px] text-error font-bold">
+<span class="material-symbols-outlined text-sm">priority_high</span>
+<span>Requires manual intervention</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<p class="text-label-bold font-label-bold text-outline uppercase">Avg. Delay</p>
+<h2 class="text-h2 font-h2 text-primary mt-xs">1.2 Days</h2>
+</div>
+<div class="mt-sm flex items-center gap-xs text-[12px] text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Threshold: 2.0 Days</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<p class="text-label-bold font-label-bold text-outline uppercase">Total Submissions (MTD)</p>
+<h2 class="text-h2 font-h2 text-primary mt-xs">1,284</h2>
+</div>
+<div class="mt-sm flex items-center gap-xs text-[12px] text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>98% auto-validated</span>
+</div>
+</div>
+</div>
+<!-- Heatmap Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-h3 text-h3 text-primary">Institutional Submission Status</h3>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm">
+<div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-green-500"></div><span class="text-[10px] text-outline">On Time</span></div>
+<div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-amber-500"></div><span class="text-[10px] text-outline">Late</span></div>
+<div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-red-500"></div><span class="text-[10px] text-outline">Missing</span></div>
+<div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-gray-300"></div><span class="text-[10px] text-outline">N/E</span></div>
+</div>
+</div>
+</div>
+<div class="p-md overflow-x-auto">
+<table class="w-full min-w-[800px] border-collapse">
+<thead>
+<tr>
+<th class="w-48 text-left py-sm text-label-bold font-label-bold text-outline">Institution</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Jan</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Feb</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Mar</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Apr</th>
+<th class="text-center text-label-bold font-label-bold text-outline">May</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Jun</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Jul</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Aug</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Sep</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Oct</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Nov</th>
+<th class="text-center text-label-bold font-label-bold text-outline">Dec</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- First National Bank -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">First National Bank</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-amber-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- Stanbic Bank -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">Stanbic Bank</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-red-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-amber-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- ABSA -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">ABSA</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-amber-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- Bank Gaborone -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">Bank Gaborone</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-amber-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- Letshego -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">Letshego Financial</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-amber-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-amber-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- Botswana Post -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">Botswana Post</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-gray-300"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-red-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- Standard Chartered -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">Standard Chartered</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- BBS Bank -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">BBS Bank</td>
+<td class="p-1"><div class="heatmap-cell bg-red-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- BancABC -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">BancABC</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-amber-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+<!-- Access Bank -->
+<tr>
+<td class="py-3 pr-4 font-label-bold text-primary">Access Bank</td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-red-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+<td class="p-1"><div class="heatmap-cell bg-green-500"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-sm bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<span class="text-[10px] text-outline italic">Hover over cells for specific volume and timestamp data.</span>
+<div class="flex gap-xs">
+<button class="px-3 py-1 border border-outline-variant rounded bg-white text-[11px] font-bold text-primary hover:bg-surface-container transition-colors">Download Matrix</button>
+<button class="px-3 py-1 border border-outline-variant rounded bg-white text-[11px] font-bold text-primary hover:bg-surface-container transition-colors">Historical View</button>
+</div>
+</div>
+</div>
+<!-- Priority Alerts Sidebar -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm flex flex-col">
+<div class="p-md border-b border-outline-variant">
+<h3 class="font-h3 text-h3 text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-error">priority_high</span>
+                            Urgent Compliance Alerts
+                        </h3>
+</div>
+<div class="flex-1 divide-y divide-outline-variant overflow-y-auto max-h-[600px]">
+<!-- Alert Item 1 -->
+<div class="p-md hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-bold text-primary">Stanbic Bank</h4>
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded-full font-bold">MISSING DATA</span>
+</div>
+<div class="space-y-1 mb-md">
+<p class="text-body-sm text-error font-semibold">14 Days Overdue</p>
+<p class="text-[12px] text-on-surface-variant">Last Contact: Oct 24, 2023</p>
+</div>
+<button class="w-full bg-primary py-2 text-white rounded-lg font-label-bold text-body-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">send</span>
+                                Send Reminder
+                            </button>
+</div>
+<!-- Alert Item 2 -->
+<div class="p-md hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-bold text-primary">Letshego Financial</h4>
+<span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">LATE SUBMISSION</span>
+</div>
+<div class="space-y-1 mb-md">
+<p class="text-body-sm text-amber-600 font-semibold">4 Days Overdue</p>
+<p class="text-[12px] text-on-surface-variant">Last Contact: Nov 02, 2023</p>
+</div>
+<button class="w-full bg-primary py-2 text-white rounded-lg font-label-bold text-body-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">send</span>
+                                Send Reminder
+                            </button>
+</div>
+<!-- Alert Item 3 -->
+<div class="p-md hover:bg-surface-container-low transition-colors opacity-80">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-bold text-primary">Botswana Post</h4>
+<span class="bg-outline-variant text-on-surface-variant text-[10px] px-2 py-0.5 rounded-full font-bold">PENDING REVIEW</span>
+</div>
+<div class="space-y-1 mb-md">
+<p class="text-body-sm text-outline font-semibold">Partial Submission</p>
+<p class="text-[12px] text-on-surface-variant">Last Contact: Oct 30, 2023</p>
+</div>
+<button class="w-full border border-outline py-2 text-primary rounded-lg font-label-bold text-body-sm hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                Review File
+                            </button>
+</div>
+<!-- Alert Item 4 -->
+<div class="p-md hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-bold text-primary">BBS Bank</h4>
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded-full font-bold">VALIDATION FAILED</span>
+</div>
+<div class="space-y-1 mb-md">
+<p class="text-body-sm text-error font-semibold">3 Errors Detected</p>
+<p class="text-[12px] text-on-surface-variant">Last Contact: Nov 01, 2023</p>
+</div>
+<button class="w-full bg-primary py-2 text-white rounded-lg font-label-bold text-body-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">send</span>
+                                Send Reminder
+                            </button>
+</div>
+</div>
+<div class="p-md border-t border-outline-variant bg-surface-container">
+<a class="text-secondary font-label-bold text-label-bold flex items-center justify-center gap-2 hover:underline" href="#">
+                            View All Active Alerts (12)
+                            <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Footer Stats -->
+<div class="mt-lg pt-lg border-t border-outline-variant grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="flex items-center gap-sm">
+<div class="p-3 bg-secondary-container rounded-full text-on-secondary-container">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="font-label-bold text-primary">102 Fully Compliant</p>
+<p class="text-[12px] text-outline">Meeting all reporting standards</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="p-3 bg-tertiary-fixed text-on-tertiary-fixed rounded-full">
+<span class="material-symbols-outlined">sync</span>
+</div>
+<div>
+<p class="font-label-bold text-primary">Real-time Ingestion</p>
+<p class="text-[12px] text-outline">Last update: 4 minutes ago</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="p-3 bg-surface-container-high text-on-surface-variant rounded-full">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div>
+<p class="font-label-bold text-primary">4.2M Records Processed</p>
+<p class="text-[12px] text-outline">Current fiscal year total</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Tooltip Simulation (Hidden by default) -->
+<div class="fixed hidden bg-primary text-white p-3 rounded-lg shadow-xl text-xs z-[100] max-w-[200px]" style="left: 40%; top: 50%;">
+<p class="font-bold border-b border-white/20 pb-1 mb-1">Stanbic Bank (Mar)</p>
+<p>Status: Missing</p>
+<p>Expected: 1,450 records</p>
+<p>Impact: High Risk</p>
+</div>
+</body></html>

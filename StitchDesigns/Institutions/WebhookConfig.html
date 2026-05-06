@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d8dadc",
+                        "surface-container": "#eceef0",
+                        "surface-tint": "#3a5f94",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#001d32",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "on-surface-variant": "#43474f",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#28628f",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-secondary-container": "#175683",
+                        "on-background": "#191c1e",
+                        "tertiary": "#161e31",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-container": "#949bb4",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "secondary-fixed": "#cee5ff",
+                        "primary-fixed": "#d5e3ff",
+                        "primary-container": "#003366",
+                        "inverse-primary": "#a7c8ff",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c3c6d1",
+                        "outline": "#737780",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-variant": "#e0e3e5",
+                        "primary": "#001e40",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "surface": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#2b3347",
+                        "background": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#799dd6",
+                        "secondary-container": "#97ccfe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "sm": "16px",
+                        "base": "4px",
+                        "xl": "64px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "h3": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar (Shared Component) -->
+<aside class="w-64 h-screen fixed left-0 top-0 flex flex-col bg-surface-container-low dark:bg-surface-container-highest border-r border-outline-variant dark:border-outline z-40">
+<div class="flex flex-col gap-base p-md">
+<div class="flex items-center gap-sm mb-md">
+<div class="w-10 h-10 rounded bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h1 class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed leading-tight">MFCB Admin</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Institutional Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-base mt-sm">
+<!-- Dashboard -->
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<!-- Credit Search -->
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="font-label-bold text-label-bold">Credit Search</span>
+</a>
+<!-- Batch Reports -->
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-bold text-label-bold">Batch Reports</span>
+</a>
+<!-- Webhooks (ACTIVE) -->
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-sm py-xs font-label-bold active:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="webhook">webhook</span>
+<span class="font-label-bold text-label-bold">Webhooks</span>
+</a>
+<!-- Api Access -->
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+<span class="font-label-bold text-label-bold">Api Access</span>
+</a>
+<!-- Audit Logs -->
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-bold text-label-bold">Audit Logs</span>
+</a>
+</nav>
+<button class="mt-lg bg-primary text-white py-xs px-sm rounded-lg font-label-bold flex items-center justify-center gap-xs hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Configuration
+            </button>
+</div>
+<div class="mt-auto flex flex-col gap-base p-md border-t border-outline-variant">
+<a class="flex items-center gap-sm text-on-surface-variant px-sm py-xs hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-label-bold text-label-bold">Support</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant px-sm py-xs hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-bold text-label-bold">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-high border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none sticky top-0 z-50 flex justify-between items-center w-full px-md py-xs">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed-dim">MFCB Platform</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative">
+<input class="bg-surface-container text-on-surface-variant font-body-sm text-body-sm px-sm py-xs rounded-full border-none focus:ring-2 focus:ring-secondary w-64" placeholder="Search data..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant" data-icon="search">search</span>
+</div>
+<div class="flex gap-xs ml-md">
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary" data-icon="help">help</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-xs ml-md pl-md border-l border-outline-variant">
+<img alt="Institutional Administrator" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional close-up portrait of a female institutional administrator in a modern office environment. She is wearing a sharp charcoal grey suit and exudes confidence and authority. The lighting is crisp and natural, with a blurred background showing a high-tech financial monitoring center with subtle blue glows and data screens. The overall mood is institutional, secure, and highly dependable, reflecting a corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-primary">Admin User</span>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Institutional</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-lg max-w-5xl mx-auto w-full">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs mb-sm text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Management</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="font-body-sm text-body-sm">API Configuration</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="font-label-bold text-label-bold text-primary">Webhooks</span>
+</nav>
+<header class="mb-lg">
+<h2 class="font-h2 text-h2 text-primary mb-xs">Webhook Configuration</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                    Configure real-time notifications to receive automated updates on credit batch processing statuses and validation alerts directly to your server.
+                </p>
+</header>
+<!-- Alert Box -->
+<div class="bg-secondary-fixed text-on-secondary-fixed p-sm rounded-lg flex gap-sm mb-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<p class="font-body-sm text-body-sm">
+                    Webhooks are triggered automatically when batch processing status changes. Ensure your endpoint is publicly accessible and capable of handling POST requests.
+                </p>
+</div>
+<!-- Configuration Form -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface-container-low">
+<h3 class="font-label-bold text-label-bold text-primary uppercase tracking-widest">Webhook Endpoint</h3>
+</div>
+<div class="p-md grid grid-cols-1 gap-lg">
+<!-- URL Section -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-primary">Webhook URL</label>
+<div class="relative">
+<input class="w-full bg-white border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-secondary focus:border-secondary transition-all font-body-md" placeholder="https://your-domain.com/webhooks" type="url"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="lock">lock</span> HTTPS required
+                        </span>
+</div>
+<!-- Secret Management -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-primary">Signing Secret</label>
+<div class="flex items-center gap-sm bg-surface-container-low border border-outline-variant rounded-lg p-sm">
+<input class="flex-1 bg-transparent border-none focus:ring-0 font-data-tabular text-on-surface-variant cursor-default" readonly="" type="password" value="••••••••••••••••••••••••••••••••"/>
+<button class="text-secondary font-label-bold text-label-bold hover:underline flex items-center gap-xs">
+                                Show
+                            </button>
+<div class="w-px h-4 bg-outline-variant mx-xs"></div>
+<button class="p-xs hover:bg-surface-container-high rounded transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Used for HMAC-SHA256 signature verification.</span>
+</div>
+<!-- Events Section -->
+<div class="flex flex-col gap-md">
+<label class="font-label-bold text-label-bold text-primary">Events Subscribed</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<label class="flex items-center gap-sm p-sm border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors">
+<input checked="" class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Batch Completed</span>
+</label>
+<label class="flex items-center gap-sm p-sm border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Validation Failed</span>
+</label>
+<label class="flex items-center gap-sm p-sm border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Batch Rejected</span>
+</label>
+</div>
+</div>
+<!-- Retry Policy (Read-Only) -->
+<div class="bg-surface-container-low p-sm rounded-lg border border-outline-variant">
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<label class="font-label-bold text-label-bold text-primary">Retry Policy</label>
+<p class="font-body-sm text-body-sm text-on-surface-variant">3 retries with exponential backoff</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="auto_renew">autorenew</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-md bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
+<button class="flex items-center gap-xs font-label-bold text-label-bold text-error hover:bg-error-container/50 px-sm py-xs rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+                        Disable Webhook
+                    </button>
+<div class="flex items-center gap-md">
+<button class="border-[1.5px] border-secondary text-secondary px-sm py-xs rounded-lg font-label-bold text-label-bold hover:bg-secondary-container transition-all active:scale-95">
+                            Test Webhook
+                        </button>
+<button class="bg-primary-container text-on-primary-container px-lg py-xs rounded-lg font-label-bold text-label-bold shadow hover:brightness-110 transition-all active:scale-95">
+                            Save Webhook
+                        </button>
+</div>
+</div>
+</div>
+<!-- Documentation Link -->
+<div class="mt-lg flex items-center justify-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-body-sm text-body-sm">Need help? Read the <a class="text-secondary font-label-bold hover:underline" href="#">Webhook Documentation</a> for payload structures and security best practices.</span>
+</div>
+</div>
+</main>
+</body></html>

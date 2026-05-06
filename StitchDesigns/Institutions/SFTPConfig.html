@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#2b3347",
+                        "on-surface-variant": "#43474f",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#97ccfe",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#949bb4",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed": "#001d32",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-tint": "#3a5f94",
+                        "outline-variant": "#c3c6d1",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "tertiary-fixed": "#dae2fd",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "primary-fixed": "#d5e3ff",
+                        "primary-container": "#003366",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a7c8ff",
+                        "surface-container": "#eceef0",
+                        "tertiary": "#161e31",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "outline": "#737780",
+                        "secondary": "#28628f",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-container": "#175683",
+                        "error": "#ba1a1a",
+                        "primary": "#001e40",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#cee5ff",
+                        "surface": "#f7f9fb",
+                        "on-primary-container": "#799dd6",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-background": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "xl": "64px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "data-tabular": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 max-w-container-max mx-auto bg-primary dark:bg-primary-fixed border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-on-primary dark:text-on-primary-fixed">MFCB Bureau Manager</span>
+<div class="hidden md:flex items-center gap-sm ml-lg">
+<a class="text-on-primary-container opacity-80 font-body-md text-body-md hover:bg-primary-container transition-colors duration-200 px-3 py-1 rounded" href="#">Dashboard</a>
+<a class="text-on-primary-container opacity-80 font-body-md text-body-md hover:bg-primary-container transition-colors duration-200 px-3 py-1 rounded" href="#">Institutions</a>
+<a class="text-on-primary-container opacity-80 font-body-md text-body-md hover:bg-primary-container transition-colors duration-200 px-3 py-1 rounded" href="#">Reports</a>
+<a class="text-on-primary-container opacity-80 font-body-md text-body-md hover:bg-primary-container transition-colors duration-200 px-3 py-1 rounded" href="#">Compliance</a>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-primary hover:bg-primary-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-primary hover:bg-primary-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant ml-2">
+<img alt="Administrator Profile" class="h-full w-full object-cover" data-alt="A professional headshot of a financial administrator in a corporate setting. The lighting is crisp and bright, reflecting a modern office environment. The style is clean and authoritative, with a neutral background that emphasizes a focus on security and meticulous attention to detail. The color palette is composed of professional grays and deep blues, maintaining the institutional trust aesthetic." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="mt-16 flex-grow flex flex-col items-center py-xl px-gutter">
+<div class="w-full max-w-4xl">
+<!-- Breadcrumbs / Back Action -->
+<div class="flex items-center gap-xs mb-md text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+<span class="font-body-sm text-body-sm cursor-pointer hover:text-primary transition-colors">Back to Institution Profile</span>
+</div>
+<!-- Page Header -->
+<header class="mb-lg">
+<h1 class="font-h1 text-h1 text-primary mb-xs">SFTP Configuration</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                    Configure the Secure File Transfer Protocol settings for automated data submission. This connection is used for encrypted exchange of financial records.
+                </p>
+</header>
+<!-- Configuration Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-lg">
+<div class="flex flex-col gap-lg">
+<!-- Section: Connection Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface">SFTP Directory Path</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded px-md py-sm font-data-tabular text-on-surface-variant cursor-not-allowed outline-none" readonly="" type="text" value="/inbox/FNB001/"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="lock">lock</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Standardized incoming directory for institutional data ingest.</p>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface">Pickup Schedule</label>
+<div class="flex items-center gap-sm">
+<div class="flex-grow relative">
+<input class="w-full border border-outline px-md py-sm rounded focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 transition-all outline-none" type="time" value="01:00"/>
+</div>
+<div class="bg-surface-container-high px-sm py-sm rounded border border-outline-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-body-sm text-body-sm font-medium">Daily</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Batch processing start time (CAT timezone).</p>
+</div>
+</div>
+<!-- Section: Security -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface">Authorized Public Keys (OpenSSH/PEM)</label>
+<textarea class="w-full font-data-tabular text-body-sm border border-outline px-md py-sm rounded focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 transition-all outline-none resize-none" placeholder="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..." rows="6"></textarea>
+<div class="flex items-center gap-xs text-secondary mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="info">info</span>
+<span class="font-body-sm text-body-sm">Multiple keys can be added, one per line. Only RSA and ED25519 are supported.</span>
+</div>
+</div>
+<!-- Section: File Naming -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface">File Naming Pattern</label>
+<div class="bg-primary-container/5 border border-primary-container/20 rounded p-md">
+<code class="font-data-tabular text-primary font-semibold break-all">{SRN}_ALL_{L/T}702_M_{CCYYMMDD}_{seq1}_{seq2}.txt</code>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Files must adhere to this pattern for the automated validator to identify the transmission source and type.
+                        </p>
+</div>
+<!-- Action Bar -->
+<div class="pt-md border-t border-outline-variant flex flex-col sm:flex-row justify-between items-center gap-md">
+<button class="w-full sm:w-auto px-lg py-sm border-[1.5px] border-secondary text-secondary rounded font-label-bold flex items-center justify-center gap-sm hover:bg-secondary-fixed transition-colors active:opacity-90">
+<span class="material-symbols-outlined" data-icon="connectivity_nodes">network_node</span>
+                            Test Connection
+                        </button>
+<div class="flex w-full sm:w-auto gap-sm">
+<button class="flex-1 sm:flex-none px-lg py-sm text-outline hover:text-primary transition-colors font-label-bold">
+                                Cancel
+                            </button>
+<button class="flex-1 sm:flex-none px-xl py-sm bg-primary-container text-on-primary rounded font-label-bold hover:opacity-90 transition-opacity shadow-sm">
+                                Save Configuration
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Help Card -->
+<section class="mt-lg grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="p-md bg-surface-container-low rounded border border-outline-variant">
+<span class="material-symbols-outlined text-secondary mb-xs" data-icon="security">security</span>
+<h4 class="font-label-bold text-on-surface mb-xs">Encryption Standard</h4>
+<p class="font-body-sm text-body-sm text-outline">All transfers are secured using AES-256-CTR and must be initiated over SSH Port 22.</p>
+</div>
+<div class="p-md bg-surface-container-low rounded border border-outline-variant">
+<span class="material-symbols-outlined text-secondary mb-xs" data-icon="history_edu">history_edu</span>
+<h4 class="font-label-bold text-on-surface mb-xs">Audit Logs</h4>
+<p class="font-body-sm text-body-sm text-outline">Detailed connection logs are retained for 90 days for compliance monitoring.</p>
+</div>
+<div class="p-md bg-surface-container-low rounded border border-outline-variant">
+<span class="material-symbols-outlined text-secondary mb-xs" data-icon="vpn_lock">vpn_lock</span>
+<h4 class="font-label-bold text-on-surface mb-xs">IP Whitelisting</h4>
+<p class="font-body-sm text-body-sm text-outline">Ensure your source static IP is whitelisted in the Security Gateway settings.</p>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-md px-gutter flex flex-col md:flex-row justify-between items-center gap-sm border-t border-outline-variant bg-surface-container-lowest mt-auto">
+<div class="flex flex-col md:flex-row items-center gap-md">
+<span class="font-label-bold text-label-bold text-secondary dark:text-secondary-fixed">MFCB Bureau Manager</span>
+<span class="font-body-sm text-body-sm text-outline">© 2024 Botswana Credit Bureau (MFCB). All rights reserved.</span>
+</div>
+<div class="flex items-center gap-md">
+<a class="font-body-sm text-body-sm text-outline hover:text-secondary transition-colors" href="#">Legal</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-secondary transition-colors" href="#">Support Center</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-secondary transition-colors" href="#">API Documentation</a>
+</div>
+</footer>
+</body></html>

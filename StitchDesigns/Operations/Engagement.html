@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Institution Engagement - MFCB Ops Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#a7c8ff",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "on-surface-variant": "#43474f",
+                        "tertiary-container": "#2b3347",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#949bb4",
+                        "outline-variant": "#c3c6d1",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#799dd6",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-primary-fixed": "#001b3c",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "surface": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "surface-container": "#eceef0",
+                        "outline": "#737780",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary": "#28628f",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "surface-tint": "#3a5f94",
+                        "on-secondary-fixed": "#001d32",
+                        "tertiary": "#161e31",
+                        "on-secondary-container": "#175683",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "primary-container": "#003366",
+                        "secondary-fixed": "#cee5ff",
+                        "background": "#f7f9fb",
+                        "primary": "#001e40",
+                        "secondary-container": "#97ccfe",
+                        "on-tertiary-fixed": "#131b2e",
+                        "primary-fixed": "#d5e3ff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "sm": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "h1": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .zebra-table tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-md h-16 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-sm">
+<span class="font-h3 text-h3 font-bold text-primary">MFCB Ops Portal</span>
+<div class="hidden md:flex ml-lg gap-md">
+<nav class="flex items-center gap-sm">
+<span class="text-on-surface-variant hover:text-primary cursor-pointer font-label-bold text-label-bold">Global Dashboard</span>
+<span class="text-secondary font-bold border-b-2 border-secondary cursor-pointer font-label-bold text-label-bold">Bank Relations</span>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-low transition-colors p-2 rounded-full">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-low transition-colors p-2 rounded-full">help</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-low transition-colors p-2 rounded-full">settings</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden border border-outline ml-xs">
+<img alt="Operations Officer Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female financial operations officer in a modern, sunlit corporate office. She is wearing a dark blue blazer over a crisp white shirt, exuding confidence and institutional authority. The background features soft-focus architectural elements of a Botswana financial district, with warm, high-key lighting and a palette of navy and slate." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-sm bg-surface-container-low border-r border-outline-variant transition-all duration-200 ease-in-out">
+<div class="flex items-center gap-sm px-xs mb-lg">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<p class="font-h3 text-h3 text-primary text-[18px]">Operations</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-wider">Institutional Access</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<div class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high cursor-pointer transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</div>
+<div class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high cursor-pointer transition-colors">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-bold text-label-bold">Data Quality</span>
+</div>
+<div class="flex items-center gap-sm p-sm bg-secondary-container text-on-secondary-container rounded-lg cursor-pointer transition-colors">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-bold text-label-bold">Bank Relations</span>
+</div>
+<div class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high cursor-pointer transition-colors">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-bold text-label-bold">Compliance</span>
+</div>
+<div class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high cursor-pointer transition-colors">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-bold text-label-bold">Audit Logs</span>
+</div>
+</nav>
+<button class="mt-md mb-lg bg-primary-container text-white py-sm rounded-lg font-label-bold text-label-bold flex items-center justify-center gap-xs hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+            New Report
+        </button>
+<div class="border-t border-outline-variant pt-sm flex flex-col gap-xs">
+<div class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high cursor-pointer transition-colors">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-bold text-label-bold">Support</span>
+</div>
+<div class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high cursor-pointer transition-colors text-error">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-bold text-label-bold">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-lg max-w-[1440px]">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-xl">
+<div>
+<nav class="flex items-center gap-xs text-on-surface-variant mb-xs">
+<span class="text-sm">Institutions</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-sm font-bold text-primary">FNB Botswana</span>
+</nav>
+<h1 class="font-h1 text-h1 text-primary">First National Bank - Engagement Profile</h1>
+</div>
+<div class="flex items-center gap-sm">
+<span class="bg-error-container text-on-error-container px-sm py-xs rounded-full font-label-bold text-[12px] flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                    Action Required
+                </span>
+<button class="border-[1.5px] border-secondary text-secondary px-md py-xs rounded-lg font-label-bold text-label-bold hover:bg-secondary-container/10 transition-colors">
+                    Export Profile
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column (60%) -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-gutter">
+<!-- Data Quality Trend Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-h3 text-h3 text-primary">Data Quality Trend</h2>
+<span class="text-on-surface-variant text-sm">Last 12 Months</span>
+</div>
+<!-- Chart Placeholder -->
+<div class="h-64 w-full relative flex items-end justify-between gap-xs pb-sm border-b border-outline-variant">
+<!-- Simulated Chart Bars/Area -->
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[80%] relative group">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">15%</span>
+</div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[75%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[60%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[55%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[40%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[35%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[25%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[20%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[15%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[10%]"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t h-[5%]"></div>
+<div class="flex-1 bg-secondary rounded-t h-[2%] relative group">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">2%</span>
+</div>
+</div>
+<div class="flex justify-between mt-sm text-[10px] font-label-bold text-on-surface-variant uppercase tracking-tighter">
+<span>Nov '23</span>
+<span>May '24</span>
+<span>Oct '24</span>
+</div>
+</div>
+<!-- Communication Log Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<h2 class="font-h3 text-h3 text-primary mb-lg">Communication Log</h2>
+<div class="flex flex-col gap-sm">
+<div class="flex gap-md border-b border-outline-variant pb-sm">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</div>
+<div class="w-[2px] h-full bg-outline-variant mt-sm"></div>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface-variant">Oct 25, 2024 • 14:30</p>
+<p class="text-body-md font-medium text-primary">Follow-up on Batch #B-8821 - Kabelo S. (FNB)</p>
+<p class="text-body-sm text-on-surface-variant">Technical issue with Omang format resolved. Re-submission scheduled for tomorrow morning.</p>
+</div>
+</div>
+<div class="flex gap-md border-b border-outline-variant pb-sm">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div class="w-[2px] h-full bg-outline-variant mt-sm"></div>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface-variant">Oct 20, 2024 • 09:15</p>
+<p class="text-body-md font-medium text-primary">Compliance Review Status</p>
+<p class="text-body-sm text-on-surface-variant">Requested updated authorization documents for the Q4 reporting period.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-[18px]">report_problem</span>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface-variant">Oct 18, 2024 • 16:45</p>
+<p class="text-body-md font-medium text-primary">System Alert: Batch Rejection</p>
+<p class="text-body-sm text-on-surface-variant">Batch #B-8821 failed due to multiple FIELD_MISSING errors (mandatory fields: income_bracket).</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Engagement Note Form -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<h2 class="font-h3 text-h3 text-primary mb-lg">Add Engagement Note</h2>
+<form class="grid grid-cols-2 gap-md">
+<div class="col-span-2 md:col-span-1">
+<label class="block font-label-bold text-label-bold mb-xs text-on-surface-variant">Note Type</label>
+<select class="w-full border border-outline-variant rounded-lg p-sm bg-white focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all">
+<option>Meeting</option>
+<option>Email</option>
+<option>Call</option>
+<option>System Alert</option>
+</select>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block font-label-bold text-label-bold mb-xs text-on-surface-variant">Subject</label>
+<input class="w-full border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all" placeholder="Engagement focus..." type="text"/>
+</div>
+<div class="col-span-2">
+<label class="block font-label-bold text-label-bold mb-xs text-on-surface-variant">Content</label>
+<textarea class="w-full border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all" placeholder="Detailed summary of the interaction..." rows="4"></textarea>
+</div>
+<div class="col-span-2 flex justify-end">
+<button class="bg-primary-container text-white px-xl py-sm rounded-lg font-label-bold text-label-bold hover:bg-primary transition-colors" type="submit">
+                                Save Note
+                            </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Right Column (40%) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-gutter">
+<!-- Persistent Quality Issues Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-error">warning</span>
+<h2 class="font-h3 text-h3 text-primary">Persistent Quality Issues</h2>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center p-sm bg-error-container/10 border border-error/10 rounded-lg">
+<div>
+<p class="font-label-bold text-primary">INVALID_OMANG_FORMAT</p>
+<p class="text-xs text-on-surface-variant">Inconsistent character length</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold text-error">4,281</p>
+<p class="text-[10px] text-error font-bold uppercase">Critical</p>
+</div>
+</div>
+<div class="flex justify-between items-center p-sm bg-surface-container border border-outline-variant rounded-lg">
+<div>
+<p class="font-label-bold text-primary">FIELD_MISSING</p>
+<p class="text-xs text-on-surface-variant">Mandatory 'Occupation' field</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold text-on-surface">2,109</p>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Moderate</p>
+</div>
+</div>
+<div class="flex justify-between items-center p-sm bg-surface-container border border-outline-variant rounded-lg">
+<div>
+<p class="font-label-bold text-primary">DUPLICATE_ID</p>
+<p class="text-xs text-on-surface-variant">Multiple entries for same citizen</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold text-on-surface">842</p>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Low</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-md text-secondary font-label-bold text-label-bold flex items-center justify-center gap-xs hover:underline">
+                        View Detailed Error Log
+                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Contact Directory Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<h2 class="font-h3 text-h3 text-primary mb-lg">Contact Directory</h2>
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-dim flex items-center justify-center text-primary font-bold">SM</div>
+<div class="flex-1">
+<p class="font-label-bold text-primary">Segomotso Modise</p>
+<p class="text-xs text-on-surface-variant">Head of Compliance</p>
+</div>
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-secondary-container/20 p-2 rounded-full transition-colors">mail</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-secondary-container/20 p-2 rounded-full transition-colors">phone</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-dim flex items-center justify-center text-primary font-bold">TK</div>
+<div class="flex-1">
+<p class="font-label-bold text-primary">Thabo Kgosi</p>
+<p class="text-xs text-on-surface-variant">IT Systems Lead</p>
+</div>
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-secondary-container/20 p-2 rounded-full transition-colors">mail</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-secondary-container/20 p-2 rounded-full transition-colors">phone</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-dim flex items-center justify-center text-primary font-bold">LM</div>
+<div class="flex-1">
+<p class="font-label-bold text-primary">Lesedi Molosi</p>
+<p class="text-xs text-on-surface-variant">Data Analyst</p>
+</div>
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-secondary-container/20 p-2 rounded-full transition-colors">mail</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-secondary-container/20 p-2 rounded-full transition-colors">phone</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-lg border border-outline-variant py-sm rounded-lg font-label-bold text-label-bold hover:bg-surface-container-low transition-colors">
+                        Add New Contact
+                    </button>
+</div>
+<!-- Specialized Credit Score Gauge (Brief Visualization) -->
+<div class="bg-primary-container text-on-primary rounded-xl p-md shadow-lg overflow-hidden relative">
+<div class="relative z-10">
+<h2 class="font-label-bold text-label-bold uppercase opacity-80 mb-sm">Institution Trust Score</h2>
+<div class="flex items-baseline gap-xs">
+<span class="text-4xl font-bold">842</span>
+<span class="text-sm opacity-60">/ 1000</span>
+</div>
+<div class="mt-md h-2 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed w-[84%] rounded-full"></div>
+</div>
+<p class="mt-sm text-sm font-medium text-secondary-fixed">Top Tier Provider</p>
+</div>
+<!-- Abstract Background Shape -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

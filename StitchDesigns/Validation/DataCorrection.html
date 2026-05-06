@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>Manual Data Correction | MFCB Platform</title>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        [data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e0e3e5",
+                      "outline-variant": "#c3c6d1",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#a7c8ff",
+                      "outline": "#737780",
+                      "tertiary": "#161e31",
+                      "on-primary-container": "#799dd6",
+                      "on-error": "#ffffff",
+                      "surface-container": "#eceef0",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#cee5ff",
+                      "primary-fixed": "#d5e3ff",
+                      "surface-container-high": "#e6e8ea",
+                      "primary": "#001e40",
+                      "inverse-surface": "#2d3133",
+                      "on-surface": "#191c1e",
+                      "tertiary-fixed-dim": "#bec6e0",
+                      "primary-fixed-dim": "#a7c8ff",
+                      "on-background": "#191c1e",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-container": "#175683",
+                      "tertiary-fixed": "#dae2fd",
+                      "on-secondary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-surface-variant": "#43474f",
+                      "tertiary-container": "#2b3347",
+                      "surface-tint": "#3a5f94",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#28628f",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#004a75",
+                      "on-tertiary-fixed-variant": "#3f465c",
+                      "on-secondary-fixed": "#001d32",
+                      "secondary-container": "#97ccfe",
+                      "on-primary": "#ffffff",
+                      "background": "#f7f9fb",
+                      "surface-container-highest": "#e0e3e5",
+                      "primary-container": "#003366",
+                      "secondary-fixed-dim": "#97ccfe",
+                      "on-tertiary-fixed": "#131b2e",
+                      "on-primary-fixed": "#001b3c",
+                      "on-tertiary-container": "#949bb4",
+                      "surface-bright": "#f7f9fb",
+                      "surface": "#f7f9fb",
+                      "on-primary-fixed-variant": "#1f477b",
+                      "surface-container-low": "#f2f4f6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "64px",
+                      "md": "24px",
+                      "sm": "16px",
+                      "lg": "48px",
+                      "container-max": "1280px",
+                      "xs": "8px",
+                      "gutter": "24px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "h3": ["Public Sans"],
+                      "body-sm": ["Public Sans"],
+                      "data-tabular": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "label-bold": ["Public Sans"],
+                      "h1": ["Public Sans"],
+                      "h2": ["Public Sans"],
+                      "body-md": ["Public Sans"]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
+<!-- Shared TopAppBar (Read-only as per instructions) -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e6edf4] px-10 py-3">
+<div class="flex items-center gap-4 text-[#0c141d]">
+<div class="size-4">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#0c141d] text-lg font-bold leading-tight tracking-[-0.015em]">MFCB Platform</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#4573a1] flex border-none bg-[#e6edf4] items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0c141d] focus:outline-0 focus:ring-0 border-none bg-[#e6edf4] focus:border-none h-full placeholder:text-[#4573a1] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e6edf4] text-[#0c141d] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e6edf4] text-[#0c141d] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="A professional headshot of a financial services supervisor, dressed in formal attire. The lighting is soft and corporate, creating an image of reliability and authority. The background is a blurred office environment with cool blue tones." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBoYe4sb738C2WTeeKJMPr-ji75Pp_so-b78NJOAHEdimS7oaWBhS0QN3cX4QN9N8qSI89PjW4zYumqGASwwHA8tXrvlxsw7TGbr3plGm17V_sVP1VpbNjkzuUfni6UDzQbD0hK5M5qX_8_izQb3aaWRVaaxMNP3R8ZWpFIHnSHsVWQp5Ld3txUdVyBAVknTGkzeN4SQ74R7qCtkmyJAgahDfsm7rEHzxYPPi6MBqiVxfCG3nPDPPjGJJPWEdI3dk6EtrTuV21KdQ8g");'></div>
+</div>
+</header>
+<!-- Breadcrumbs & Header -->
+<div class="flex flex-wrap gap-2 p-md">
+<a class="text-secondary text-body-sm font-medium hover:underline" href="#">Batch Monitor</a>
+<span class="text-outline-variant text-body-sm">/</span>
+<a class="text-secondary text-body-sm font-medium hover:underline" href="#">Batch #B-8821</a>
+<span class="text-outline-variant text-body-sm">/</span>
+<span class="text-on-surface text-body-sm font-medium">Manual Correction</span>
+</div>
+<div class="px-md pb-xs">
+<h1 class="text-primary text-h2 font-bold mb-xs">Request Data Correction</h1>
+</div>
+<!-- Reference Section -->
+<div class="mx-md mb-md p-sm bg-surface-container-low rounded-lg border border-outline-variant flex items-center gap-xl">
+<div class="flex flex-col">
+<span class="text-label-bold text-on-surface-variant uppercase text-[10px]">Original Batch ID</span>
+<span class="text-body-md font-bold text-primary">#B-8821</span>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="text-label-bold text-on-surface-variant uppercase text-[10px]">Row Number</span>
+<span class="text-body-md font-bold text-primary">104</span>
+</div>
+<div class="ml-auto">
+<span class="bg-error-container text-on-error-container px-xs py-1 rounded-full text-body-sm font-bold">Correction Required</span>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-12 gap-gutter px-md pb-xl">
+<!-- Left Column: Original Record (Read-only Card) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-sm">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-outline" data-icon="history">history</span>
+<h3 class="text-label-bold text-on-surface-variant uppercase">Original Record (Context)</h3>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="p-md space-y-4">
+<div class="grid grid-cols-2 gap-base border-b border-surface-container py-2">
+<span class="text-label-bold text-on-surface-variant">Full Name</span>
+<span class="text-body-md">Mpho Seretse</span>
+</div>
+<div class="grid grid-cols-2 gap-base border-b border-surface-container py-2">
+<span class="text-label-bold text-on-surface-variant">Omang Number</span>
+<span class="text-body-md text-error font-bold bg-error-container px-1 rounded">1234/1</span>
+</div>
+<div class="grid grid-cols-2 gap-base border-b border-surface-container py-2">
+<span class="text-label-bold text-on-surface-variant">Account Type</span>
+<span class="text-body-md">Personal Loan</span>
+</div>
+<div class="grid grid-cols-2 gap-base border-b border-surface-container py-2">
+<span class="text-label-bold text-on-surface-variant">Reporting Date</span>
+<span class="text-body-md">2023-10-15</span>
+</div>
+<div class="grid grid-cols-2 gap-base border-b border-surface-container py-2">
+<span class="text-label-bold text-on-surface-variant">Source Entity</span>
+<span class="text-body-md">Standard Chartered BW</span>
+</div>
+</div>
+<div class="bg-surface-container-high p-sm flex items-center gap-xs">
+<img class="size-20 rounded-lg object-cover" data-alt="A macro photograph of an official identification card chip, emphasizing the crystalline structure of the secure semiconductor. The lighting is cold and clinical, with blue and silver highlights that suggest high-security technology and data integrity." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div class="flex flex-col">
+<span class="text-body-sm font-bold text-primary">Attached Document Scan</span>
+<span class="text-body-sm text-outline">ID_Card_Front_104.pdf</span>
+</div>
+<button class="ml-auto text-secondary">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Correction Request Form -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-sm">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="edit_note">edit_note</span>
+<h3 class="text-label-bold text-primary uppercase">Correction Adjustment Form</h3>
+</div>
+<div class="bg-surface-container-lowest border-2 border-primary-container rounded-xl shadow-md p-md space-y-md">
+<!-- Field Selection -->
+<div class="flex flex-col gap-base">
+<label class="text-label-bold text-primary">Field to Correct</label>
+<select class="w-full h-12 rounded-lg border border-outline-variant bg-surface-container-low px-sm focus:ring-2 focus:ring-primary-container transition-all">
+<option selected="">Omang Number</option>
+<option>Full Name</option>
+<option>Date of Birth</option>
+<option>Contact Number</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<!-- Current Value -->
+<div class="flex flex-col gap-base">
+<label class="text-label-bold text-on-surface-variant">Current Value (In Error)</label>
+<div class="w-full h-12 flex items-center px-sm bg-surface-container border border-outline-variant rounded-lg text-outline font-data-tabular">
+                                            1234/1
+                                        </div>
+</div>
+<!-- New Value -->
+<div class="flex flex-col gap-base">
+<label class="text-label-bold text-primary">New Corrected Value *</label>
+<input class="w-full h-12 rounded-lg border-2 border-secondary px-sm focus:ring-2 focus:ring-primary transition-all font-data-tabular" placeholder="Enter corrected value" type="text" value="123456789"/>
+</div>
+</div>
+<!-- Reason -->
+<div class="flex flex-col gap-base">
+<label class="text-label-bold text-primary">Correction Reason *</label>
+<textarea class="w-full rounded-lg border border-outline-variant px-sm py-sm focus:ring-2 focus:ring-primary-container transition-all" placeholder="Explain why this correction is necessary (e.g., Input error at source bank, Omang format mismatch)..." rows="4"></textarea>
+</div>
+<!-- Reference -->
+<div class="flex flex-col gap-base">
+<label class="text-label-bold text-primary">Supporting Reference (Dispute ID / Regulatory Directive)</label>
+<div class="relative">
+<input class="w-full h-12 rounded-lg border border-outline-variant pl-10 pr-sm focus:ring-2 focus:ring-primary-container transition-all" placeholder="e.g. DISP-2024-8991" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">gavel</span>
+</div>
+</div>
+</div>
+<!-- Governance Note -->
+<div class="bg-surface-container-high rounded-lg p-sm border-l-4 border-primary flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary-container" data-weight="fill">verified_user</span>
+<div>
+<p class="text-body-sm font-bold text-primary">Governance &amp; Compliance Note</p>
+<p class="text-body-sm text-on-surface-variant">
+                                        This request follows the maker-checker protocol. All changes require supervisor approval and are SEC-008 compliant (audit-trail enabled, no direct overwriting of historical records).
+                                    </p>
+<a class="text-body-sm text-secondary font-bold inline-flex items-center gap-1 mt-1 hover:underline" href="#">
+                                        View Compliance Policy <span class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+</a>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-md pt-sm">
+<button class="h-12 px-lg text-secondary font-bold hover:bg-surface-container rounded-lg transition-colors">
+                                    Cancel
+                                </button>
+<button class="h-12 px-xl bg-primary-container text-on-primary font-bold rounded-lg shadow-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-2">
+                                    Submit for Approval
+                                    <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

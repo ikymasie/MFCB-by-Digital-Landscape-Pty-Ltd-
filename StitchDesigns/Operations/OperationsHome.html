@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#949bb4",
+                        "outline-variant": "#c3c6d1",
+                        "outline": "#737780",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-primary": "#a7c8ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#2b3347",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#175683",
+                        "secondary-container": "#97ccfe",
+                        "surface-variant": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#dae2fd",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary": "#ffffff",
+                        "secondary": "#28628f",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "on-error": "#ffffff",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#cee5ff",
+                        "error": "#ba1a1a",
+                        "surface": "#f7f9fb",
+                        "primary-fixed": "#d5e3ff",
+                        "on-secondary-fixed": "#001d32",
+                        "surface-tint": "#3a5f94",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-container": "#003366",
+                        "primary": "#001e40",
+                        "background": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface-variant": "#43474f",
+                        "on-primary-container": "#799dd6",
+                        "tertiary": "#161e31"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "sm": "16px",
+                        "lg": "48px",
+                        "base": "4px",
+                        "xl": "64px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "data-tabular": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "body-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+        .score-gauge {
+            background: conic-gradient(#059669 0% 75%, #DC2626 75% 100%);
+            mask: radial-gradient(circle at 50% 50%, transparent 60%, black 61%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="w-64 h-screen fixed left-0 top-0 bg-primary dark:bg-tertiary shadow-lg flex flex-col py-md z-50">
+<div class="px-6 mb-8">
+<h1 class="font-h3 text-h3 font-bold text-on-primary">MFCB Ops</h1>
+<p class="font-body-sm text-body-sm text-on-primary-container opacity-80">Central Credit Repository</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active State: Overview -->
+<a class="bg-secondary text-on-secondary rounded-lg font-bold flex items-center px-4 py-3 mx-2 scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-label-bold text-label-bold">Overview</span>
+</a>
+<a class="text-outline-variant hover:bg-on-primary-fixed-variant hover:text-on-primary rounded-lg flex items-center px-4 py-3 mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">layers</span>
+<span class="font-label-bold text-label-bold">Batches</span>
+</a>
+<a class="text-outline-variant hover:bg-on-primary-fixed-variant hover:text-on-primary rounded-lg flex items-center px-4 py-3 mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">account_balance</span>
+<span class="font-label-bold text-label-bold">Institutions</span>
+</a>
+<a class="text-outline-variant hover:bg-on-primary-fixed-variant hover:text-on-primary rounded-lg flex items-center px-4 py-3 mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">history_edu</span>
+<span class="font-label-bold text-label-bold">Audit Logs</span>
+</a>
+<a class="text-outline-variant hover:bg-on-primary-fixed-variant hover:text-on-primary rounded-lg flex items-center px-4 py-3 mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<div class="bg-on-primary-fixed-variant rounded-lg p-4 mb-4">
+<div class="flex items-center space-x-2 text-on-primary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+</span>
+<span class="font-label-bold text-label-bold">System Status: Active</span>
+</div>
+</div>
+<div class="flex items-center space-x-3 px-2">
+<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-outline-variant" data-alt="A professional close-up of a diverse corporate executive in a modern, high-tech glass-walled office environment. The lighting is crisp and cool, reflecting the light-mode UI aesthetic of the Botswana Credit Bureau. The executive has a confident and dependable expression, symbolizing institutional rigor. The background features blurred financial data visualizations on large monitors, emphasizing the data-driven atmosphere." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div>
+<p class="font-label-bold text-label-bold text-on-primary">Ops Admin</p>
+<p class="font-body-sm text-body-sm text-on-primary-container">K. Molefe</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="h-16 w-full sticky top-0 z-40 border-b border-outline-variant bg-surface-bright dark:bg-surface-dim flex items-center justify-between px-md ml-64">
+<div class="flex items-center flex-1">
+<h2 class="font-h2 text-h2 font-bold text-primary dark:text-inverse-primary mr-8">Operations Dashboard</h2>
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg pl-10 pr-4 py-2 text-body-sm font-body-sm focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Search batches, institutions, or IDs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-full">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="font-label-bold text-label-bold px-4 py-2 bg-primary-container text-white rounded-lg hover:opacity-90 transition-all">Support</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 p-lg">
+<div class="max-w-container-max mx-auto">
+<!-- KPI Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-sm mb-lg">
+<div class="bg-surface-container-lowest p-sm border border-outline-variant rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="font-label-bold text-label-bold text-outline uppercase tracking-wider mb-2">Batches Today</p>
+<p class="font-h2 text-h2 text-primary">1,284</p>
+</div>
+<div class="bg-surface-container-lowest p-sm border border-outline-variant rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="font-label-bold text-label-bold text-outline uppercase tracking-wider mb-2">Processing</p>
+<div class="flex items-center space-x-2">
+<span class="font-h2 text-h2 text-secondary">12</span>
+<span class="material-symbols-outlined text-secondary-container animate-spin" style="font-variation-settings: 'wght' 200">sync</span>
+</div>
+</div>
+<div class="bg-error-container p-sm border border-error rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="font-label-bold text-label-bold text-on-error-container uppercase tracking-wider mb-2">Failed (24h)</p>
+<div class="flex items-center space-x-2">
+<span class="font-h2 text-h2 text-error">5</span>
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1">report</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-sm border border-outline-variant rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="font-label-bold text-label-bold text-outline uppercase tracking-wider mb-2">Institutions</p>
+<p class="font-h2 text-h2 text-primary">42</p>
+</div>
+<div class="bg-surface-container-lowest p-sm border border-outline-variant rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="font-label-bold text-label-bold text-outline uppercase tracking-wider mb-2">Issued Today</p>
+<p class="font-h2 text-h2 text-primary">8,421</p>
+</div>
+<div class="bg-surface-container-lowest p-sm border border-outline-variant rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="font-label-bold text-label-bold text-outline uppercase tracking-wider mb-2">System Uptime</p>
+<p class="font-h2 text-h2 text-green-700">99.98%</p>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Alerts Panel (6 Columns) -->
+<section class="col-span-12 lg:col-span-7 space-y-sm">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-h3 text-h3 text-primary flex items-center">
+<span class="material-symbols-outlined mr-2 text-error">priority_high</span>
+                            Operational Alerts
+                        </h3>
+<button class="text-secondary font-label-bold text-label-bold hover:underline">View All Critical</button>
+</div>
+<!-- Alert Item 1 -->
+<div class="bg-white border-l-4 border-error p-md rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex items-start justify-between transition-all hover:translate-x-1">
+<div>
+<div class="flex items-center space-x-2 mb-1">
+<span class="bg-error text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">High Risk</span>
+<h4 class="font-label-bold text-label-bold text-on-surface">High Rejection Batch: #B-8821</h4>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Stanbic Bank reported a 34% rejection rate on the latest credit history upload.</p>
+</div>
+<button class="bg-primary text-white font-label-bold text-label-bold px-4 py-2 rounded shadow-sm">Review</button>
+</div>
+<!-- Alert Item 2 -->
+<div class="bg-white border-l-4 border-amber-500 p-md rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex items-start justify-between transition-all hover:translate-x-1">
+<div>
+<div class="flex items-center space-x-2 mb-1">
+<span class="bg-amber-500 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">Missing Data</span>
+<h4 class="font-label-bold text-label-bold text-on-surface">Missing Monthly Submission: ABSA Botswana</h4>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Monthly regulatory data submission is overdue by 4 days.</p>
+</div>
+<button class="border border-secondary text-secondary font-label-bold text-label-bold px-4 py-2 rounded shadow-sm">Escalate</button>
+</div>
+<!-- Alert Item 3 -->
+<div class="bg-white border-l-4 border-error p-md rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex items-start justify-between transition-all hover:translate-x-1">
+<div>
+<div class="flex items-center space-x-2 mb-1">
+<span class="bg-error text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">API Failure</span>
+<h4 class="font-label-bold text-label-bold text-on-surface">Failed Webhook: FNB Callback</h4>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Endpoint https://api.fnb.bw/callback returned 500 internal server error.</p>
+</div>
+<button class="bg-primary text-white font-label-bold text-label-bold px-4 py-2 rounded shadow-sm">Retry</button>
+</div>
+<!-- Alert Item 4 -->
+<div class="bg-white border-l-4 border-primary p-md rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex items-start justify-between transition-all hover:translate-x-1">
+<div>
+<div class="flex items-center space-x-2 mb-1">
+<span class="bg-primary text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">Security</span>
+<h4 class="font-label-bold text-label-bold text-on-surface">Brute Force Warning: 'l.molosi'</h4>
+</div>
+<p class="font-body-sm text-body-sm text-outline">3 failed login attempts on Institutional Admin account 'l.molosi' from unauthorized IP.</p>
+</div>
+<button class="border border-outline text-outline font-label-bold text-label-bold px-4 py-2 rounded shadow-sm">Lock Account</button>
+</div>
+</section>
+<!-- Activity Feed (5 Columns) -->
+<section class="col-span-12 lg:col-span-5 bg-white border border-outline-variant rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex flex-col">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-h3 text-h3 text-primary">Recent Activity</h3>
+<span class="material-symbols-outlined text-outline">history</span>
+</div>
+<div class="p-md flex-1 overflow-y-auto space-y-6">
+<div class="flex items-start space-x-4">
+<div class="w-2 h-2 rounded-full bg-secondary mt-1.5 ring-4 ring-secondary-container"></div>
+<div class="flex-1">
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="font-label-bold text-label-bold">Batch #B-8822</span> received from <span class="font-label-bold text-label-bold">FNB</span> (2.4MB)
+                                </p>
+<p class="text-xs text-outline mt-1">14:32 Today</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-2 h-2 rounded-full bg-green-500 mt-1.5 ring-4 ring-green-100"></div>
+<div class="flex-1">
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="font-label-bold text-label-bold">System:</span> Auto-validation completed for Batch #B-8819
+                                </p>
+<p class="text-xs text-outline mt-1">14:28 Today</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-2 h-2 rounded-full bg-primary mt-1.5 ring-4 ring-primary-fixed"></div>
+<div class="flex-1">
+<p class="font-body-sm text-body-sm text-on-surface">
+                                    Admin <span class="font-label-bold text-label-bold">'K. Molefe'</span> updated SFTP credentials for <span class="font-label-bold text-label-bold">BancABC</span>
+</p>
+<p class="text-xs text-outline mt-1">14:15 Today</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-2 h-2 rounded-full bg-on-tertiary-container mt-1.5 ring-4 ring-surface-container"></div>
+<div class="flex-1">
+<p class="font-body-sm text-body-sm text-on-surface">
+                                    Report Request: <span class="font-label-bold text-label-bold">Thabo P. Molefe</span> (ID: 4522****9) by Letshego
+                                </p>
+<p class="text-xs text-outline mt-1">13:55 Today</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-2 h-2 rounded-full bg-secondary-container mt-1.5 ring-4 ring-secondary-fixed"></div>
+<div class="flex-1">
+<p class="font-body-sm text-body-sm text-on-surface">
+                                    Webhook triggered: <span class="font-label-bold text-label-bold">Batch_Completed</span> for Stanbic Bank
+                                </p>
+<p class="text-xs text-outline mt-1">13:40 Today</p>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-low text-center">
+<button class="text-primary font-label-bold text-label-bold flex items-center justify-center w-full hover:underline">
+                            Load Full History
+                            <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Institutions Data Table (Full Width) -->
+<section class="mt-lg">
+<div class="bg-white border border-outline-variant rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-md bg-surface-bright flex items-center justify-between border-b border-primary-container border-b-2">
+<h3 class="font-h3 text-h3 text-primary">Institution Status Monitor</h3>
+<div class="flex space-x-2">
+<button class="px-3 py-1.5 border border-outline-variant rounded text-label-bold font-label-bold bg-white hover:bg-surface-container-high">Export CSV</button>
+<button class="px-3 py-1.5 bg-primary text-white rounded text-label-bold font-label-bold hover:opacity-90">Manage All</button>
+</div>
+</div>
+<table class="w-full text-left font-data-tabular text-data-tabular">
+<thead class="bg-surface-container-low text-outline-variant uppercase text-[11px] font-bold">
+<tr>
+<th class="px-md py-4 text-on-surface">Institution Name</th>
+<th class="px-md py-4 text-on-surface">Type</th>
+<th class="px-md py-4 text-on-surface">Latest Batch</th>
+<th class="px-md py-4 text-on-surface">Validation Score</th>
+<th class="px-md py-4 text-on-surface">Status</th>
+<th class="px-md py-4 text-right text-on-surface">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-md py-4 font-label-bold text-on-surface">First National Bank (FNB)</td>
+<td class="px-md py-4 text-outline">Commercial Bank</td>
+<td class="px-md py-4 text-outline">#B-8822 (Today)</td>
+<td class="px-md py-4">
+<div class="flex items-center space-x-2">
+<div class="w-16 bg-outline-variant h-1.5 rounded-full">
+<div class="bg-green-600 h-1.5 rounded-full w-[98%]"></div>
+</div>
+<span class="text-xs font-bold text-green-700">98%</span>
+</div>
+</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-800">Operational</span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors">
+<td class="px-md py-4 font-label-bold text-on-surface">Stanbic Bank</td>
+<td class="px-md py-4 text-outline">Commercial Bank</td>
+<td class="px-md py-4 text-outline">#B-8821 (Today)</td>
+<td class="px-md py-4">
+<div class="flex items-center space-x-2">
+<div class="w-16 bg-outline-variant h-1.5 rounded-full">
+<div class="bg-error h-1.5 rounded-full w-[66%]"></div>
+</div>
+<span class="text-xs font-bold text-error">66%</span>
+</div>
+</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-red-800">Critical Rejection</span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-md py-4 font-label-bold text-on-surface">ABSA Botswana</td>
+<td class="px-md py-4 text-outline">Commercial Bank</td>
+<td class="px-md py-4 text-outline">#B-8799 (5d ago)</td>
+<td class="px-md py-4">
+<div class="flex items-center space-x-2">
+<div class="w-16 bg-outline-variant h-1.5 rounded-full">
+<div class="bg-amber-500 h-1.5 rounded-full w-[88%]"></div>
+</div>
+<span class="text-xs font-bold text-amber-700">88%</span>
+</div>
+</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">Submissions Overdue</span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-sm ml-64 border-t border-outline-variant bg-surface-container-low flex justify-between items-center px-lg">
+<div class="flex items-center space-x-4">
+<span class="text-on-surface font-bold font-label-bold">MFCB Operations</span>
+<p class="font-body-sm text-body-sm text-outline dark:text-outline-variant">
+                © 2024 Botswana Credit Bureau (MFCB). Institutional Rigor in Credit Reporting.
+            </p>
+</div>
+<div class="flex space-x-6">
+<a class="font-label-bold text-label-bold text-outline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-bold text-label-bold text-outline hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-bold text-label-bold text-outline hover:text-primary transition-colors" href="#">Support Desk</a>
+<a class="font-label-bold text-label-bold text-outline hover:text-primary transition-colors" href="#">Compliance Portal</a>
+</div>
+</footer>
+</body></html>

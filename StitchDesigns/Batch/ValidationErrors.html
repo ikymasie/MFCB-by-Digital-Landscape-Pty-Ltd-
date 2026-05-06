@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Validation Errors | Botswana Credit Bureau</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "primary": "#001e40",
+                        "primary-container": "#003366",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "on-primary-container": "#799dd6",
+                        "surface-container": "#eceef0",
+                        "secondary": "#28628f",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#a7c8ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#c3c6d1",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface": "#f7f9fb",
+                        "outline": "#737780",
+                        "tertiary-container": "#2b3347",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#cee5ff",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-tertiary-container": "#949bb4",
+                        "secondary-container": "#97ccfe",
+                        "on-surface-variant": "#43474f",
+                        "primary-fixed": "#d5e3ff",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#161e31",
+                        "on-secondary-container": "#175683",
+                        "on-tertiary-fixed": "#131b2e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#001d32",
+                        "surface-tint": "#3a5f94",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h1": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .zebra-table tr:nth-child(even) { background-color: #F1F5F9; }
+        .shadow-soft { shadow-sm: 0px 4px 12px rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-gutter h-16 max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-primary dark:text-inverse-primary">Botswana Credit Bureau</span>
+<nav class="hidden md:flex items-center gap-sm ml-lg">
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-secondary transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-secondary transition-colors duration-200" href="#">Credit Data</a>
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-2 font-label-bold text-label-bold" href="#">Validations</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-secondary transition-colors duration-200" href="#">Audit Logs</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-secondary transition-colors duration-200" href="#">Compliance</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined p-xs hover:bg-surface-container rounded-full text-on-surface-variant">notifications</button>
+<button class="material-symbols-outlined p-xs hover:bg-surface-container rounded-full text-on-surface-variant">help</button>
+<button class="material-symbols-outlined p-xs hover:bg-surface-container rounded-full text-on-surface-variant">account_circle</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-md">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs mb-sm">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Management</span>
+<span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Batch Submissions</span>
+<span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Batch #B-8821</span>
+<span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+<span class="text-body-sm font-body-sm text-primary font-semibold">Validation Errors</span>
+</nav>
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md mb-lg">
+<div>
+<h1 class="font-h1 text-h1 text-primary">Validation Errors: Batch #B-8821</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-xs">150 total errors identified in the current batch submission.</p>
+</div>
+<button class="flex items-center gap-xs px-md py-sm border-1.5 border-secondary text-secondary font-label-bold text-label-bold rounded-lg hover:bg-secondary-fixed transition-all border-[1.5px] border-[#75AADB]">
+<span class="material-symbols-outlined">arrow_back</span>
+                Back to Batch Detail
+            </button>
+</div>
+<!-- Bento Grid Error Summary -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md mb-lg">
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex justify-between items-center">
+<div>
+<p class="text-body-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Identity</p>
+<p class="text-h2 font-h2 text-primary">45</p>
+</div>
+<div class="bg-error-container text-on-error-container px-sm py-xs rounded-full font-label-bold text-label-bold">
+                    REJECT
+                </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex justify-between items-center">
+<div>
+<p class="text-body-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Date</p>
+<p class="text-h2 font-h2 text-primary">30</p>
+</div>
+<div class="bg-secondary-fixed text-on-secondary-container px-sm py-xs rounded-full font-label-bold text-label-bold">
+                    WARN
+                </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex justify-between items-center">
+<div>
+<p class="text-body-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Financial</p>
+<p class="text-h2 font-h2 text-primary">25</p>
+</div>
+<div class="bg-error-container text-on-error-container px-sm py-xs rounded-full font-label-bold text-label-bold">
+                    REJECT
+                </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex justify-between items-center">
+<div>
+<p class="text-body-sm font-label-bold text-on-surface-variant uppercase tracking-wider">Schema</p>
+<p class="text-h2 font-h2 text-primary">50</p>
+</div>
+<div class="bg-error-container text-on-error-container px-sm py-xs rounded-full font-label-bold text-label-bold">
+                    REJECT
+                </div>
+</div>
+</div>
+<!-- Actions Bar -->
+<div class="bg-surface-container-low p-sm rounded-xl mb-md flex flex-col lg:flex-row gap-md items-center justify-between">
+<div class="flex flex-1 w-full lg:w-auto gap-sm">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-xl pr-md py-xs bg-surface-container-lowest border border-outline rounded-lg focus:ring-2 focus:ring-secondary focus:outline-none text-body-md" placeholder="Search field names..." type="text"/>
+</div>
+<select class="bg-surface-container-lowest border border-outline rounded-lg px-md py-xs text-body-md min-w-[160px]">
+<option>All Severities</option>
+<option>REJECT</option>
+<option>WARN</option>
+</select>
+</div>
+<div class="flex gap-sm w-full lg:w-auto">
+<button class="flex-1 lg:flex-none flex items-center justify-center gap-xs px-md py-xs border-[1.5px] border-secondary text-secondary font-label-bold text-label-bold rounded-lg hover:bg-secondary-fixed">
+<span class="material-symbols-outlined">download</span>
+                    Download Errors (CSV)
+                </button>
+<button class="flex-1 lg:flex-none flex items-center justify-center gap-xs px-md py-xs bg-primary-container text-white font-label-bold text-label-bold rounded-lg hover:opacity-90">
+<span class="material-symbols-outlined">description</span>
+                    Download Correction Template
+                </button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left zebra-table border-collapse">
+<thead class="bg-surface-container-high border-b-2 border-primary">
+<tr>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">#</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Field Name</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Error Code</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary text-center">Severity</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Raw Value</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary">Message</th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-data-tabular">
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md">104</td>
+<td class="px-md py-md font-semibold">Omang Number</td>
+<td class="px-md py-md">INVALID_OMANG_FORMAT</td>
+<td class="px-md py-md text-center">
+<span class="bg-error-container text-on-error-container px-xs py-base rounded font-bold text-[10px]">REJECT</span>
+</td>
+<td class="px-md py-md text-error italic">1234/1</td>
+<td class="px-md py-md text-on-surface-variant">Omang must be 9 digits with hyphen.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md">105</td>
+<td class="px-md py-md font-semibold">Status Code</td>
+<td class="px-md py-md">INVALID_STATUS_FOR_TYPE</td>
+<td class="px-md py-md text-center">
+<span class="bg-secondary-fixed text-on-secondary-container px-xs py-base rounded font-bold text-[10px]">WARN</span>
+</td>
+<td class="px-md py-md italic">99</td>
+<td class="px-md py-md text-on-surface-variant">Status code not valid for Personal Loan products.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md">112</td>
+<td class="px-md py-md font-semibold">Installment Amount</td>
+<td class="px-md py-md">NEGATIVE_VALUE</td>
+<td class="px-md py-md text-center">
+<span class="bg-error-container text-on-error-container px-xs py-base rounded font-bold text-[10px]">REJECT</span>
+</td>
+<td class="px-md py-md text-error italic">-500.00</td>
+<td class="px-md py-md text-on-surface-variant">Installment amount cannot be negative.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md">115</td>
+<td class="px-md py-md font-semibold">Account Opening Date</td>
+<td class="px-md py-md">FUTURE_DATE</td>
+<td class="px-md py-md text-center">
+<span class="bg-error-container text-on-error-container px-xs py-base rounded font-bold text-[10px]">REJECT</span>
+</td>
+<td class="px-md py-md text-error italic">2025-12-01</td>
+<td class="px-md py-md text-on-surface-variant">Date cannot be in the future.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md">120</td>
+<td class="px-md py-md font-semibold">Postal Code</td>
+<td class="px-md py-md">MISSING_REQUIRED</td>
+<td class="px-md py-md text-center">
+<span class="bg-secondary-fixed text-on-secondary-container px-xs py-base rounded font-bold text-[10px]">WARN</span>
+</td>
+<td class="px-md py-md italic">[NULL]</td>
+<td class="px-md py-md text-on-surface-variant">Postal code is recommended for geographic profiling.</td>
+</tr>
+<!-- Repeat filler rows for density -->
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md">121</td>
+<td class="px-md py-md font-semibold">Marital Status</td>
+<td class="px-md py-md">INVALID_LOOKUP</td>
+<td class="px-md py-md text-center">
+<span class="bg-secondary-fixed text-on-secondary-container px-xs py-base rounded font-bold text-[10px]">WARN</span>
+</td>
+<td class="px-md py-md italic">U</td>
+<td class="px-md py-md text-on-surface-variant">Invalid status code. Use M, S, D, or W.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md">125</td>
+<td class="px-md py-md font-semibold">Employer Name</td>
+<td class="px-md py-md">CHAR_LIMIT_EXCEEDED</td>
+<td class="px-md py-md text-center">
+<span class="bg-secondary-fixed text-on-secondary-container px-xs py-base rounded font-bold text-[10px]">WARN</span>
+</td>
+<td class="px-md py-md italic">Botswana Integrated Financial Services Group PLC</td>
+<td class="px-md py-md text-on-surface-variant">Name truncated to 40 characters.</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md">130</td>
+<td class="px-md py-md font-semibold">Interest Rate</td>
+<td class="px-md py-md">OUT_OF_RANGE</td>
+<td class="px-md py-md text-center">
+<span class="bg-error-container text-on-error-container px-xs py-base rounded font-bold text-[10px]">REJECT</span>
+</td>
+<td class="px-md py-md text-error italic">85.5</td>
+<td class="px-md py-md text-on-surface-variant">Interest rate exceeds maximum allowed threshold.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-md py-sm bg-surface-container-low flex flex-col md:flex-row justify-between items-center gap-md border-t border-outline-variant">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Showing 1-10 of 150 errors</span>
+<div class="flex items-center gap-xs">
+<button class="p-xs text-outline hover:text-primary transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">first_page</span>
+</button>
+<button class="p-xs text-outline hover:text-primary transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex items-center gap-xs px-sm">
+<span class="bg-primary text-white w-8 h-8 flex items-center justify-center rounded font-label-bold text-label-bold">1</span>
+<span class="w-8 h-8 flex items-center justify-center rounded font-label-bold text-label-bold text-on-surface-variant hover:bg-surface-container-highest cursor-pointer">2</span>
+<span class="w-8 h-8 flex items-center justify-center rounded font-label-bold text-label-bold text-on-surface-variant hover:bg-surface-container-highest cursor-pointer">3</span>
+<span class="px-xs text-on-surface-variant">...</span>
+<span class="w-8 h-8 flex items-center justify-center rounded font-label-bold text-label-bold text-on-surface-variant hover:bg-surface-container-highest cursor-pointer">15</span>
+</div>
+<button class="p-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="p-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">last_page</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Help Section (Asymmetric Canvas) -->
+<div class="mt-xl grid grid-cols-1 md:grid-cols-3 gap-lg items-center">
+<div class="md:col-span-1">
+<img class="w-full aspect-square object-cover rounded-xl shadow-lg border border-outline-variant" data-alt="A highly detailed and professional institutional photograph showing a close-up of a modern server rack with glowing blue and amber status indicators in a high-security data center. The lighting is crisp and cool, emphasizing a futuristic and dependable financial technology environment. The shallow depth of field keeps the focus on the data integrity and validation process, evoking a sense of institutional rigor and secure information handling. The overall mood is authoritative and high-tech." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+<div class="md:col-span-2 space-y-md">
+<h3 class="font-h3 text-h3 text-primary">Need Assistance with Corrections?</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Our automated validation engine has flagged inconsistencies that may affect credit reporting accuracy. Please refer to the technical specification guide or contact our data integration desk for high-volume correction strategies.</p>
+<div class="flex flex-wrap gap-md">
+<div class="flex items-center gap-sm bg-surface-container-high p-sm rounded-lg border border-outline-variant flex-1 min-w-[240px]">
+<span class="material-symbols-outlined text-secondary text-[32px]">menu_book</span>
+<div>
+<p class="font-label-bold text-label-bold text-primary">Technical Specs</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">V3.4 Schema Documentation</p>
+</div>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-high p-sm rounded-lg border border-outline-variant flex-1 min-w-[240px]">
+<span class="material-symbols-outlined text-secondary text-[32px]">support_agent</span>
+<div>
+<p class="font-label-bold text-label-bold text-primary">Help Desk</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Speak to a Data Analyst</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-inverse-surface mt-xl py-lg">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter max-w-container-max mx-auto gap-md">
+<div class="flex flex-col gap-xs text-center md:text-left">
+<span class="font-label-bold text-label-bold text-on-primary dark:text-inverse-on-surface">Botswana Credit Bureau (MFCB)</span>
+<p class="font-body-sm text-body-sm text-on-primary-container dark:text-on-tertiary-container max-w-lg">
+                    © 2024 Botswana Credit Bureau (MFCB). All rights reserved. Authorized Credit Bureau under the Bank of Botswana.
+                </p>
+</div>
+<nav class="flex flex-wrap justify-center gap-md">
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-on-primary transition-all font-label-bold text-label-bold" href="#">Security Policy</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-on-primary transition-all font-label-bold text-label-bold" href="#">Privacy Notice</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-on-primary transition-all font-label-bold text-label-bold" href="#">Data Subject Rights</a>
+<a class="text-on-primary-container dark:text-on-tertiary-container hover:text-on-primary transition-all font-label-bold text-label-bold" href="#">Contact Support</a>
+</nav>
+</div>
+</footer>
+</body></html>

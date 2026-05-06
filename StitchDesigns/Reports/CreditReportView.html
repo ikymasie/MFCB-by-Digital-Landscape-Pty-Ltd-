@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MFCB Credit Bureau - Credit Report View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#2b3347",
+                        "secondary-container": "#97ccfe",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "surface-tint": "#3a5f94",
+                        "on-primary-container": "#799dd6",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#43474f",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#cee5ff",
+                        "on-secondary-container": "#175683",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#131b2e",
+                        "tertiary": "#161e31",
+                        "outline": "#737780",
+                        "surface-dim": "#d8dadc",
+                        "primary-fixed": "#d5e3ff",
+                        "primary-container": "#003366",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-primary": "#a7c8ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "surface": "#f7f9fb",
+                        "primary": "#001e40",
+                        "outline-variant": "#c3c6d1",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "on-secondary-fixed": "#001d32",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#dae2fd",
+                        "on-tertiary-container": "#949bb4",
+                        "secondary": "#28628f",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "on-background": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "xs": "8px",
+                        "xl": "64px",
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "body-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-sm py-xs h-16 bg-surface-container-lowest dark:bg-inverse-surface border-b border-surface-variant dark:border-outline-variant shadow-sm">
+<div class="flex items-center gap-sm">
+<span class="font-h3 text-h3 font-bold text-primary-container dark:text-primary-fixed-dim">MFCB Credit Bureau</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-sm py-xs border border-outline text-on-surface-variant rounded-lg font-label-bold text-label-bold hover:bg-surface-container-high transition-colors active:scale-95">Print</button>
+<button class="px-sm py-xs bg-primary-container text-on-primary border border-primary-container rounded-lg font-label-bold text-label-bold hover:bg-primary transition-colors active:scale-95">Download PDF</button>
+<div class="flex gap-xs ml-md">
+<span class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-high rounded-full cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-high rounded-full cursor-pointer">settings</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col bg-surface-container-low dark:bg-tertiary-container border-r border-surface-variant dark:border-outline-variant">
+<div class="p-sm flex items-center gap-xs border-b border-surface-variant/30">
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a financial analyst wearing a charcoal suit and a crisp light blue shirt. The background is a blurred office setting with floor-to-ceiling windows showing a modern city skyline under soft morning light. The overall mood is authoritative and dependable, reflecting corporate professionalism." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Bureau Analyst</p>
+<p class="text-xs text-on-surface-variant">ID: MFCB-9982</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto py-sm px-xs space-y-1">
+<div class="flex items-center gap-sm px-sm py-xs transition-all duration-150 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant cursor-pointer text-on-surface-variant dark:text-on-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</div>
+<div class="flex items-center gap-sm px-sm py-xs transition-all duration-150 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant cursor-pointer text-on-surface-variant dark:text-on-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-label-bold text-label-bold">Identity Info</span>
+</div>
+<div class="flex items-center gap-sm px-sm py-2 bg-secondary-fixed text-on-secondary-container font-bold rounded-lg transition-transform active:translate-x-1">
+<span class="material-symbols-outlined">summarize</span>
+<span class="font-label-bold text-label-bold">Summary</span>
+</div>
+<div class="flex items-center gap-sm px-sm py-xs transition-all duration-150 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant cursor-pointer text-on-surface-variant dark:text-on-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="font-label-bold text-label-bold">Accounts</span>
+</div>
+<div class="flex items-center gap-sm px-sm py-xs transition-all duration-150 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant cursor-pointer text-on-surface-variant dark:text-on-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-bold text-label-bold">History</span>
+</div>
+<div class="flex items-center gap-sm px-sm py-xs transition-all duration-150 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant cursor-pointer text-on-surface-variant dark:text-on-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-bold text-label-bold">Legal &amp; Notices</span>
+</div>
+</nav>
+<div class="p-sm mt-auto border-t border-surface-variant/30 space-y-1">
+<div class="flex items-center gap-sm px-sm py-xs transition-all duration-150 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant cursor-pointer text-on-surface-variant dark:text-on-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-bold text-label-bold">Help Center</span>
+</div>
+<div class="flex items-center gap-sm px-sm py-xs transition-all duration-150 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant cursor-pointer text-on-surface-variant dark:text-on-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-bold text-label-bold">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-md max-w-container-max mx-auto">
+<!-- Report Header -->
+<section class="mb-lg bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant flex justify-between items-end">
+<div>
+<span class="text-on-surface-variant font-label-bold text-label-bold">OFFICIAL CREDIT REPORT</span>
+<h1 class="font-h1 text-h1 text-primary-container mt-xs">Thabo P. Molefe</h1>
+<p class="text-on-surface-variant font-body-md mt-xs">Reference: <span class="font-bold">MFCB-BW-8829-001-Q4</span></p>
+</div>
+<div class="text-right">
+<p class="text-on-surface-variant font-label-bold text-label-bold">REPORT GENERATED</p>
+<p class="font-h3 text-h3 text-on-surface">24 Oct 2023</p>
+<div class="mt-2 bg-success/10 text-green-700 px-3 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1 border border-green-200">
+<span class="material-symbols-outlined text-sm">verified</span> VERIFIED RECORD
+                </div>
+</div>
+</section>
+<!-- Bento Grid: Identity & Summary -->
+<div class="grid grid-cols-12 gap-gutter mb-lg">
+<!-- Identity Information -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<h2 class="font-h3 text-h3 mb-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">person_pin</span> Identity Details
+                </h2>
+<div class="grid grid-cols-2 gap-sm">
+<div class="p-xs bg-surface-container-low rounded">
+<p class="text-xs text-on-surface-variant font-label-bold">FULL NAME</p>
+<p class="font-data-tabular text-on-surface">Thabo Phenyo Molefe</p>
+</div>
+<div class="p-xs bg-surface-container-low rounded">
+<p class="text-xs text-on-surface-variant font-label-bold">OMANG NUMBER</p>
+<p class="font-data-tabular text-on-surface">4522****9</p>
+</div>
+<div class="p-xs bg-surface-container-low rounded">
+<p class="text-xs text-on-surface-variant font-label-bold">DATE OF BIRTH</p>
+<p class="font-data-tabular text-on-surface">15 May 1982</p>
+</div>
+<div class="p-xs bg-surface-container-low rounded">
+<p class="text-xs text-on-surface-variant font-label-bold">GENDER</p>
+<p class="font-data-tabular text-on-surface">Male</p>
+</div>
+<div class="p-xs bg-surface-container-low rounded col-span-2">
+<p class="text-xs text-on-surface-variant font-label-bold">PRIMARY ADDRESS</p>
+<p class="font-data-tabular text-on-surface">Plot 450, Phase 2, Gaborone, Botswana</p>
+</div>
+</div>
+</div>
+<!-- Key Metric Cards -->
+<div class="col-span-12 lg:col-span-7 grid grid-cols-2 gap-sm">
+<div class="bg-primary-container text-on-primary p-md rounded-xl shadow-sm border border-primary relative overflow-hidden">
+<p class="text-on-primary-container font-label-bold text-label-bold">TOTAL ACTIVE ACCOUNTS</p>
+<p class="text-4xl font-bold mt-xs">08</p>
+<span class="material-symbols-outlined absolute right-[-10px] bottom-[-10px] text-8xl opacity-10">account_balance</span>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<p class="text-on-surface-variant font-label-bold text-label-bold">TOTAL EXPOSURE (BWP)</p>
+<p class="text-2xl font-bold mt-xs text-on-surface">425,600.00</p>
+<div class="w-full bg-surface-variant h-1.5 rounded-full mt-sm">
+<div class="bg-secondary h-full rounded-full w-3/4"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<p class="text-on-surface-variant font-label-bold text-label-bold">MONTHLY INSTALMENT</p>
+<p class="text-2xl font-bold mt-xs text-on-surface">12,450.00</p>
+<p class="text-xs text-on-surface-variant mt-xs">DTI Ratio: 32.5%</p>
+</div>
+<div class="bg-error-container text-on-error-container p-md rounded-xl shadow-sm border border-error/20 flex flex-col justify-between">
+<div>
+<p class="font-label-bold text-label-bold">ADVERSE ACCOUNTS</p>
+<p class="text-4xl font-bold mt-xs">01</p>
+</div>
+<p class="text-xs font-bold underline cursor-pointer mt-sm">View Details</p>
+</div>
+</div>
+</div>
+<!-- Active Accounts Table -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant mb-lg overflow-hidden">
+<div class="p-md border-b border-surface-variant flex justify-between items-center bg-surface-container-low">
+<h2 class="font-h3 text-h3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">list_alt</span> Active Accounts
+                </h2>
+<span class="text-xs text-on-surface-variant font-label-bold">8 RECORDS FOUND</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-data-tabular">
+<thead>
+<tr class="bg-primary-container text-on-primary text-xs font-label-bold tracking-wider">
+<th class="px-md py-sm">INSTITUTION</th>
+<th class="px-md py-sm">TYPE</th>
+<th class="px-md py-sm">ACCOUNT #</th>
+<th class="px-md py-sm">OPENED</th>
+<th class="px-md py-sm text-right">LIMIT</th>
+<th class="px-md py-sm text-right">BALANCE</th>
+<th class="px-md py-sm text-right">INSTALMENT</th>
+<th class="px-md py-sm">STATUS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant">
+<tr class="hover:bg-surface-variant/20 transition-colors">
+<td class="px-md py-sm flex items-center gap-xs">
+<div class="w-6 h-6 bg-blue-100 rounded flex items-center justify-center font-bold text-[10px] text-blue-800">FNBB</div>
+<span>First National Bank</span>
+</td>
+<td class="px-md py-sm">Personal Loan</td>
+<td class="px-md py-sm">****9901</td>
+<td class="px-md py-sm">12/2021</td>
+<td class="px-md py-sm text-right">150,000</td>
+<td class="px-md py-sm text-right font-bold">112,450</td>
+<td class="px-md py-sm text-right">4,200</td>
+<td class="px-md py-sm">
+<span class="px-2 py-0.5 bg-green-100 text-green-800 text-[10px] font-bold rounded">CURRENT</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-variant/20 transition-colors">
+<td class="px-md py-sm flex items-center gap-xs">
+<div class="w-6 h-6 bg-red-100 rounded flex items-center justify-center font-bold text-[10px] text-red-800">ABSA</div>
+<span>Absa Botswana</span>
+</td>
+<td class="px-md py-sm">Credit Card</td>
+<td class="px-md py-sm">****4452</td>
+<td class="px-md py-sm">05/2019</td>
+<td class="px-md py-sm text-right">25,000</td>
+<td class="px-md py-sm text-right font-bold">18,200</td>
+<td class="px-md py-sm text-right">950</td>
+<td class="px-md py-sm">
+<span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-bold rounded">30 DAYS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-variant/20 transition-colors">
+<td class="px-md py-sm flex items-center gap-xs">
+<div class="w-6 h-6 bg-orange-100 rounded flex items-center justify-center font-bold text-[10px] text-orange-800">STCB</div>
+<span>Stanbic Bank</span>
+</td>
+<td class="px-md py-sm">Mortgage</td>
+<td class="px-md py-sm">****0088</td>
+<td class="px-md py-sm">01/2020</td>
+<td class="px-md py-sm text-right">1,250,000</td>
+<td class="px-md py-sm text-right font-bold">980,400</td>
+<td class="px-md py-sm text-right">8,500</td>
+<td class="px-md py-sm">
+<span class="px-2 py-0.5 bg-green-100 text-green-800 text-[10px] font-bold rounded">CURRENT</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Repayment History Grid -->
+<section class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant mb-lg">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-h3 text-h3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">history</span> 24-Month Repayment History
+                </h2>
+<div class="flex gap-sm text-[10px] font-bold text-on-surface-variant uppercase">
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-green-500"></span> 0: Current</div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-amber-500"></span> 1-2: Overdue</div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-red-600"></span> 3+: Default</div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-surface-variant"></span> X: No Data</div>
+</div>
+</div>
+<div class="space-y-sm">
+<!-- Account Row 1 -->
+<div class="flex items-center">
+<div class="w-48 shrink-0">
+<p class="font-label-bold text-label-bold truncate">FNBB Loan (****9901)</p>
+</div>
+<div class="flex-1 grid grid-cols-24 gap-1">
+<!-- Simulated 24 months grid (Manual for density) -->
+<div class="flex gap-1 overflow-x-auto pb-2">
+<!-- Generate dots -->
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+</div>
+</div>
+</div>
+<!-- Account Row 2 -->
+<div class="flex items-center">
+<div class="w-48 shrink-0">
+<p class="font-label-bold text-label-bold truncate">Absa Credit Card (****4452)</p>
+</div>
+<div class="flex-1">
+<div class="flex gap-1 overflow-x-auto pb-2">
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-amber-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">1</div>
+<div class="w-6 h-6 bg-amber-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">2</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+<div class="w-6 h-6 bg-green-500 text-white flex items-center justify-center rounded text-[10px] shrink-0">0</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Adverse Events & Inquiries -->
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Adverse Events -->
+<section class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-error/20">
+<h2 class="font-h3 text-h3 flex items-center gap-2 text-error mb-md">
+<span class="material-symbols-outlined">report_problem</span> Adverse Events
+                </h2>
+<div class="space-y-sm">
+<div class="p-sm bg-error-container/20 rounded-lg border border-error/10">
+<div class="flex justify-between items-start mb-xs">
+<p class="font-label-bold text-label-bold text-error">WRITTEN OFF</p>
+<span class="text-xs font-data-tabular">15 Mar 2018</span>
+</div>
+<p class="font-body-sm mb-xs">Multi-Choice Botswana Account</p>
+<div class="flex justify-between items-center">
+<p class="text-xs text-on-surface-variant">Amount at Write-off:</p>
+<p class="font-bold">BWP 1,240.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Inquiries -->
+<section class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<h2 class="font-h3 text-h3 flex items-center gap-2 mb-md">
+<span class="material-symbols-outlined text-primary-container">search</span> Recent Inquiries
+                </h2>
+<div class="space-y-xs">
+<div class="flex justify-between items-center py-xs border-b border-surface-variant/50">
+<div>
+<p class="font-label-bold text-xs">Access Bank Botswana</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Vehicle Finance</p>
+</div>
+<p class="text-xs font-data-tabular">10 Oct 2023</p>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-variant/50">
+<div>
+<p class="font-label-bold text-xs">Lethego Financial Services</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Personal Loan</p>
+</div>
+<p class="text-xs font-data-tabular">22 Sep 2023</p>
+</div>
+<div class="flex justify-between items-center py-xs">
+<div>
+<p class="font-label-bold text-xs">Standard Chartered Bank</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Credit Card</p>
+</div>
+<p class="text-xs font-data-tabular">15 Aug 2023</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Footnote / Legal Disclaimer -->
+<footer class="mt-xl pt-md border-t border-surface-variant text-center">
+<p class="text-xs text-on-surface-variant max-w-2xl mx-auto italic">
+                This report is confidential and intended solely for the use of the individual or entity to whom it is addressed. The Botswana Credit Bureau (MFCB) does not guarantee the 100% accuracy of data supplied by member institutions. Information is provided 'as is' at the time of inquiry.
+            </p>
+<p class="text-xs font-bold text-primary-container mt-sm tracking-widest uppercase">Institutional Integrity. Financial Precision.</p>
+</footer>
+</main>
+<!-- FAB for New Search (Contextual to Dashboard/Search context) -->
+<button class="fixed bottom-lg right-lg bg-primary-container text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-primary transition-transform active:scale-95 group">
+<span class="material-symbols-outlined">add</span>
+<span class="absolute right-full mr-4 bg-primary-container text-white px-3 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">New Search</span>
+</button>
+</body></html>

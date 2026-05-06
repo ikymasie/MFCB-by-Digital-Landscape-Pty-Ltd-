@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#175683",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#dae2fd",
+                        "on-primary-container": "#799dd6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed": "#001d32",
+                        "tertiary-container": "#2b3347",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "primary": "#001e40",
+                        "on-surface-variant": "#43474f",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#737780",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "background": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#a7c8ff",
+                        "tertiary": "#161e31",
+                        "error": "#ba1a1a",
+                        "secondary": "#28628f",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "secondary-container": "#97ccfe",
+                        "surface-tint": "#3a5f94",
+                        "secondary-fixed": "#cee5ff",
+                        "primary-container": "#003366",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-tertiary-container": "#949bb4",
+                        "outline-variant": "#c3c6d1",
+                        "on-background": "#191c1e",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-surface": "#2d3133",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-fixed": "#d5e3ff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "xl": "64px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "sm": "16px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .zebra-table tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- Side Navigation Bar -->
+<aside class="bg-surface-container-low border-r border-outline-variant flex flex-col h-screen py-md gap-xs w-64 flex-shrink-0">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm mb-xs">
+<img alt="MFCB Logo" class="w-10 h-10 rounded" data-alt="A professional corporate logo for Botswana Credit Bureau featuring architectural lines and financial motifs. The logo uses a primary deep navy blue and sky blue palette, set against a pristine white background. The style is minimalist and authoritative, symbolizing structural integrity and financial security in a modern light-mode interface." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div>
+<h1 class="font-h3 text-h3 font-bold text-primary">MFCB Operations</h1>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Technical Monitor</p>
+</div>
+</div>
+</div>
+<nav class="flex-grow">
+<ul class="flex flex-col gap-xs px-xs">
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-colors font-label-bold text-label-bold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm text-primary bg-secondary-fixed border-r-4 border-primary px-sm py-xs font-label-bold text-label-bold rounded-l" href="#">
+<span class="material-symbols-outlined" data-icon="queue">queue</span>
+<span>Batch Queue</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-colors font-label-bold text-label-bold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span>Data Ingestion</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-colors font-label-bold text-label-bold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>System Audit</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-colors font-label-bold text-label-bold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span>User Access</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="mt-auto px-xs flex flex-col gap-xs">
+<a class="flex items-center gap-sm text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-colors font-label-bold text-label-bold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant px-sm py-xs hover:bg-surface-container-high transition-colors font-label-bold text-label-bold rounded" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<div class="flex-grow flex flex-col overflow-hidden">
+<!-- Top App Bar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center w-full px-md h-16 shadow-sm z-10">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-primary">Batch Processing Queue</span>
+<div class="flex items-center gap-xs bg-surface-container px-sm py-1 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-success-600 animate-pulse bg-green-600"></span>
+<span class="text-[12px] font-label-bold text-on-surface-variant uppercase tracking-tighter">Live Monitor</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-xl pr-md py-xs bg-surface-container-low border border-outline-variant rounded-full text-body-sm focus:outline-none focus:ring-2 focus:ring-secondary-container w-64" placeholder="Search Batch ID or SRN..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant mx-xs"></div>
+<div class="flex items-center gap-sm">
+<span class="text-right hidden sm:block">
+<p class="font-label-bold text-label-bold text-primary">Admin System</p>
+<p class="text-[10px] text-on-surface-variant">TechOps L3</p>
+</span>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<main class="flex-grow overflow-y-auto p-md space-y-md">
+<!-- Summary Header Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-xs">Active Batches</p>
+<h2 class="font-h1 text-h1 text-primary">1,422</h2>
+</div>
+<div class="p-sm bg-secondary-fixed rounded-lg">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="view_list">view_list</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-xs">Engine Health</p>
+<div class="flex items-center gap-xs">
+<h2 class="font-h1 text-h1 text-green-700">Optimal</h2>
+<span class="material-symbols-outlined text-green-600" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="p-sm bg-green-50 rounded-lg">
+<span class="material-symbols-outlined text-green-700 text-3xl" data-icon="memory">memory</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-xs">Avg Processing Time</p>
+<h2 class="font-h1 text-h1 text-primary">06m 45s</h2>
+</div>
+<div class="p-sm bg-tertiary-fixed rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="timer">timer</span>
+</div>
+</div>
+</section>
+<!-- Pipeline Health Visualization (Bento Grid Style) -->
+<section class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h3 text-h3 text-primary">Pipeline Throughput</h3>
+<button class="flex items-center gap-xs text-primary font-label-bold text-label-bold hover:underline">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                        View Full Pipeline
+                    </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-sm">
+<!-- Stage 1 -->
+<div class="flex flex-col gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="text-[10px] font-label-bold text-on-surface-variant uppercase">Received</span>
+<div class="flex items-end justify-between">
+<span class="font-h3 text-h3">24.5k</span>
+<div class="h-8 w-1 bg-primary rounded-full"></div>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full">
+<div class="bg-primary h-full w-[90%] rounded-full"></div>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="flex flex-col gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="text-[10px] font-label-bold text-on-surface-variant uppercase">Virus Scan</span>
+<div class="flex items-end justify-between">
+<span class="font-h3 text-h3">24.2k</span>
+<div class="h-6 w-1 bg-primary rounded-full"></div>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full">
+<div class="bg-primary h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="flex flex-col gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="text-[10px] font-label-bold text-on-surface-variant uppercase">Parse</span>
+<div class="flex items-end justify-between">
+<span class="font-h3 text-h3">23.8k</span>
+<div class="h-5 w-1 bg-primary rounded-full"></div>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full">
+<div class="bg-primary h-full w-[70%] rounded-full"></div>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="flex flex-col gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="text-[10px] font-label-bold text-on-surface-variant uppercase">Validation</span>
+<div class="flex items-end justify-between">
+<span class="font-h3 text-h3">21.0k</span>
+<div class="h-4 w-1 bg-primary rounded-full"></div>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full">
+<div class="bg-primary h-full w-[60%] rounded-full"></div>
+</div>
+</div>
+<!-- Stage 5 -->
+<div class="flex flex-col gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="text-[10px] font-label-bold text-on-surface-variant uppercase">Dup Check</span>
+<div class="flex items-end justify-between">
+<span class="font-h3 text-h3">20.4k</span>
+<div class="h-3 w-1 bg-primary rounded-full"></div>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full">
+<div class="bg-primary h-full w-[55%] rounded-full"></div>
+</div>
+</div>
+<!-- Stage 6 -->
+<div class="flex flex-col gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="text-[10px] font-label-bold text-on-surface-variant uppercase">Mastering</span>
+<div class="flex items-end justify-between">
+<span class="font-h3 text-h3">18.2k</span>
+<div class="h-2 w-1 bg-primary rounded-full"></div>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full">
+<div class="bg-primary h-full w-[40%] rounded-full"></div>
+</div>
+</div>
+<!-- Stage 7 -->
+<div class="flex flex-col gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="text-[10px] font-label-bold text-on-surface-variant uppercase">Complete</span>
+<div class="flex items-end justify-between">
+<span class="font-h3 text-h3">15.9k</span>
+<div class="h-1 w-1 bg-green-600 rounded-full"></div>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full">
+<div class="bg-green-600 h-full w-[30%] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Real-Time Processing Queue Table -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="px-md py-sm border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-h3 text-h3 text-primary">Real-Time Processing Queue</h3>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
+<span class="text-body-sm">Auto-refreshing in 4s</span>
+</div>
+<button class="bg-primary text-on-primary px-sm py-1.5 rounded font-label-bold text-label-bold flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                            Export Queue
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse zebra-table">
+<thead class="bg-surface-container-high border-b-2 border-primary">
+<tr>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary uppercase">Batch ID</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary uppercase">Institution / SRN</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary uppercase">Submitted At</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary uppercase">Stage &amp; Progress</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary uppercase text-right">Records</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary uppercase text-right">Elapsed</th>
+<th class="px-md py-sm font-label-bold text-label-bold text-primary uppercase text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="text-body-sm">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md font-data-tabular">#B-9921</td>
+<td class="px-md py-md">
+<div class="font-label-bold">First National Bank</div>
+<div class="text-[12px] text-on-surface-variant">SRN-00124</div>
+</td>
+<td class="px-md py-md font-data-tabular">14:22:10</td>
+<td class="px-md py-md">
+<div class="flex flex-col gap-1 w-64">
+<div class="flex justify-between items-center">
+<span class="px-xs py-0.5 bg-blue-100 text-blue-800 rounded-full text-[10px] font-bold uppercase">Duplicate Check</span>
+<span class="text-[10px] font-bold">75%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[75%] rounded-full"></div>
+</div>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-right">15,000</td>
+<td class="px-md py-md font-data-tabular text-right">04m 12s</td>
+<td class="px-md py-md text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-1 hover:bg-surface-container-high rounded" title="Force Retry"><span class="material-symbols-outlined text-on-surface-variant" data-icon="refresh">refresh</span></button>
+<button class="p-1 hover:bg-error-container rounded" title="Quarantine"><span class="material-symbols-outlined text-error" data-icon="block">block</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md font-data-tabular">#B-9920</td>
+<td class="px-md py-md">
+<div class="font-label-bold">Absa Botswana</div>
+<div class="text-[12px] text-on-surface-variant">SRN-00452</div>
+</td>
+<td class="px-md py-md font-data-tabular">14:20:05</td>
+<td class="px-md py-md">
+<div class="flex flex-col gap-1 w-64">
+<div class="flex justify-between items-center">
+<span class="px-xs py-0.5 bg-green-100 text-green-800 rounded-full text-[10px] font-bold uppercase">Mastering</span>
+<span class="text-[10px] font-bold">92%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+<div class="bg-green-600 h-full w-[92%] rounded-full"></div>
+</div>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-right">42,500</td>
+<td class="px-md py-md font-data-tabular text-right">06m 18s</td>
+<td class="px-md py-md text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-1 hover:bg-surface-container-high rounded" title="Force Retry"><span class="material-symbols-outlined text-on-surface-variant" data-icon="refresh">refresh</span></button>
+<button class="p-1 hover:bg-error-container rounded" title="Quarantine"><span class="material-symbols-outlined text-error" data-icon="block">block</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md font-data-tabular">#B-9919</td>
+<td class="px-md py-md">
+<div class="font-label-bold">Standard Chartered</div>
+<div class="text-[12px] text-on-surface-variant">SRN-00089</div>
+</td>
+<td class="px-md py-md font-data-tabular">14:18:45</td>
+<td class="px-md py-md">
+<div class="flex flex-col gap-1 w-64">
+<div class="flex justify-between items-center">
+<span class="px-xs py-0.5 bg-yellow-100 text-yellow-800 rounded-full text-[10px] font-bold uppercase">Virus Scan</span>
+<span class="text-[10px] font-bold">12%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[12%] rounded-full"></div>
+</div>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-right">8,200</td>
+<td class="px-md py-md font-data-tabular text-right">07m 31s</td>
+<td class="px-md py-md text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-1 hover:bg-surface-container-high rounded" title="Force Retry"><span class="material-symbols-outlined text-on-surface-variant" data-icon="refresh">refresh</span></button>
+<button class="p-1 hover:bg-error-container rounded" title="Quarantine"><span class="material-symbols-outlined text-error" data-icon="block">block</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container transition-colors">
+<td class="px-md py-md font-data-tabular">#B-9918</td>
+<td class="px-md py-md">
+<div class="font-label-bold">Stanbic Bank</div>
+<div class="text-[12px] text-on-surface-variant">SRN-00211</div>
+</td>
+<td class="px-md py-md font-data-tabular">14:15:30</td>
+<td class="px-md py-md">
+<div class="flex flex-col gap-1 w-64">
+<div class="flex justify-between items-center">
+<span class="px-xs py-0.5 bg-red-100 text-red-800 rounded-full text-[10px] font-bold uppercase">Field Validation</span>
+<span class="text-[10px] font-bold">Error</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[45%] rounded-full"></div>
+</div>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-right">120,400</td>
+<td class="px-md py-md font-data-tabular text-right">10m 45s</td>
+<td class="px-md py-md text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-1 hover:bg-surface-container-high rounded" title="Force Retry"><span class="material-symbols-outlined text-on-surface-variant" data-icon="refresh">refresh</span></button>
+<button class="p-1 bg-error text-on-error rounded" title="Quarantined"><span class="material-symbols-outlined" data-icon="block" style="font-variation-settings: 'FILL' 1;">block</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-md py-sm bg-surface-container-low flex justify-between items-center">
+<span class="text-body-sm text-on-surface-variant">Showing 1-15 of 1,422 active batches</span>
+<div class="flex gap-xs">
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded font-label-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-high transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-high transition-colors">3</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

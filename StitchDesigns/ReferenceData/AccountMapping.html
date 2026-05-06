@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account Type &amp; Status Mapping | MFCB Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-error": "#ffffff",
+                        "tertiary": "#161e31",
+                        "secondary-container": "#97ccfe",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a7c8ff",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed": "#cee5ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#949bb4",
+                        "surface-dim": "#d8dadc",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-fixed": "#dae2fd",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#001d32",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-container": "#003366",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-container": "#2b3347",
+                        "surface": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "secondary": "#28628f",
+                        "on-primary-container": "#799dd6",
+                        "on-primary-fixed": "#001b3c",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "outline": "#737780",
+                        "on-surface": "#191c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-secondary-container": "#175683",
+                        "surface-tint": "#3a5f94",
+                        "primary-fixed": "#d5e3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "primary": "#001e40",
+                        "outline-variant": "#c3c6d1",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#43474f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "64px",
+                        "md": "24px",
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "xs": "8px",
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h1": ["Public Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .sidebar-active { background-color: #e6edf4; border-radius: 0.5rem; }
+    </style>
+</head>
+<body class="text-on-surface">
+<div class="flex min-h-screen">
+<!-- Sidebar (Shared Component) -->
+<aside class="w-64 border-r border-outline-variant bg-surface-container-lowest flex flex-col shrink-0">
+<div class="p-4 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="A professional, high-resolution logo for the Botswana Credit Bureau featuring corporate blue and silver tones. The design is minimalist and authoritative, set against a clean white background. Soft studio lighting emphasizes the clean lines and geometric structure of the logo, projecting a sense of security and institutional reliability for a modern financial portal." style='background-image: url("https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm");'></div>
+<div class="flex flex-col">
+<h1 class="text-on-surface text-base font-bold leading-none">MFCB Admin</h1>
+<p class="text-outline text-xs font-normal">Institutional Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1 grow">
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-surface-container">
+<div class="text-on-surface" data-icon="Layout" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">dashboard</span>
+</div>
+<p class="text-on-surface text-sm font-medium">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer sidebar-active">
+<div class="text-on-surface" data-icon="Gear" data-size="24px" data-weight="fill">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+</div>
+<p class="text-on-surface text-sm font-medium">Configuration</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-surface-container">
+<div class="text-on-surface" data-icon="ShieldCheck" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">shield_person</span>
+</div>
+<p class="text-on-surface text-sm font-medium">Compliance</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-surface-container">
+<div class="text-on-surface" data-icon="ChartBar" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">bar_chart</span>
+</div>
+<p class="text-on-surface text-sm font-medium">Reporting</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-surface-container">
+<div class="text-on-surface" data-icon="Gear" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">manage_accounts</span>
+</div>
+<p class="text-on-surface text-sm font-medium">Settings</p>
+</div>
+</nav>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center rounded-lg h-10 bg-primary-container text-white text-sm font-bold tracking-tight">
+                        Switch Role
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header Section -->
+<header class="bg-surface-container-lowest border-b border-outline-variant px-8 py-6">
+<div class="max-w-container-max mx-auto flex items-center justify-between gap-gutter">
+<div>
+<h2 class="text-h1 text-on-surface">Account Type &amp; Status Mapping</h2>
+<p class="text-body-md text-outline">Configure institutional business rules for account status validation (Form G Specification)</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center justify-center rounded-lg h-10 px-6 border border-outline text-on-surface text-sm font-bold hover:bg-surface-container-low">
+                            Discard
+                        </button>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary-container text-white text-sm font-bold hover:opacity-90">
+                            Save Changes
+                        </button>
+</div>
+</div>
+</header>
+<!-- Control Bar Section -->
+<section class="bg-surface-container-low px-8 py-4">
+<div class="max-w-container-max mx-auto flex items-center justify-between gap-gutter">
+<div class="flex-1 max-w-md">
+<label class="relative block">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-outline">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="block w-full rounded-lg border-outline-variant bg-surface-container-lowest py-2.5 pl-10 pr-3 placeholder-outline focus:border-secondary focus:ring-secondary sm:text-sm" placeholder="Filter mappings by account type or logic..." type="text"/>
+</label>
+</div>
+<button class="flex items-center gap-xs rounded-lg h-10 px-4 bg-primary-container text-white text-sm font-bold hover:opacity-90">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        Add New Mapping
+                    </button>
+</div>
+</section>
+<!-- Content Area -->
+<section class="flex-1 overflow-auto p-8">
+<div class="max-w-container-max mx-auto">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b-2 border-primary-container">
+<th class="px-4 py-3 text-label-bold text-on-surface uppercase">Account Type</th>
+<th class="px-4 py-3 text-label-bold text-on-surface uppercase">Allowed Status Codes</th>
+<th class="px-4 py-3 text-label-bold text-on-surface uppercase">Description</th>
+<th class="px-4 py-3 text-label-bold text-on-surface uppercase">Rule Logic</th>
+<th class="px-4 py-3 text-label-bold text-on-surface uppercase">Last Updated By</th>
+<th class="px-4 py-3 text-label-bold text-on-surface uppercase text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant text-data-tabular">
+<tr class="hover:bg-surface-container-low">
+<td class="px-4 py-4">
+<div class="font-bold text-on-surface">D - Mortgage</div>
+<div class="text-xs text-outline">Real Estate Loans</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-wrap gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">A</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">C</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">T</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">L</span>
+<span class="inline-flex items-center px-1 rounded text-outline border border-dashed border-outline hover:bg-surface-container">+</span>
+</div>
+</td>
+<td class="px-4 py-4 text-on-surface-variant max-w-xs">Standard mortgage status mapping following central bank guidelines.</td>
+<td class="px-4 py-4">
+<code class="px-2 py-1 bg-surface-container rounded text-primary font-mono text-xs">VAL-302</code>
+</td>
+<td class="px-4 py-4">
+<div class="text-on-surface">Admin User</div>
+<div class="text-xs text-outline">2 hours ago</div>
+</td>
+<td class="px-4 py-4 text-center">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary-fixed rounded-full transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest/50 hover:bg-surface-container-low">
+<td class="px-4 py-4">
+<div class="font-bold text-on-surface">P - Personal Loan</div>
+<div class="text-xs text-outline">Unsecured Credit</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-wrap gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">A</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">X</span>
+<span class="inline-flex items-center px-1 rounded text-outline border border-dashed border-outline hover:bg-surface-container">+</span>
+</div>
+</td>
+<td class="px-4 py-4 text-on-surface-variant max-w-xs">Restricted status codes for unsecured consumer lending products.</td>
+<td class="px-4 py-4">
+<code class="px-2 py-1 bg-surface-container rounded text-primary font-mono text-xs">VAL-405</code>
+</td>
+<td class="px-4 py-4">
+<div class="text-on-surface">Compliance Ofc</div>
+<div class="text-xs text-outline">Yesterday, 4:15 PM</div>
+</td>
+<td class="px-4 py-4 text-center">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary-fixed rounded-full transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low">
+<td class="px-4 py-4">
+<div class="font-bold text-on-surface">C - Credit Card</div>
+<div class="text-xs text-outline">Revolving Credit</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-wrap gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">A</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">D</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-container border border-on-secondary-container/20 cursor-pointer">R</span>
+<span class="inline-flex items-center px-1 rounded text-outline border border-dashed border-outline hover:bg-surface-container">+</span>
+</div>
+</td>
+<td class="px-4 py-4 text-on-surface-variant max-w-xs">Dynamic status validation for revolving accounts.</td>
+<td class="px-4 py-4">
+<code class="px-2 py-1 bg-surface-container rounded text-primary font-mono text-xs">VAL-109</code>
+</td>
+<td class="px-4 py-4">
+<div class="text-on-surface">System Admin</div>
+<div class="text-xs text-outline">3 days ago</div>
+</td>
+<td class="px-4 py-4 text-center">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary-fixed rounded-full transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container border-t border-outline-variant py-6 px-8 mt-auto">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<span class="text-outline text-sm">© 2024 Botswana Credit Bureau (MFCB)</span>
+<div class="h-4 w-px bg-outline-variant"></div>
+<a class="text-secondary text-sm font-medium hover:underline" href="#">Privacy Policy</a>
+<a class="text-secondary text-sm font-medium hover:underline" href="#">Terms of Service</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+                            Secure Session Active
+                        </span>
+<span class="text-outline text-sm italic">v2.4.1-stable</span>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

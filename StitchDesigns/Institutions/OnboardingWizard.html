@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Institution Onboarding - Step 1 | MFCB Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "on-background": "#191c1e",
+                        "surface-container-highest": "#e0e3e5",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-container": "#949bb4",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#cee5ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a7c8ff",
+                        "secondary-container": "#97ccfe",
+                        "tertiary": "#161e31",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#43474f",
+                        "outline-variant": "#c3c6d1",
+                        "on-secondary": "#ffffff",
+                        "primary": "#001e40",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#3a5f94",
+                        "primary-fixed": "#d5e3ff",
+                        "on-secondary-container": "#175683",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "outline": "#737780",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "on-primary-fixed": "#001b3c",
+                        "secondary": "#28628f",
+                        "on-primary-container": "#799dd6",
+                        "surface-container": "#eceef0",
+                        "tertiary-container": "#2b3347",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#003366",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed": "#001d32"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "base": "4px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "xs": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "body-sm": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { font-variation-settings: 'FILL' 1; }
+        .form-shadow { box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-md py-xs max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-primary">MFCB Portal</span>
+<nav class="hidden md:flex gap-sm">
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="font-label-bold text-label-bold text-primary border-b-2 border-primary pb-1" href="#">Onboarding</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Bureau Data</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative hidden lg:block">
+<input class="pl-xl pr-sm py-base rounded-lg border border-outline bg-surface-container text-body-sm w-64 focus:ring-2 focus:ring-secondary-container outline-none transition-all" placeholder="Search resources..." type="text"/>
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+</div>
+<div class="flex gap-xs">
+<button class="p-base hover:bg-surface-container-highest rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="p-base hover:bg-surface-container-highest rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-base hover:bg-surface-container-highest rounded-full transition-colors border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md py-lg flex flex-col gap-lg">
+<!-- Header & Breadcrumb -->
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-xs text-on-surface-variant font-label-bold text-label-bold">
+<span>Management</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>Institution Onboarding</span>
+</div>
+<h1 class="font-h1 text-h1 text-primary">Institution Onboarding</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">
+                Register a new lending institution within the Botswana Credit Bureau ecosystem. Please ensure all information aligns with Section 15 regulatory requirements.
+            </p>
+</div>
+<!-- Progress Indicator -->
+<div class="relative w-full overflow-x-auto pb-sm">
+<div class="flex justify-between items-start min-w-[800px] relative">
+<!-- Line -->
+<div class="absolute top-[18px] left-0 w-full h-[2px] bg-outline-variant z-0"></div>
+<div class="absolute top-[18px] left-0 w-1/6 h-[2px] bg-primary z-0"></div>
+<!-- Steps -->
+<div class="relative z-10 flex flex-col items-center gap-xs flex-1">
+<div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px] step-active">corporate_fare</span>
+</div>
+<span class="font-label-bold text-label-bold text-primary text-center">Institution Details</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs flex-1">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest border border-outline flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant text-center">Integration Channel</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs flex-1">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest border border-outline flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant text-center">Products &amp; Accounts</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs flex-1">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest border border-outline flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">vpn_key</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant text-center">OAuth Setup</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs flex-1">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest border border-outline flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">contact_phone</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant text-center">Contacts</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs flex-1">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest border border-outline flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant text-center">Review &amp; Activate</span>
+</div>
+</div>
+</div>
+<!-- Form Section: Bento Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Side: Form Content -->
+<div class="lg:col-span-8 flex flex-col gap-md">
+<div class="bg-surface-container-lowest p-md lg:p-lg rounded-xl border border-outline-variant form-shadow">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<h2 class="font-h3 text-h3 text-primary">Institution Information</h2>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Institution Name -->
+<div class="flex flex-col gap-base md:col-span-2">
+<label class="font-label-bold text-label-bold text-on-surface">Institution Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline rounded px-sm py-xs text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none" placeholder="e.g. Botswana National Commercial Bank" type="text"/>
+</div>
+<!-- SRN -->
+<div class="flex flex-col gap-base">
+<label class="font-label-bold text-label-bold text-on-surface">SRN (System Reference Number)</label>
+<input class="w-full bg-surface-container-lowest border border-outline rounded px-sm py-xs text-body-md focus:border-secondary transition-all outline-none" placeholder="SRN-000-0000" type="text"/>
+</div>
+<!-- Legal Entity Type -->
+<div class="flex flex-col gap-base">
+<label class="font-label-bold text-label-bold text-on-surface">Legal Entity Type</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline rounded px-sm py-xs text-body-md focus:border-secondary transition-all outline-none appearance-none">
+<option value="">Select Type</option>
+<option value="commercial">Commercial Bank</option>
+<option value="microfinance">Microfinance Institution</option>
+<option value="credit_union">Credit Union</option>
+<option value="retailer">Lending Retailer</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Registration Number -->
+<div class="flex flex-col gap-base">
+<label class="font-label-bold text-label-bold text-on-surface">Registration Number</label>
+<input class="w-full bg-surface-container-lowest border border-outline rounded px-sm py-xs text-body-md focus:border-secondary transition-all outline-none" placeholder="UIN/REG/2024/000" type="text"/>
+</div>
+<!-- Date of Incorporation -->
+<div class="flex flex-col gap-base">
+<label class="font-label-bold text-label-bold text-on-surface">Date of Incorporation</label>
+<input class="w-full bg-surface-container-lowest border border-outline rounded px-sm py-xs text-body-md focus:border-secondary transition-all outline-none" type="date"/>
+</div>
+<!-- Physical Address -->
+<div class="flex flex-col gap-base md:col-span-2">
+<label class="font-label-bold text-label-bold text-on-surface">Physical Address</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline rounded px-sm py-xs text-body-md focus:border-secondary transition-all outline-none resize-none" placeholder="Plot 123, Central Business District, Gaborone" rows="4"></textarea>
+</div>
+</form>
+<!-- Actions -->
+<div class="mt-xl pt-lg border-t border-outline-variant flex justify-between items-center">
+<button class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors flex items-center gap-xs px-sm py-xs">
+<span class="material-symbols-outlined">close</span>
+                            Cancel Onboarding
+                        </button>
+<div class="flex gap-md">
+<button class="font-label-bold text-label-bold text-secondary border-[1.5px] border-secondary px-lg py-xs rounded hover:bg-secondary-fixed transition-all">
+                                Save Draft
+                            </button>
+<button class="font-label-bold text-label-bold text-on-primary bg-primary-container px-lg py-xs rounded shadow-md hover:opacity-90 transition-all flex items-center gap-xs">
+                                Continue
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Sidebar Context -->
+<div class="lg:col-span-4 flex flex-col gap-md">
+<!-- Image Card -->
+<div class="relative h-64 w-full rounded-xl overflow-hidden border border-outline-variant shadow-sm group">
+<img alt="Botswana Financial District" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional and clean architectural photograph of a modern financial office building in Gaborone, Botswana. The scene is bathed in bright, soft daylight, highlighting the glass and steel construction. The atmosphere is corporate and authoritative, reflecting the Institutional Trust design style with a sense of transparency and financial stability. The color palette is dominated by cool blues and crisp whites." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-md">
+<h4 class="text-on-primary font-h3 text-[18px]">Regulatory Standard</h4>
+<p class="text-on-primary/90 font-body-sm">Compliance Section 15 of MFCB Guidelines</p>
+</div>
+</div>
+<!-- Tips / Guidance Card -->
+<div class="bg-primary-container text-on-primary-container p-md rounded-xl border border-primary/20 flex flex-col gap-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="lightbulb" data-weight="fill">lightbulb</span>
+<h4 class="font-label-bold text-label-bold">Onboarding Guidance</h4>
+</div>
+<ul class="flex flex-col gap-xs font-body-sm opacity-90 list-disc ml-md">
+<li>Ensure the Legal Entity Name matches the Registrar of Companies record exactly.</li>
+<li>SRN will be validated against the Central Bank's institutional database.</li>
+<li>Incorrect address information may delay OAuth key generation.</li>
+</ul>
+</div>
+<!-- Status Card -->
+<div class="bg-surface-container-high p-md rounded-xl border border-outline-variant flex flex-col gap-md">
+<h4 class="font-label-bold text-label-bold text-primary">Onboarding Progress</h4>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-bold text-label-bold">
+<span>Completeness</span>
+<span>16%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[16%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="history">history</span>
+<div class="flex flex-col">
+<span class="font-label-bold text-[12px] uppercase text-on-surface-variant">Last Activity</span>
+<span class="font-body-sm text-on-surface">Started 5 mins ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant mt-auto">
+<div class="flex justify-between items-center w-full px-md py-sm max-w-container-max mx-auto">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-primary">Botswana Credit Bureau (MFCB)</span>
+<p class="font-body-sm text-on-surface-variant">© 2024 All rights reserved. Institutional Access Only.</p>
+</div>
+<div class="hidden md:flex gap-md">
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary underline transition-all" href="#">Privacy Policy</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary underline transition-all" href="#">Legal Terms</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary underline transition-all" href="#">Support Center</a>
+</div>
+</div>
+</footer>
+</body></html>

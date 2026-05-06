@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#191c1e",
+                        "surface": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "primary": "#001e40",
+                        "on-surface-variant": "#43474f",
+                        "tertiary-container": "#2b3347",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed": "#001d32",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-container": "#799dd6",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container": "#eceef0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#175683",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-fixed": "#d5e3ff",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#c3c6d1",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-tertiary-container": "#949bb4",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "surface-tint": "#3a5f94",
+                        "secondary-fixed": "#cee5ff",
+                        "primary-container": "#003366",
+                        "secondary-container": "#97ccfe",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#28628f",
+                        "error": "#ba1a1a",
+                        "tertiary": "#161e31",
+                        "inverse-primary": "#a7c8ff",
+                        "on-primary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#737780",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "xl": "64px",
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm z-50 flex justify-between items-center px-gutter">
+<div class="flex items-center gap-sm">
+<span class="font-h3 text-h3 font-bold text-primary">MFCB Portal</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm">
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="flex items-center gap-xs ml-base">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a senior financial executive in a corporate setting. The lighting is soft and directional, typical of a high-end office environment. The executive wears a sharp navy blue business suit, reflecting an authoritative and dependable persona. The background is a blurred modern office with glass partitions and neutral tones, aligning with the corporate light-mode aesthetic." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-outline-variant flex flex-col py-md px-sm gap-base z-40 mt-16">
+<div class="flex items-center gap-sm px-sm py-md">
+<div class="flex flex-col">
+<span class="font-h3 text-h3 font-bold text-primary leading-none">MFCB Portal</span>
+<span class="font-body-sm text-on-surface-variant opacity-70">Institutional Admin</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs mt-sm">
+<a class="flex items-center gap-sm px-sm py-base text-on-surface-variant hover:bg-surface-variant hover:translate-x-1 transition-all rounded-lg font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-base text-on-surface-variant hover:bg-surface-variant hover:translate-x-1 transition-all rounded-lg font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Credit Reports</span>
+</a>
+<!-- Active Tab: User Management -->
+<a class="flex items-center gap-sm px-sm py-base bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>User Management</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-base text-on-surface-variant hover:bg-surface-variant hover:translate-x-1 transition-all rounded-lg font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="history_inverted">change_history</span>
+<span>Audit Logs</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-base text-on-surface-variant hover:bg-surface-variant hover:translate-x-1 transition-all rounded-lg font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-md flex flex-col gap-xs">
+<button class="w-full bg-primary-container text-on-primary text-label-bold py-sm px-md rounded-lg flex items-center justify-center gap-xs hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                Invite User
+            </button>
+<a class="flex items-center gap-sm px-sm py-base text-on-surface-variant hover:bg-surface-variant rounded-lg font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-base text-on-surface-variant hover:bg-surface-variant rounded-lg font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-background">
+<div class="p-xl max-w-container-max mx-auto">
+<!-- Page Header Section -->
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h1 class="font-h2 text-h2 text-primary">User Management</h1>
+<p class="font-body-md text-on-surface-variant mt-base">First National Bank Botswana — Institutional Access Control</p>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-xl pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary-fixed-dim outline-none font-body-sm w-72" placeholder="Search staff members..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-bold px-lg py-sm rounded-lg flex items-center gap-xs hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                        + Invite User
+                    </button>
+</div>
+</div>
+<!-- Bento Layout Content -->
+<div class="grid grid-cols-12 gap-md items-start">
+<!-- Main User Table Surface -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="px-md py-sm border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<span class="font-label-bold text-primary uppercase tracking-wider text-[11px]">Staff Roster</span>
+<span class="text-body-sm text-on-surface-variant">6 total active seats</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-primary-container text-on-primary">
+<th class="text-left py-sm px-md font-label-bold text-[12px] uppercase tracking-wider border-b border-primary">Name</th>
+<th class="text-left py-sm px-md font-label-bold text-[12px] uppercase tracking-wider border-b border-primary">Email</th>
+<th class="text-left py-sm px-md font-label-bold text-[12px] uppercase tracking-wider border-b border-primary">Role</th>
+<th class="text-left py-sm px-md font-label-bold text-[12px] uppercase tracking-wider border-b border-primary">Status</th>
+<th class="text-left py-sm px-md font-label-bold text-[12px] uppercase tracking-wider border-b border-primary">Last Login</th>
+<th class="text-center py-sm px-md font-label-bold text-[12px] uppercase tracking-wider border-b border-primary">Actions</th>
+</tr>
+</thead>
+<tbody class="font-data-tabular">
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-md px-md text-on-surface border-b border-outline-variant">Lebo G. Molosi</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">l.molosi@fnb.bw</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="px-sm py-1 bg-primary text-on-primary rounded-full text-[11px] font-bold">Admin</span>
+</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="flex items-center gap-xs text-[12px] font-bold text-green-700 bg-green-50 px-sm py-1 rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-green-600"></span> Active
+                                        </span>
+</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">Today, 09:42 AM</td>
+<td class="py-md px-md border-b border-outline-variant text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-base hover:bg-surface-variant rounded transition-colors text-primary"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="p-base hover:bg-error-container rounded transition-colors text-error"><span class="material-symbols-outlined" data-icon="person_off">person_off</span></button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="py-md px-md text-on-surface border-b border-outline-variant">Kabelo Sebele</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">k.sebele@fnb.bw</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="px-sm py-1 bg-secondary text-on-secondary rounded-full text-[11px] font-bold">User</span>
+</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="flex items-center gap-xs text-[12px] font-bold text-green-700 bg-green-50 px-sm py-1 rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-green-600"></span> Active
+                                        </span>
+</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">Yesterday, 4:15 PM</td>
+<td class="py-md px-md border-b border-outline-variant text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-base hover:bg-surface-variant rounded transition-colors text-primary"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="p-base hover:bg-error-container rounded transition-colors text-error"><span class="material-symbols-outlined" data-icon="person_off">person_off</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-md px-md text-on-surface border-b border-outline-variant">Marea Nkwe</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">m.nkwe@fnb.bw</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="px-sm py-1 bg-secondary text-on-secondary rounded-full text-[11px] font-bold">User</span>
+</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="flex items-center gap-xs text-[12px] font-bold text-amber-700 bg-amber-50 px-sm py-1 rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-amber-600"></span> Pending
+                                        </span>
+</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">Never</td>
+<td class="py-md px-md border-b border-outline-variant text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-base hover:bg-surface-variant rounded transition-colors text-primary"><span class="material-symbols-outlined" data-icon="mail">mail</span></button>
+<button class="p-base hover:bg-error-container rounded transition-colors text-error"><span class="material-symbols-outlined" data-icon="person_off">person_off</span></button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="py-md px-md text-on-surface border-b border-outline-variant">Thabo Ratsatsi</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">t.ratsatsi@fnb.bw</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="px-sm py-1 bg-secondary text-on-secondary rounded-full text-[11px] font-bold">User</span>
+</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="flex items-center gap-xs text-[12px] font-bold text-green-700 bg-green-50 px-sm py-1 rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-green-600"></span> Active
+                                        </span>
+</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">2 days ago</td>
+<td class="py-md px-md border-b border-outline-variant text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-base hover:bg-surface-variant rounded transition-colors text-primary"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="p-base hover:bg-error-container rounded transition-colors text-error"><span class="material-symbols-outlined" data-icon="person_off">person_off</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-md px-md text-on-surface border-b border-outline-variant">Palesa Dube</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">p.dube@fnb.bw</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="px-sm py-1 bg-secondary text-on-secondary rounded-full text-[11px] font-bold">User</span>
+</td>
+<td class="py-md px-md border-b border-outline-variant">
+<span class="flex items-center gap-xs text-[12px] font-bold text-green-700 bg-green-50 px-sm py-1 rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-green-600"></span> Active
+                                        </span>
+</td>
+<td class="py-md px-md text-on-surface-variant border-b border-outline-variant">Oct 12, 2023</td>
+<td class="py-md px-md border-b border-outline-variant text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-base hover:bg-surface-variant rounded transition-colors text-primary"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="p-base hover:bg-error-container rounded transition-colors text-error"><span class="material-symbols-outlined" data-icon="person_off">person_off</span></button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="py-md px-md text-on-surface border-b-0">Baboloki Tau</td>
+<td class="py-md px-md text-on-surface-variant border-b-0">b.tau@fnb.bw</td>
+<td class="py-md px-md border-b-0">
+<span class="px-sm py-1 bg-primary text-on-primary rounded-full text-[11px] font-bold">Admin</span>
+</td>
+<td class="py-md px-md border-b-0">
+<span class="flex items-center gap-xs text-[12px] font-bold text-green-700 bg-green-50 px-sm py-1 rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-green-600"></span> Active
+                                        </span>
+</td>
+<td class="py-md px-md text-on-surface-variant border-b-0">1 week ago</td>
+<td class="py-md px-md border-b-0 text-center">
+<div class="flex justify-center gap-xs">
+<button class="p-base hover:bg-surface-variant rounded transition-colors text-primary"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="p-base hover:bg-error-container rounded transition-colors text-error"><span class="material-symbols-outlined" data-icon="person_off">person_off</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Invitation/Details Sidebar Panel -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-md">
+<!-- Invite User Form Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-md">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="mail_outline">mail_outline</span>
+<h3 class="font-h3 text-body-lg font-bold text-primary">Invite New Staff</h3>
+</div>
+<p class="font-body-sm text-on-surface-variant mb-md">Send a secure invitation to a new institutional member to access the bureau portal.</p>
+<form class="flex flex-col gap-sm">
+<div class="flex flex-col gap-xs">
+<label class="text-label-bold text-on-surface-variant uppercase text-[10px] tracking-widest">Full Name</label>
+<input class="px-sm py-sm bg-white border border-outline-variant rounded focus:ring-2 focus:ring-primary focus:border-transparent outline-none font-body-sm transition-all" placeholder="e.g. Neo Modise" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-bold text-on-surface-variant uppercase text-[10px] tracking-widest">Institution Email</label>
+<input class="px-sm py-sm bg-white border border-outline-variant rounded focus:ring-2 focus:ring-primary focus:border-transparent outline-none font-body-sm transition-all" placeholder="n.modise@fnb.bw" type="email"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-bold text-on-surface-variant uppercase text-[10px] tracking-widest">Assign Role</label>
+<select class="px-sm py-sm bg-white border border-outline-variant rounded focus:ring-2 focus:ring-primary focus:border-transparent outline-none font-body-sm appearance-none">
+<option value="user">User (View Only)</option>
+<option value="admin">Administrator (Full Access)</option>
+</select>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-bold py-sm rounded-lg mt-sm hover:bg-primary-container transition-all flex items-center justify-center gap-xs shadow-md" type="submit">
+<span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+                                Send Invitation
+                            </button>
+</form>
+</div>
+<!-- Platform Analytics Summary (Bento Piece) -->
+<div class="bg-primary-container text-on-primary rounded-xl p-md shadow-sm border border-outline-variant flex flex-col gap-sm">
+<span class="font-label-bold uppercase text-[10px] tracking-widest opacity-80">Portal Seat Allocation</span>
+<div class="flex justify-between items-end">
+<div>
+<span class="text-h1 font-h1">6 <span class="text-h3 font-h3 opacity-50">/ 10</span></span>
+<p class="text-body-sm opacity-80">Seats Active</p>
+</div>
+<div class="h-16 w-16">
+<!-- Circular Gauge Visual -->
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="32" cy="32" fill="transparent" r="28" stroke="rgba(255,255,255,0.1)" stroke-width="6"></circle>
+<circle class="text-secondary-fixed" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175" stroke-dashoffset="70" stroke-width="6"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Security Audit Feed -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-md">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-label-bold text-primary uppercase text-[11px]">Recent Access Audit</span>
+<a class="text-[11px] text-secondary font-bold hover:underline" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex items-start gap-sm">
+<div class="w-1.5 h-10 bg-secondary rounded-full mt-1"></div>
+<div>
+<p class="font-body-sm text-on-surface"><strong>Lebo G. Molosi</strong> logged in</p>
+<p class="text-[12px] text-on-surface-variant opacity-70">Gaborone HQ • 2 mins ago</p>
+</div>
+</div>
+<div class="flex items-start gap-sm">
+<div class="w-1.5 h-10 bg-outline-variant rounded-full mt-1"></div>
+<div>
+<p class="font-body-sm text-on-surface"><strong>Audit Log</strong> exported</p>
+<p class="text-[12px] text-on-surface-variant opacity-70">System Process • 1 hour ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on management screens per hierarchy, but logic included for completeness) -->
+<!-- Suppression logic applied: FAB not rendered here to focus on table management -->
+</body></html>

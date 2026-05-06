@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inquiry History | MFCB Institutional Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9fb",
+                        "primary": "#001e40",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "on-surface-variant": "#43474f",
+                        "on-primary-container": "#799dd6",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "tertiary-container": "#2b3347",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "primary-container": "#003366",
+                        "outline-variant": "#c3c6d1",
+                        "inverse-primary": "#a7c8ff",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#97ccfe",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#131b2e",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#cee5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "outline": "#737780",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-container": "#175683",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#001d32",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#3a5f94",
+                        "tertiary": "#161e31",
+                        "secondary": "#28628f",
+                        "primary-fixed": "#d5e3ff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-container": "#949bb4",
+                        "surface-container": "#eceef0",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "container-max": "1280px",
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "data-tabular": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+        .sidebar-active { scale: 0.95; } /* Interactions logic from JSON */
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-72 fixed left-0 top-0 border-r border-outline-variant bg-surface-container-lowest flex flex-col py-md px-sm shadow-sm z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-h3 text-h3 font-bold text-primary">MFCB Portal</h1>
+<p class="text-body-sm text-on-surface-variant font-body-sm">Botswana Credit Bureau</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md tracking-tight">Dashboard</span>
+</a>
+<!-- Credit Search (Inactive) -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="font-body-md text-body-md tracking-tight">Credit Search</span>
+</a>
+<!-- Inquiry History (Active - determined by task) -->
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container font-label-bold rounded-lg px-4 py-3 shadow-sm transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="manage_history">manage_history</span>
+<span class="font-body-md text-body-md tracking-tight">Inquiry History</span>
+</a>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant flex items-center gap-3 px-xs">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold">
+                LM
+            </div>
+<div class="overflow-hidden">
+<p class="font-label-bold text-primary truncate">Lebo G. Molosi</p>
+<p class="text-xs text-on-surface-variant truncate">Institutional Admin</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-72 min-h-screen">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 right-0 w-[calc(100%-18rem)] h-20 px-gutter bg-surface/95 backdrop-blur-sm border-b border-outline-variant flex justify-between items-center z-40">
+<h2 class="font-h3 text-h3 font-semibold text-primary">Institutional Portal</h2>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border border-outline rounded-lg text-body-sm focus:ring-2 focus:ring-secondary outline-none w-64 transition-all" placeholder="Global report search..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-1"></div>
+<button class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="pt-20 p-gutter">
+<!-- Page Header Section -->
+<div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="font-h1 text-h1 text-primary">Inquiry History</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">
+                        Comprehensive audit trail of all credit search activities. Review historical search parameters and system results for regulatory compliance monitoring.
+                    </p>
+</div>
+<button class="bg-primary-container text-white px-md py-3 rounded-lg font-label-bold flex items-center gap-2 hover:bg-primary transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    Export Log
+                </button>
+</div>
+<!-- Dashboard Analytics Preview (Bento-lite) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-lg">
+<div class="bg-surface-container-lowest p-md border border-outline-variant rounded-xl shadow-sm">
+<p class="text-body-sm text-on-surface-variant font-medium">Total Inquiries (30d)</p>
+<h3 class="text-h2 font-h2 text-primary mt-1">1,284</h3>
+<div class="flex items-center gap-1 text-green-600 text-xs font-bold mt-2">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                        +12.4% vs last month
+                    </div>
+</div>
+<div class="bg-surface-container-lowest p-md border border-outline-variant rounded-xl shadow-sm">
+<p class="text-body-sm text-on-surface-variant font-medium">Unique Applicants</p>
+<h3 class="text-h2 font-h2 text-primary mt-1">942</h3>
+<p class="text-xs text-on-surface-variant mt-2">Last inquiry 4 mins ago</p>
+</div>
+<div class="bg-surface-container-lowest p-md border border-outline-variant rounded-xl shadow-sm">
+<p class="text-body-sm text-on-surface-variant font-medium">High Risk Flagged</p>
+<h3 class="text-h2 font-h2 text-error mt-1">42</h3>
+<p class="text-xs text-error mt-2 font-bold">Action Required: 3</p>
+</div>
+<div class="relative overflow-hidden bg-primary p-md rounded-xl shadow-md text-white">
+<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" data-alt="A professional banking administrative dashboard visualization with abstract data curves and charts. The setting is a high-tech financial office at dusk with soft cool lighting. The style is ultra-modern corporate with deep navy blues and glowing cyan accents that reflect a feeling of trust and institutional reliability. The image emphasizes precision and data integrity." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div class="relative z-10">
+<p class="text-body-sm opacity-80 font-medium">System Integrity</p>
+<h3 class="text-h2 font-h2 mt-1">99.9%</h3>
+<p class="text-xs opacity-70 mt-2">Uptime verified by Botswana ICT</p>
+</div>
+</div>
+</div>
+<!-- Filters Section -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md mb-md shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md items-end">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-bold text-on-surface-variant">Date Range</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="calendar_today">calendar_today</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-white border border-outline-variant rounded-lg text-body-sm focus:border-secondary-container focus:ring-2 focus:ring-secondary-container outline-none" type="text" value="Oct 01, 2024 - Oct 31, 2024"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-bold text-on-surface-variant">Inquiry Reason</label>
+<select class="w-full px-4 py-2.5 bg-white border border-outline-variant rounded-lg text-body-sm focus:border-secondary-container focus:ring-2 focus:ring-secondary-container outline-none appearance-none">
+<option>All Reasons</option>
+<option>Credit Application</option>
+<option>Account Review</option>
+<option>Employment</option>
+<option>Collection Agency</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-bold text-on-surface-variant">Requested By</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="person">person</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-white border border-outline-variant rounded-lg text-body-sm focus:border-secondary-container focus:ring-2 focus:ring-secondary-container outline-none" placeholder="Search staff member..." type="text"/>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-surface-container text-primary px-md py-2.5 rounded-lg font-label-bold hover:bg-surface-container-high transition-colors">
+                            Reset
+                        </button>
+<button class="flex-1 bg-secondary text-white px-md py-2.5 rounded-lg font-label-bold hover:opacity-90 transition-opacity">
+                            Apply Filter
+                        </button>
+</div>
+</div>
+</div>
+<!-- Data Table Section -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b-2 border-primary-container">
+<th class="px-md py-4 font-label-bold text-primary">Report ID</th>
+<th class="px-md py-4 font-label-bold text-primary">Search Parameters</th>
+<th class="px-md py-4 font-label-bold text-primary">Borrower Name</th>
+<th class="px-md py-4 font-label-bold text-primary">Inquiry Reason</th>
+<th class="px-md py-4 font-label-bold text-primary">Requested By</th>
+<th class="px-md py-4 font-label-bold text-primary">Timestamp</th>
+<th class="px-md py-4 font-label-bold text-primary">Result</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface transition-colors">
+<td class="px-md py-4">
+<a class="text-secondary font-bold hover:underline" href="#">#R-8829-001</a>
+</td>
+<td class="px-md py-4 font-data-tabular text-body-sm text-on-surface-variant">Omang: 4522****9</td>
+<td class="px-md py-4 font-medium text-on-surface">Thabo M*****</td>
+<td class="px-md py-4">
+<span class="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Credit Application</span>
+</td>
+<td class="px-md py-4 text-body-sm">Lebo G. Molosi</td>
+<td class="px-md py-4 font-data-tabular text-xs text-on-surface-variant">24 Oct 2024, 14:32</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center gap-1 bg-green-100 text-green-800 px-2.5 py-0.5 rounded-md text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                                        Match
+                                    </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-lowest/50 hover:bg-surface transition-colors">
+<td class="px-md py-4">
+<a class="text-secondary font-bold hover:underline" href="#">#R-8829-002</a>
+</td>
+<td class="px-md py-4 font-data-tabular text-body-sm text-on-surface-variant">Passport: BW77****4</td>
+<td class="px-md py-4 font-medium text-on-surface">Sarah K*****</td>
+<td class="px-md py-4">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Account Review</span>
+</td>
+<td class="px-md py-4 text-body-sm">Keneilwe D.</td>
+<td class="px-md py-4 font-data-tabular text-xs text-on-surface-variant">24 Oct 2024, 11:15</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center gap-1 bg-green-100 text-green-800 px-2.5 py-0.5 rounded-md text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                                        Match
+                                    </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface transition-colors">
+<td class="px-md py-4">
+<a class="text-secondary font-bold hover:underline" href="#">#R-8829-003</a>
+</td>
+<td class="px-md py-4 font-data-tabular text-body-sm text-on-surface-variant">Omang: 1092****1</td>
+<td class="px-md py-4 font-medium text-on-surface">Neo S*****</td>
+<td class="px-md py-4">
+<span class="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Employment</span>
+</td>
+<td class="px-md py-4 text-body-sm">Lebo G. Molosi</td>
+<td class="px-md py-4 font-data-tabular text-xs text-on-surface-variant">23 Oct 2024, 16:45</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center gap-1 bg-surface-variant text-on-surface-variant px-2.5 py-0.5 rounded-md text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                        No Match
+                                    </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-lowest/50 hover:bg-surface transition-colors">
+<td class="px-md py-4">
+<a class="text-secondary font-bold hover:underline" href="#">#R-8828-984</a>
+</td>
+<td class="px-md py-4 font-data-tabular text-body-sm text-on-surface-variant">Omang: 9928****5</td>
+<td class="px-md py-4 font-medium text-on-surface">Goitse T*****</td>
+<td class="px-md py-4">
+<span class="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Credit Application</span>
+</td>
+<td class="px-md py-4 text-body-sm">Pako M.</td>
+<td class="px-md py-4 font-data-tabular text-xs text-on-surface-variant">23 Oct 2024, 09:12</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center gap-1 bg-green-100 text-green-800 px-2.5 py-0.5 rounded-md text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                                        Match
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-md py-4 border-t border-outline-variant flex items-center justify-between bg-surface-container-low/30">
+<div class="text-body-sm text-on-surface-variant">
+                        Showing <span class="font-bold">1 - 10</span> of <span class="font-bold">1,284</span> entries
+                    </div>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container-high transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex items-center">
+<button class="w-8 h-8 rounded bg-secondary text-white font-label-bold">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high font-label-bold transition-colors">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high font-label-bold transition-colors">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high font-label-bold transition-colors">129</button>
+</div>
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Audit Note Section -->
+<div class="mt-lg p-md border-l-4 border-primary-container bg-surface-container-low rounded-r-xl">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="gavel">gavel</span>
+<div>
+<h4 class="font-label-bold text-primary">Compliance Reminder</h4>
+<p class="text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                            Under the Botswana Credit Reporting Act, all inquiries must be supported by legitimate business purpose and, where required, explicit consumer consent. This log is monitored by the MFCB internal compliance team and the central bank.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="p-gutter text-center border-t border-outline-variant mt-xl text-body-sm text-on-surface-variant">
+            © 2024 Botswana Credit Bureau (MFCB) Institutional Portal. All rights reserved. 
+            <div class="mt-1 flex justify-center gap-4 text-xs font-label-bold">
+<a class="hover:text-primary transition-colors" href="#">Terms of Use</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Data Ethics</a>
+</div>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-tint": "#3a5f94",
+                        "surface-container": "#eceef0",
+                        "outline-variant": "#c3c6d1",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-container": "#97ccfe",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary-container": "#799dd6",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "inverse-primary": "#a7c8ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "secondary": "#28628f",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-container": "#949bb4",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "background": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#cee5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#175683",
+                        "surface": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#2b3347",
+                        "primary-fixed": "#d5e3ff",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface-variant": "#43474f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed": "#001d32",
+                        "tertiary": "#161e31",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "primary-container": "#003366",
+                        "on-background": "#191c1e",
+                        "primary": "#001e40",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "outline": "#737780"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "64px",
+                        "sm": "16px",
+                        "base": "4px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "xs": "8px",
+                        "md": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .zebra-table tr:nth-child(even) { background-color: #F1F5F9; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-surface border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center px-gutter w-full docked full-width top-0 z-50 fixed h-16">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed">MFCB Bureau Manager</span>
+<div class="hidden md:flex gap-md ml-lg">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold hover:text-secondary transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-label-bold border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="#">Match Queue</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold hover:text-secondary transition-colors duration-200" href="#">Credit Search</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-bold hover:text-secondary transition-colors duration-200" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline ml-sm">
+<img alt="Admin Avatar" class="h-full w-full object-cover" data-alt="A professional headshot of a middle-aged administrative professional in a formal business suit, set against a blurred, modern office background. The lighting is bright and directional, emphasizing competence and institutional trust. The color palette is dominated by neutral greys and crisp whites, aligning with the corporate light-mode aesthetic." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-surface-dim border-r border-outline-variant dark:border-outline flex flex-col pt-16 z-40">
+<div class="px-md py-md border-b border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<div class="h-10 w-10 bg-primary-container rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-primary dark:text-primary-fixed-dim">Resolution Desk</p>
+<p class="text-xs text-on-surface-variant">Manual Match Protocol</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-md overflow-y-auto">
+<a class="bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 font-label-bold" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+                Identity Resolution
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 font-label-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                Conflict Log
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 font-label-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+                Risk Models
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 font-label-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+                Bulk Upload
+            </a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 font-label-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Help Center
+            </a>
+</nav>
+<div class="p-md bg-surface-container-high/50">
+<div class="flex items-center gap-2 text-primary font-label-bold">
+<span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                System Status: Active
+            </div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 pt-20 pb-xl px-gutter">
+<!-- Header & Global Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-lg gap-md">
+<div>
+<nav class="flex text-on-surface-variant text-sm mb-xs gap-1">
+<span class="hover:underline cursor-pointer">Resolution Desk</span>
+<span>/</span>
+<span class="font-bold text-primary">Identity Resolution</span>
+</nav>
+<h1 class="font-h1 text-h1 text-primary">Match Resolution</h1>
+<p class="text-on-surface-variant font-body-md mt-1">Manual review required for system-flagged identity conflicts.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm bg-surface-container-highest text-on-surface font-label-bold rounded transition-all hover:bg-outline-variant/30 active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-body-lg" data-icon="info">info</span>
+                    Request More Info
+                </button>
+<button class="px-md py-sm border-2 border-error text-error font-label-bold rounded transition-all hover:bg-error-container/30 active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-body-lg" data-icon="close">close</span>
+                    Reject All / No Match
+                </button>
+</div>
+</div>
+<!-- Inquiry Parameters Card (Reference Data) -->
+<section class="mb-lg">
+<div class="bg-primary-container text-white rounded-xl shadow-lg p-md relative overflow-hidden">
+<div class="absolute right-0 top-0 opacity-10 p-md">
+<span class="material-symbols-outlined text-[120px]" data-icon="fingerprint">fingerprint</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-md">
+<span class="px-sm py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wider">Reference Inquiry Data</span>
+<span class="text-white/70 text-sm">Source: First National Bank (FNB)</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg">
+<div class="flex flex-col">
+<span class="text-on-primary-container text-xs font-label-bold uppercase mb-1">Omang (ID)</span>
+<span class="font-h3 text-h3 font-bold">4522****9</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-primary-container text-xs font-label-bold uppercase mb-1">Full Name</span>
+<span class="font-h3 text-h3 font-bold">Thabo P. Molefe</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-primary-container text-xs font-label-bold uppercase mb-1">Date of Birth</span>
+<span class="font-h3 text-h3 font-bold">14 May 1985</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-primary-container text-xs font-label-bold uppercase mb-1">Registered Address</span>
+<span class="font-h3 text-h3 font-bold">Plot 450, Phase 2, Gaborone</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Candidate Comparison Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- Card 1: Candidate A -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm flex flex-col">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-emerald-50/50">
+<div class="flex items-center gap-sm">
+<span class="h-8 w-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold">A</span>
+<h3 class="font-label-bold text-primary uppercase">Candidate A</h3>
+</div>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-1 rounded">High Confidence</span>
+</div>
+<div class="p-md flex-1 space-y-lg">
+<!-- Omang -->
+<div class="flex items-start gap-md">
+<div class="text-emerald-600 mt-1">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Omang</p>
+<p class="font-data-tabular text-body-lg font-bold">4522****9</p>
+<p class="text-xs text-emerald-600 font-bold mt-1">Direct Match</p>
+</div>
+</div>
+<!-- Name -->
+<div class="flex items-start gap-md">
+<div class="text-emerald-600 mt-1">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Full Name</p>
+<p class="font-data-tabular text-body-lg font-bold">Thabo P. Molefe</p>
+<p class="text-xs text-emerald-600 font-bold mt-1">Exact Match</p>
+</div>
+</div>
+<!-- DOB -->
+<div class="flex items-start gap-md">
+<div class="text-emerald-600 mt-1">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Date of Birth</p>
+<p class="font-data-tabular text-body-lg font-bold">14 May 1985</p>
+<p class="text-xs text-emerald-600 font-bold mt-1">Exact Match</p>
+</div>
+</div>
+<!-- Address -->
+<div class="flex items-start gap-md">
+<div class="text-emerald-600 mt-1">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Address</p>
+<p class="font-data-tabular text-body-lg font-bold">Plot 450, Phase 2, Gaborone</p>
+<p class="text-xs text-emerald-600 font-bold mt-1">Exact Match</p>
+</div>
+</div>
+<!-- Stats -->
+<div class="pt-md border-t border-outline-variant flex justify-between">
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Active Accounts</p>
+<p class="font-data-tabular text-h3 font-bold text-primary">8</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Record Score</p>
+<p class="font-data-tabular text-h3 font-bold text-emerald-600">99.8%</p>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-low border-t border-outline-variant">
+<button class="w-full py-sm bg-primary text-white font-label-bold rounded shadow transition-all hover:bg-primary/90 active:scale-95">Confirm Match</button>
+</div>
+</div>
+<!-- Card 2: Candidate B -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm flex flex-col">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-amber-50/50">
+<div class="flex items-center gap-sm">
+<span class="h-8 w-8 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold">B</span>
+<h3 class="font-label-bold text-primary uppercase">Candidate B</h3>
+</div>
+<span class="bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded">Moderate Conflict</span>
+</div>
+<div class="p-md flex-1 space-y-lg">
+<!-- Omang -->
+<div class="flex items-start gap-md">
+<div class="text-emerald-600 mt-1">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Omang</p>
+<p class="font-data-tabular text-body-lg font-bold">4522****9</p>
+<p class="text-xs text-emerald-600 font-bold mt-1">Direct Match</p>
+</div>
+</div>
+<!-- Name (Partial) -->
+<div class="flex items-start gap-md">
+<div class="text-amber-600 mt-1">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Full Name</p>
+<p class="font-data-tabular text-body-lg font-bold bg-amber-100/50 px-1">Thabo <span class="text-amber-700 font-extrabold underline decoration-2">Peter</span> Molefe</p>
+<p class="text-xs text-amber-600 font-bold mt-1">Partial - Middle Name Variance</p>
+</div>
+</div>
+<!-- DOB -->
+<div class="flex items-start gap-md">
+<div class="text-emerald-600 mt-1">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Date of Birth</p>
+<p class="font-data-tabular text-body-lg font-bold">14 May 1985</p>
+<p class="text-xs text-emerald-600 font-bold mt-1">Exact Match</p>
+</div>
+</div>
+<!-- Address (No Match) -->
+<div class="flex items-start gap-md">
+<div class="text-error mt-1">
+<span class="material-symbols-outlined" data-icon="cancel" style="font-variation-settings: 'FILL' 1;">cancel</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Address</p>
+<p class="font-data-tabular text-body-lg font-bold bg-error-container/20 px-1 text-on-surface-variant">Plot 12, Extension 4, Lobatse</p>
+<p class="text-xs text-error font-bold mt-1">No Match - Secondary Residence?</p>
+</div>
+</div>
+<!-- Stats -->
+<div class="pt-md border-t border-outline-variant flex justify-between">
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Active Accounts</p>
+<p class="font-data-tabular text-h3 font-bold text-primary">2</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Record Score</p>
+<p class="font-data-tabular text-h3 font-bold text-amber-600">72.4%</p>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-low border-t border-outline-variant">
+<button class="w-full py-sm bg-primary text-white font-label-bold rounded shadow transition-all hover:bg-primary/90 active:scale-95">Confirm Match</button>
+</div>
+</div>
+<!-- Card 3: Candidate C -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm flex flex-col">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-error-container/10">
+<div class="flex items-center gap-sm">
+<span class="h-8 w-8 bg-error text-white rounded-full flex items-center justify-center font-bold">C</span>
+<h3 class="font-label-bold text-primary uppercase">Candidate C</h3>
+</div>
+<span class="bg-error-container text-on-error-container text-xs font-bold px-2 py-1 rounded">Low Confidence</span>
+</div>
+<div class="p-md flex-1 space-y-lg">
+<!-- Omang -->
+<div class="flex items-start gap-md">
+<div class="text-emerald-600 mt-1">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Omang</p>
+<p class="font-data-tabular text-body-lg font-bold">4522****9</p>
+<p class="text-xs text-emerald-600 font-bold mt-1">Direct Match</p>
+</div>
+</div>
+<!-- Name (Partial) -->
+<div class="flex items-start gap-md">
+<div class="text-amber-600 mt-1">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Full Name</p>
+<p class="font-data-tabular text-body-lg font-bold">T. P. Molefe</p>
+<p class="text-xs text-amber-600 font-bold mt-1">Partial - Initials Only</p>
+</div>
+</div>
+<!-- DOB (No Match) -->
+<div class="flex items-start gap-md">
+<div class="text-error mt-1">
+<span class="material-symbols-outlined" data-icon="cancel" style="font-variation-settings: 'FILL' 1;">cancel</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Date of Birth</p>
+<p class="font-data-tabular text-body-lg font-bold bg-error-container/50 px-1">14 May <span class="text-error font-extrabold underline decoration-2">1982</span></p>
+<p class="text-xs text-error font-bold mt-1">No Match - Year Mismatch</p>
+</div>
+</div>
+<!-- Address (No Record) -->
+<div class="flex items-start gap-md">
+<div class="text-outline mt-1">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Address</p>
+<p class="font-data-tabular text-body-lg font-bold italic text-outline">[No Record Found]</p>
+<p class="text-xs text-on-surface-variant font-bold mt-1">N/A</p>
+</div>
+</div>
+<!-- Stats -->
+<div class="pt-md border-t border-outline-variant flex justify-between">
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Active Accounts</p>
+<p class="font-data-tabular text-h3 font-bold text-primary">0</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant uppercase font-label-bold">Record Score</p>
+<p class="font-data-tabular text-h3 font-bold text-error">18.2%</p>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-low border-t border-outline-variant">
+<button class="w-full py-sm bg-primary text-white font-label-bold rounded shadow transition-all hover:bg-primary/90 active:scale-95">Confirm Match</button>
+</div>
+</div>
+</section>
+<!-- Contextual Notes / Audit Trail -->
+<section class="mt-lg grid grid-cols-1 lg:grid-cols-3 gap-md">
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<h4 class="font-label-bold text-primary mb-md flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="comment">comment</span>
+                    Analyst Resolution Notes
+                </h4>
+<textarea class="w-full border-outline-variant rounded-lg p-md font-body-md focus:ring-secondary-container h-32" placeholder="Provide justification for match selection or rejection..."></textarea>
+<div class="flex justify-end mt-sm">
+<button class="px-md py-2 bg-secondary text-white font-label-bold rounded transition-all hover:bg-secondary/90">Save Draft Note</button>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md">
+<h4 class="font-label-bold text-primary mb-md">Protocol Checklist</h4>
+<ul class="space-y-sm text-sm">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600" data-icon="check_box" style="font-variation-settings: 'FILL' 1;">check_box</span>
+<span class="text-on-surface">Omang Verified against Reference</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600" data-icon="check_box" style="font-variation-settings: 'FILL' 1;">check_box</span>
+<span class="text-on-surface">Primary Name Phonetic Check</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+<span class="text-on-surface-variant">Residential History Cross-Reference</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+<span class="text-on-surface-variant">Employment Data Validation</span>
+</li>
+</ul>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="ml-64 bg-surface-container-highest dark:bg-surface-container border-t border-outline-variant full-width py-md px-gutter flex flex-col md:flex-row justify-between items-center text-on-surface-variant dark:text-on-surface font-body-sm">
+<div class="font-label-bold text-label-bold text-primary">
+            © 2024 Botswana Credit Bureau (MFCB). Institutional Access Only.
+        </div>
+<div class="flex gap-md mt-md md:mt-0">
+<a class="hover:underline decoration-secondary transition-all duration-150" href="#">Privacy Policy</a>
+<a class="hover:underline decoration-secondary transition-all duration-150" href="#">Terms of Service</a>
+<a class="hover:underline decoration-secondary transition-all duration-150" href="#">Security Protocol</a>
+</div>
+</footer>
+</body></html>

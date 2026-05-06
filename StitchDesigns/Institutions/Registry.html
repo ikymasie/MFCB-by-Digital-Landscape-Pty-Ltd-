@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container": "#eceef0",
+                        "on-secondary-container": "#175683",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#001d32",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-container": "#799dd6",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "primary": "#001e40",
+                        "on-surface-variant": "#43474f",
+                        "tertiary-container": "#2b3347",
+                        "surface-bright": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "surface": "#f7f9fb",
+                        "inverse-primary": "#a7c8ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "background": "#f7f9fb",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#737780",
+                        "on-tertiary-fixed": "#131b2e",
+                        "secondary": "#28628f",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#161e31",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#97ccfe",
+                        "surface-tint": "#3a5f94",
+                        "secondary-fixed": "#cee5ff",
+                        "primary-container": "#003366",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-surface": "#2d3133",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-fixed": "#d5e3ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-tertiary-container": "#949bb4",
+                        "outline-variant": "#c3c6d1",
+                        "on-background": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "xl": "64px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "sm": "16px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "body-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container font-body-md text-body-md docked full-width top-0 border-b border-outline-variant shadow-sm flex justify-between items-center w-full px-gutter h-16 sticky z-50">
+<div class="flex items-center gap-md">
+<span class="font-h3 text-h3 font-bold text-on-primary dark:text-on-primary-container">MFCB Institution Registry</span>
+<nav class="hidden md:flex items-center gap-sm ml-lg">
+<a class="text-on-primary-fixed-variant opacity-80 hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-colors px-sm py-xs rounded active:scale-95 duration-150" href="#">Dashboard</a>
+<a class="text-on-primary font-bold border-b-2 border-secondary-fixed hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-colors px-sm py-xs rounded active:scale-95 duration-150" href="#">Institutions</a>
+<a class="text-on-primary-fixed-variant opacity-80 hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-colors px-sm py-xs rounded active:scale-95 duration-150" href="#">Reports</a>
+<a class="text-on-primary-fixed-variant opacity-80 hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-colors px-sm py-xs rounded active:scale-95 duration-150" href="#">Audit Logs</a>
+<a class="text-on-primary-fixed-variant opacity-80 hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-colors px-sm py-xs rounded active:scale-95 duration-150" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-secondary-fixed text-on-secondary-fixed px-sm py-xs rounded font-label-bold text-label-bold flex items-center gap-xs hover:bg-secondary-container transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                Add Institution
+            </button>
+<div class="flex items-center gap-xs px-xs border-l border-outline-variant ml-xs">
+<button class="material-symbols-outlined p-xs hover:bg-primary-fixed-dim rounded-full transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-xs hover:bg-primary-fixed-dim rounded-full transition-colors" data-icon="help_outline">help_outline</button>
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden ml-xs border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a financial services administrator in a crisp white shirt, set against a blurred modern office background with deep navy blue and sky blue lighting accents. The lighting is soft and corporate, conveying a mood of reliability and authoritative precision. The visual style is clean and high-key, perfectly aligning with a premium institution registry interface." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-gutter py-lg max-w-container-max">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-lg gap-md">
+<div>
+<h1 class="font-h1 text-h1 text-primary mb-xs">Institution Registry</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Manage and monitor participating financial institutions. Ensure regulatory compliance and manage product-level data submission permissions across the Botswana credit ecosystem.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container-high border border-outline-variant text-on-surface px-md py-sm rounded font-label-bold text-label-bold flex items-center gap-xs hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    Export CSV
+                </button>
+</div>
+</div>
+<!-- Controls / Filters -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md shadow-sm mb-md flex flex-wrap items-center gap-md">
+<div class="flex-grow min-w-[300px] relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-[48px] pr-md py-sm border border-outline rounded-lg bg-surface-bright focus:ring-2 focus:ring-secondary-fixed focus:border-secondary-fixed transition-all text-body-md" placeholder="Search by institution name or SRN..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<div class="flex flex-col">
+<label class="font-label-bold text-[11px] uppercase tracking-wider text-outline mb-1">Status</label>
+<select class="border border-outline rounded-lg py-sm px-md bg-surface-bright text-body-md focus:ring-secondary-fixed">
+<option>All Statuses</option>
+<option>Active</option>
+<option>Suspended</option>
+<option>Pending</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="font-label-bold text-[11px] uppercase tracking-wider text-outline mb-1">Product Type</label>
+<select class="border border-outline rounded-lg py-sm px-md bg-surface-bright text-body-md focus:ring-secondary-fixed">
+<option>All Products</option>
+<option>Personal Loan</option>
+<option>Credit Card</option>
+<option>Home Loan</option>
+</select>
+</div>
+<button class="mt-auto bg-primary text-on-primary px-lg py-sm rounded font-label-bold text-label-bold hover:bg-secondary transition-all">Apply Filters</button>
+</div>
+</div>
+<!-- Main Content: Data Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b-2 border-primary-container">
+<th class="px-md py-md text-left font-label-bold text-label-bold text-primary">Institution Name</th>
+<th class="px-md py-md text-left font-label-bold text-label-bold text-primary">SRN</th>
+<th class="px-md py-md text-left font-label-bold text-label-bold text-primary">Status</th>
+<th class="px-md py-md text-left font-label-bold text-label-bold text-primary">Products Enabled</th>
+<th class="px-md py-md text-left font-label-bold text-label-bold text-primary">Last Submission</th>
+<th class="px-md py-md text-right font-label-bold text-label-bold text-primary">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-md py-md">
+<div class="flex flex-col">
+<span class="font-data-tabular text-data-tabular text-primary font-bold">First National Bank Botswana</span>
+<span class="text-[12px] text-outline">Tier 1 Commercial Bank</span>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-on-surface-variant">SRN-00124</td>
+<td class="px-md py-md">
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-green-100 text-green-800 text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600 mr-xs"></span>
+                                    Active
+                                </span>
+</td>
+<td class="px-md py-md">
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-high px-xs py-0.5 rounded text-[11px] font-label-bold text-on-secondary-container border border-outline-variant">Personal Loan</span>
+<span class="bg-surface-container-high px-xs py-0.5 rounded text-[11px] font-label-bold text-on-secondary-container border border-outline-variant">Credit Card</span>
+<span class="bg-surface-container-high px-xs py-0.5 rounded text-[11px] font-label-bold text-on-secondary-container border border-outline-variant">Home Loan</span>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-on-surface-variant">Oct 24, 2024</td>
+<td class="px-md py-md text-right">
+<div class="flex justify-end gap-xs">
+<button class="material-symbols-outlined text-secondary hover:text-primary p-1 rounded hover:bg-secondary-fixed transition-all" title="View Details">visibility</button>
+<button class="material-symbols-outlined text-secondary hover:text-primary p-1 rounded hover:bg-secondary-fixed transition-all" title="Edit">edit</button>
+<button class="material-symbols-outlined text-error hover:bg-error-container p-1 rounded transition-all" title="Suspend">block</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-md py-md">
+<div class="flex flex-col">
+<span class="font-data-tabular text-data-tabular text-primary font-bold">Stanbic Bank</span>
+<span class="text-[12px] text-outline">Commercial Institution</span>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-on-surface-variant">SRN-00135</td>
+<td class="px-md py-md">
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-green-100 text-green-800 text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600 mr-xs"></span>
+                                    Active
+                                </span>
+</td>
+<td class="px-md py-md">
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-high px-xs py-0.5 rounded text-[11px] font-label-bold text-on-secondary-container border border-outline-variant">Personal Loan</span>
+<span class="bg-surface-container-high px-xs py-0.5 rounded text-[11px] font-label-bold text-on-secondary-container border border-outline-variant">Credit Card</span>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-on-surface-variant">Oct 23, 2024</td>
+<td class="px-md py-md text-right">
+<div class="flex justify-end gap-xs">
+<button class="material-symbols-outlined text-secondary p-1">visibility</button>
+<button class="material-symbols-outlined text-secondary p-1">edit</button>
+<button class="material-symbols-outlined text-error p-1">block</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-md py-md">
+<div class="flex flex-col">
+<span class="font-data-tabular text-data-tabular text-primary font-bold">ABSA Botswana</span>
+<span class="text-[12px] text-outline">Tier 1 Commercial Bank</span>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-on-surface-variant">SRN-00142</td>
+<td class="px-md py-md">
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-amber-100 text-amber-800 text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600 mr-xs"></span>
+                                    Pending
+                                </span>
+</td>
+<td class="px-md py-md">
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-high px-xs py-0.5 rounded text-[11px] font-label-bold text-on-secondary-container border border-outline-variant">Home Loan</span>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-on-surface-variant">N/A</td>
+<td class="px-md py-md text-right">
+<div class="flex justify-end gap-xs">
+<button class="material-symbols-outlined text-secondary p-1">visibility</button>
+<button class="material-symbols-outlined text-secondary p-1">edit</button>
+<button class="material-symbols-outlined text-error p-1">block</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-md py-md">
+<div class="flex flex-col">
+<span class="font-data-tabular text-data-tabular text-primary font-bold">Botswana Savings Bank</span>
+<span class="text-[12px] text-outline">State-Owned Institution</span>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-on-surface-variant">SRN-00158</td>
+<td class="px-md py-md">
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-red-100 text-red-800 text-[12px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-red-600 mr-xs"></span>
+                                    Suspended
+                                </span>
+</td>
+<td class="px-md py-md">
+<div class="flex flex-wrap gap-xs opacity-50">
+<span class="bg-surface-container-high px-xs py-0.5 rounded text-[11px] font-label-bold text-on-secondary-container border border-outline-variant">Personal Loan</span>
+</div>
+</td>
+<td class="px-md py-md font-data-tabular text-on-surface-variant">Sep 12, 2024</td>
+<td class="px-md py-md text-right">
+<div class="flex justify-end gap-xs">
+<button class="material-symbols-outlined text-secondary p-1">visibility</button>
+<button class="material-symbols-outlined text-secondary p-1">edit</button>
+<button class="material-symbols-outlined text-primary p-1" title="Activate">check_circle</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-md py-sm bg-surface-container-high flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1 to 4 of 28 Institutions</span>
+<div class="flex gap-xs">
+<button class="p-xs border border-outline-variant rounded bg-surface-container-lowest opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="px-sm py-xs border border-primary bg-primary text-on-primary rounded text-[12px] font-bold">1</button>
+<button class="px-sm py-xs border border-outline-variant bg-surface-container-lowest text-on-surface rounded text-[12px] font-bold hover:bg-surface-container">2</button>
+<button class="px-sm py-xs border border-outline-variant bg-surface-container-lowest text-on-surface rounded text-[12px] font-bold hover:bg-surface-container">3</button>
+<button class="p-xs border border-outline-variant rounded bg-surface-container-lowest hover:bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Contextual Stats Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md mt-lg">
+<div class="bg-primary-container text-on-primary-container p-md rounded-xl shadow-sm border border-primary">
+<h3 class="font-label-bold text-[12px] uppercase opacity-70 mb-xs">Active Registry</h3>
+<p class="text-[32px] font-h2 mb-1">24</p>
+<p class="text-[12px] font-body-sm">+2 from last month</p>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<h3 class="font-label-bold text-[12px] uppercase text-outline mb-xs">Submission Compliance</h3>
+<p class="text-[32px] font-h2 text-primary mb-1">98.2%</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 98.2%"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<h3 class="font-label-bold text-[12px] uppercase text-outline mb-xs">Pending Approvals</h3>
+<p class="text-[32px] font-h2 text-primary mb-1">3</p>
+<p class="text-[12px] font-body-sm text-secondary font-bold">Action Required</p>
+</div>
+<div class="bg-error-container p-md rounded-xl shadow-sm border border-error">
+<h3 class="font-label-bold text-[12px] uppercase text-on-error-container opacity-70 mb-xs">Suspended Entities</h3>
+<p class="text-[32px] font-h2 text-on-error-container mb-1">1</p>
+<p class="text-[12px] font-body-sm text-on-error-container">Audit in progress</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high dark:bg-surface-dim text-on-surface-variant dark:text-on-surface font-body-sm text-body-sm full-width bottom-0 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center py-md px-gutter w-full mt-auto">
+<div class="flex flex-col items-center md:items-start gap-1">
+<span class="font-label-bold text-label-bold text-primary dark:text-inverse-primary uppercase tracking-widest">MFCB Institution Registry</span>
+<p>© 2024 Botswana Credit Bureau (MFCB). All rights reserved. Precise Data. Trusted Credit.</p>
+</div>
+<div class="flex gap-md mt-md md:mt-0">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Compliance</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+</body></html>

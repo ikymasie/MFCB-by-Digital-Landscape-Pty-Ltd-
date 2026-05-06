@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MFCB Platform | Data Quality Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#97ccfe",
+                      "surface-variant": "#e0e3e5",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#dae2fd",
+                      "on-secondary-fixed-variant": "#004a75",
+                      "surface-bright": "#f7f9fb",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-surface": "#191c1e",
+                      "surface-container-low": "#f2f4f6",
+                      "tertiary-fixed-dim": "#bec6e0",
+                      "surface-dim": "#d8dadc",
+                      "on-tertiary-fixed": "#131b2e",
+                      "on-primary": "#ffffff",
+                      "secondary": "#28628f",
+                      "outline": "#737780",
+                      "surface-container": "#eceef0",
+                      "on-primary-fixed": "#001b3c",
+                      "inverse-primary": "#a7c8ff",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#1f477b",
+                      "on-tertiary-container": "#949bb4",
+                      "outline-variant": "#c3c6d1",
+                      "on-secondary-container": "#175683",
+                      "on-tertiary-fixed-variant": "#3f465c",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#2b3347",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f7f9fb",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed": "#001d32",
+                      "surface-tint": "#3a5f94",
+                      "primary-fixed-dim": "#a7c8ff",
+                      "primary-container": "#003366",
+                      "primary": "#001e40",
+                      "on-primary-container": "#799dd6",
+                      "tertiary": "#161e31",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-surface-variant": "#43474f",
+                      "on-error": "#ffffff",
+                      "on-background": "#191c1e",
+                      "secondary-fixed-dim": "#97ccfe",
+                      "surface": "#f7f9fb",
+                      "primary-fixed": "#d5e3ff",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed": "#cee5ff",
+                      "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "container-max": "1280px",
+                      "xl": "64px",
+                      "md": "24px",
+                      "xs": "8px",
+                      "gutter": "24px",
+                      "sm": "16px",
+                      "lg": "48px"
+              },
+              "fontFamily": {
+                      "data-tabular": ["Public Sans"],
+                      "body-sm": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "label-bold": ["Public Sans"],
+                      "h3": ["Public Sans"],
+                      "h2": ["Public Sans"],
+                      "h1": ["Public Sans"],
+                      "body-lg": ["Public Sans"]
+              },
+              "fontSize": {
+                      "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fb;
+        }
+        .zebra-table tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-md bg-surface-container-lowest dark:bg-surface-container-low border-r border-outline-variant dark:border-outline w-64 z-40">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-3">
+<img alt="Logo" class="w-10 h-10 rounded-lg" data-alt="A professional, high-fidelity corporate logo for the Botswana Credit Bureau featuring abstract geometric shapes in deep navy blue and sky blue. The design is clean and institutional, set against a pristine white background. The visual style is modern, minimalist, and authoritative, representing financial stability and data precision in a light-mode aesthetic." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+<div>
+<h1 class="font-h3 text-h3 font-bold text-primary">Bureau Admin</h1>
+<p class="text-[10px] uppercase tracking-wider text-outline">Institutional Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all font-label-bold" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all font-label-bold" href="#">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+                Batch Submissions
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all font-label-bold" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Credit Reports
+            </a>
+<a class="bg-secondary-container text-on-secondary-container rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 font-label-bold" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+                Data Quality
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all font-label-bold" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                Audit Logs
+            </a>
+</nav>
+<div class="px-md mt-auto">
+<button class="w-full bg-primary-container text-on-primary py-3 rounded-lg font-label-bold flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Submission
+            </button>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-md h-16 bg-surface-container-lowest sticky top-0 z-50 border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-gutter w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-sm focus:ring-2 focus:ring-secondary" placeholder="Search institutional data..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface-container-lowest"></span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-1"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="font-label-bold text-on-surface text-xs leading-none">Admin User</p>
+<p class="text-[10px] text-outline">Compliance Officer</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjKDJNbn7qU3y5OtAj4OJJFDXQTgq4mDhJwyVr30k4flr3tZKg0pF0LaPRJuM7Qooi0rMkxsVFprnojYJEkDlTpH2LxEn9Tsz4bIZE7NW5jvesOnzHI2WHTzhIQX0i2yDAy1zTW12fYK_ooWiSuqGHSpFdvaYNI2mJRA52okOzJX9y-j5TobeCO5FbCaD-mIEka3q3nuOgHRrXiXkao864b8pqW3t_cwwfDi7nEdcCOu7I4dNptSQquP7m7ak5QPZkbAeTRHiImURC"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="p-gutter flex-1 space-y-gutter">
+<!-- Dashboard Header -->
+<div class="flex justify-between items-end">
+<div>
+<nav class="flex text-[10px] uppercase tracking-widest text-outline mb-1 gap-2">
+<span>Ecosystem</span>
+<span>/</span>
+<span class="text-secondary font-bold">Data Quality Dashboard</span>
+</nav>
+<h2 class="font-h2 text-h2 text-primary">Data Quality Dashboard</h2>
+</div>
+<div class="flex gap-3">
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 cursor-pointer hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-sm mr-2 text-outline">calendar_today</span>
+<span class="text-body-sm font-medium">Oct 1, 2023 - Oct 31, 2023</span>
+<span class="material-symbols-outlined text-sm ml-4 text-outline">expand_more</span>
+</div>
+<button class="flex items-center bg-primary-container text-on-primary px-4 py-2 rounded-lg font-label-bold gap-2 hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- KPI Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-sm rounded-xl border border-outline-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-3">
+<span class="p-2 bg-secondary-container/20 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+</span>
+<span class="text-xs font-bold text-[#059669] flex items-center gap-1 bg-[#059669]/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs">trending_up</span> +0.4%
+                        </span>
+</div>
+<p class="text-on-surface-variant font-label-bold text-xs uppercase tracking-wider">Overall Acceptance Rate</p>
+<h3 class="text-h2 font-bold text-primary mt-1">98.2%</h3>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-sm rounded-xl border border-outline-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-3">
+<span class="p-2 bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="database">database</span>
+</span>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tighter bg-surface-container px-2 py-1 rounded-full">MTD</span>
+</div>
+<p class="text-on-surface-variant font-label-bold text-xs uppercase tracking-wider">Total Records Processed</p>
+<h3 class="text-h2 font-bold text-primary mt-1">1.2M</h3>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-sm rounded-xl border border-outline-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-3">
+<span class="p-2 bg-error-container/20 rounded-lg">
+<span class="material-symbols-outlined text-error" data-icon="error">error</span>
+</span>
+<span class="text-xs font-bold text-error flex items-center gap-1 bg-error/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs">trending_down</span> -2.1%
+                        </span>
+</div>
+<p class="text-on-surface-variant font-label-bold text-xs uppercase tracking-wider">Total Rejections</p>
+<h3 class="text-h2 font-bold text-primary mt-1">21.6K</h3>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-sm rounded-xl border border-outline-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)] relative overflow-hidden">
+<div class="flex justify-between items-start mb-3">
+<span class="p-2 bg-tertiary-fixed/30 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" data-icon="timer">timer</span>
+</span>
+<span class="text-[10px] font-bold text-on-error-container uppercase tracking-tighter bg-error-container px-2 py-1 rounded-full">High Priority</span>
+</div>
+<p class="text-on-surface-variant font-label-bold text-xs uppercase tracking-wider">Late Submissions</p>
+<h3 class="text-h2 font-bold text-primary mt-1">14 <span class="text-body-sm font-normal text-outline">Institutions</span></h3>
+</div>
+</div>
+<!-- Analytics Grid -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Card 1: Monthly Trend -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-h3 text-primary">Monthly Acceptance Rate Trend</h4>
+<div class="flex gap-2">
+<button class="text-[10px] font-bold px-3 py-1 rounded-full bg-surface-container-high text-on-surface">6 MONTHS</button>
+<button class="text-[10px] font-bold px-3 py-1 rounded-full text-outline hover:bg-surface-container transition-colors">1 YEAR</button>
+</div>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="relative h-64 w-full flex items-end gap-1">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+<div class="border-t border-outline-variant w-full h-[1px]"></div>
+<div class="border-t border-outline-variant w-full h-[1px]"></div>
+<div class="border-t border-outline-variant w-full h-[1px]"></div>
+<div class="border-t border-outline-variant w-full h-[1px]"></div>
+</div>
+<div class="flex-1 h-full relative flex items-end px-4">
+<!-- SVG for Line Chart Curve -->
+<svg class="absolute bottom-0 left-0 w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 800 200">
+<path d="M0,180 Q100,160 200,140 T400,110 T600,60 T800,20" fill="none" stroke="#003366" stroke-linecap="round" stroke-width="4"></path>
+<path d="M0,180 Q100,160 200,140 T400,110 T600,60 T800,20 V200 H0 Z" fill="url(#grad1)" opacity="0.1"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#003366;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#003366;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+<circle cx="200" cy="140" fill="#003366" r="5"></circle>
+<circle cx="400" cy="110" fill="#003366" r="5"></circle>
+<circle cx="600" cy="60" fill="#003366" r="5"></circle>
+<circle cx="800" cy="20" fill="#003366" r="6" stroke="white" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-outline uppercase tracking-widest px-4">
+<span>May</span>
+<span>Jun</span>
+<span>Jul</span>
+<span>Aug</span>
+<span>Sep</span>
+<span>Oct</span>
+</div>
+</div>
+<!-- Card 2: Rejection Distribution -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<h4 class="font-h3 text-primary mb-6">Rejection Rate Distribution</h4>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label-bold">
+<span>Individual Credit</span>
+<span class="text-primary">45%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label-bold">
+<span>Corporate Accounts</span>
+<span class="text-primary">32%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 32%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label-bold">
+<span>Collateral Data</span>
+<span class="text-primary">18%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 18%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label-bold">
+<span>Guarantor Profiles</span>
+<span class="text-primary">5%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-outline-variant h-full rounded-full" style="width: 5%"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant">
+<p class="text-body-sm text-on-surface-variant leading-relaxed">
+<span class="font-bold text-primary">Critical Insight:</span> Rejections in individual credit records have increased by 12% among Tier 2 lenders this month.
+                        </p>
+</div>
+</div>
+<!-- Card 3: Top 10 Error Codes -->
+<div class="col-span-12 bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-h3 text-primary">Top 10 Error Codes</h4>
+<button class="text-body-sm text-secondary font-label-bold hover:underline">View All Codes</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-4">
+<div class="flex items-center gap-4">
+<div class="text-[10px] font-bold text-outline w-32 truncate">INVALID_OMANG</div>
+<div class="flex-1 bg-surface-container h-8 rounded relative overflow-hidden group">
+<div class="bg-primary-container h-full absolute top-0 left-0 transition-all duration-500" style="width: 88%"></div>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-on-surface-variant">8,421</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-[10px] font-bold text-outline w-32 truncate">FIELD_MISSING</div>
+<div class="flex-1 bg-surface-container h-8 rounded relative overflow-hidden">
+<div class="bg-primary-container h-full absolute top-0 left-0" style="width: 72%"></div>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-on-surface-variant">6,102</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-[10px] font-bold text-outline w-32 truncate">DATE_OUT_OF_RANGE</div>
+<div class="flex-1 bg-surface-container h-8 rounded relative overflow-hidden">
+<div class="bg-primary-container h-full absolute top-0 left-0" style="width: 65%"></div>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-on-surface-variant">4,992</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-[10px] font-bold text-outline w-32 truncate">DUPLICATE_RECORD</div>
+<div class="flex-1 bg-surface-container h-8 rounded relative overflow-hidden">
+<div class="bg-primary-container h-full absolute top-0 left-0" style="width: 48%"></div>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-on-surface-variant">3,810</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-[10px] font-bold text-outline w-32 truncate">CODE_NOT_FOUND</div>
+<div class="flex-1 bg-surface-container h-8 rounded relative overflow-hidden">
+<div class="bg-primary-container h-full absolute top-0 left-0" style="width: 35%"></div>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-on-surface-variant">2,114</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-[10px] font-bold text-outline w-32 truncate">AUTH_EXPIRED</div>
+<div class="flex-1 bg-surface-container h-8 rounded relative overflow-hidden">
+<div class="bg-primary-container h-full absolute top-0 left-0" style="width: 28%"></div>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-on-surface-variant">1,452</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Institution League Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-md border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-h3 text-primary">Institution League Table</h4>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-xs font-label-bold text-outline">
+<span class="w-3 h-3 rounded-full bg-[#059669]"></span> High Quality
+                        </div>
+<div class="flex items-center gap-2 text-xs font-label-bold text-outline">
+<span class="w-3 h-3 rounded-full bg-error"></span> Requires Review
+                        </div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left zebra-table">
+<thead class="bg-surface-container-low border-b-2 border-primary-container text-[10px] uppercase tracking-widest font-bold text-primary">
+<tr>
+<th class="px-md py-4">Rank</th>
+<th class="px-md py-4">Institution Name</th>
+<th class="px-md py-4 text-center">Quality Score</th>
+<th class="px-md py-4 text-center">Trend</th>
+<th class="px-md py-4 text-right">Last Submission</th>
+<th class="px-md py-4"></th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-data-tabular">
+<tr class="hover:bg-primary-fixed/10 transition-colors">
+<td class="px-md py-4 font-bold text-outline">01</td>
+<td class="px-md py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-[10px] text-primary">FN</div>
+<span class="font-bold">First National Bank</span>
+</td>
+<td class="px-md py-4">
+<div class="flex items-center justify-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#059669]" style="width: 99.5%"></div>
+</div>
+<span class="font-bold text-[#059669]">99.5%</span>
+</div>
+</td>
+<td class="px-md py-4 text-center">
+<span class="material-symbols-outlined text-[#059669]" data-icon="trending_up">trending_up</span>
+</td>
+<td class="px-md py-4 text-right text-outline">Oct 28, 2023</td>
+<td class="px-md py-4 text-right">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary-fixed/10 transition-colors">
+<td class="px-md py-4 font-bold text-outline">02</td>
+<td class="px-md py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-[10px] text-primary">SB</div>
+<span class="font-bold">Stanbic Bank</span>
+</td>
+<td class="px-md py-4">
+<div class="flex items-center justify-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#059669]" style="width: 98.2%"></div>
+</div>
+<span class="font-bold text-[#059669]">98.2%</span>
+</div>
+</td>
+<td class="px-md py-4 text-center">
+<span class="material-symbols-outlined text-error" data-icon="trending_down">trending_down</span>
+</td>
+<td class="px-md py-4 text-right text-outline">Oct 27, 2023</td>
+<td class="px-md py-4 text-right">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary-fixed/10 transition-colors">
+<td class="px-md py-4 font-bold text-outline">03</td>
+<td class="px-md py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-[10px] text-primary">AB</div>
+<span class="font-bold">ABSA Botswana</span>
+</td>
+<td class="px-md py-4">
+<div class="flex items-center justify-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#059669]" style="width: 97.8%"></div>
+</div>
+<span class="font-bold text-[#059669]">97.8%</span>
+</div>
+</td>
+<td class="px-md py-4 text-center">
+<span class="material-symbols-outlined text-[#059669]" data-icon="trending_up">trending_up</span>
+</td>
+<td class="px-md py-4 text-right text-outline">Oct 28, 2023</td>
+<td class="px-md py-4 text-right">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary-fixed/10 transition-colors">
+<td class="px-md py-4 font-bold text-outline">04</td>
+<td class="px-md py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-[10px] text-primary">BS</div>
+<span class="font-bold">Botswana Savings Bank</span>
+</td>
+<td class="px-md py-4">
+<div class="flex items-center justify-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#D97706]" style="width: 94.1%"></div>
+</div>
+<span class="font-bold text-[#D97706]">94.1%</span>
+</div>
+</td>
+<td class="px-md py-4 text-center">
+<span class="material-symbols-outlined text-error" data-icon="trending_down">trending_down</span>
+</td>
+<td class="px-md py-4 text-right text-outline">Oct 26, 2023</td>
+<td class="px-md py-4 text-right">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-sm bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
+<span class="text-[10px] text-outline font-bold">SHOWING 4 OF 42 INSTITUTIONS</span>
+<div class="flex gap-2">
+<button class="p-1 rounded border border-outline-variant text-outline hover:bg-surface-container-high disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-1 rounded border border-outline-variant text-outline hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

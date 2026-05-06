@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "surface": "#f7f9fb",
+                        "primary-fixed": "#d5e3ff",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#cee5ff",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "surface-tint": "#3a5f94",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "primary-container": "#003366",
+                        "primary": "#001e40",
+                        "on-secondary-fixed": "#001d32",
+                        "tertiary": "#161e31",
+                        "on-primary-container": "#799dd6",
+                        "on-surface-variant": "#43474f",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "outline": "#737780",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#001b3c",
+                        "inverse-primary": "#a7c8ff",
+                        "on-tertiary-container": "#949bb4",
+                        "outline-variant": "#c3c6d1",
+                        "on-secondary-container": "#175683",
+                        "tertiary-container": "#2b3347",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#dae2fd",
+                        "secondary-container": "#97ccfe",
+                        "surface-variant": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary": "#28628f",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "64px",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "sm": "16px",
+                        "lg": "48px",
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-tabular": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background-color: #059669; /* Success Green */
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-gutter h-16 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex items-center gap-sm">
+<span class="text-h3 font-h1 font-bold text-primary dark:text-primary-fixed">MFCB Platform</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg h-full">
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-surface-variant hover:text-primary-container dark:hover:text-primary-fixed transition-colors" href="#">Dashboard</a>
+<a class="font-label-bold text-label-bold text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1" href="#">Batch Processing</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-surface-variant hover:text-primary-container dark:hover:text-primary-fixed transition-colors" href="#">Data Quality</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-surface-variant hover:text-primary-container dark:hover:text-primary-fixed transition-colors" href="#">Analytics</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-surface-variant hover:text-primary-container dark:hover:text-primary-fixed transition-colors" href="#">Audit Logs</a>
+</nav>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-full text-body-sm focus:outline-none focus:border-secondary" placeholder="Search batches..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant">settings</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged financial analyst in a light-mode corporate setting. The analyst is wearing a crisp white shirt and a dark blazer, looking directly at the camera with a confident, dependable expression. The background is a softly blurred modern office interior with subtle blue and grey tones, maintaining the MFCB institutional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcLbYx-7u4wrwE6gsZRf5y5WKRFuX-dEPNSbitaDSsJNIIT4DSDJisruKPH2dUIapFHzs0NQo3mxn9nCa1zu3DKEg95pXj6J7kIOtWafv1Ctkj_-CZl8ZRNcULGMdg-cSBiG3Lhwn6u7YADrq6zI_hr6rUUkoh122NhmnvqBXTHWFAs5N6bNKE326Nnn7IYvsURxte2fwJ68KIpu6097OClcak99qKb8I46vzEqRRtajLX-wxnSJS4hQFWi5koc8a00vnxbSToRydq"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-16 bottom-0 w-64 border-r border-outline-variant dark:border-outline bg-surface-container-low dark:bg-surface-container-lowest">
+<div class="p-md border-b border-surface-container">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[20px]">account_balance</span>
+</div>
+<div>
+<p class="text-body-lg font-h2 text-primary dark:text-primary-fixed leading-none">Credit Bureau</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Institutional Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-md space-y-1">
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-bold font-label-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 bg-secondary-container text-on-secondary-container dark:bg-secondary-fixed-dim dark:text-on-secondary-fixed rounded-lg mx-2 scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-label-bold font-label-bold">Batches</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-label-bold font-label-bold">Entities</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-label-bold font-label-bold">Reporting</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings_applications</span>
+<span class="text-label-bold font-label-bold">Configuration</span>
+</a>
+</nav>
+<div class="p-md border-t border-surface-container space-y-1">
+<a class="flex items-center gap-md px-md py-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="text-label-bold font-label-bold">Support</span>
+</a>
+<a class="flex items-center gap-md px-md py-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-label-bold font-label-bold">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 p-gutter max-w-container-max mx-auto w-full">
+<!-- Header -->
+<div class="flex items-center gap-md mb-lg">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div>
+<h1 class="text-h2 font-h2 text-primary">Batch Status Detail</h1>
+<p class="text-body-sm text-on-surface-variant">Viewing details for Batch #B-8821 from Batch Submissions</p>
+</div>
+</div>
+<!-- Status Banner -->
+<div class="bg-[#059669] text-white p-md rounded-xl flex items-center justify-between mb-lg shadow-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="text-label-bold font-label-bold uppercase tracking-widest">COMPLETED</p>
+<p class="text-body-md font-medium">Processing finished successfully on Oct 24, 2024, at 14:32 CAT</p>
+</div>
+</div>
+<div class="hidden sm:block">
+<span class="material-symbols-outlined text-white/40 text-[48px]">verified</span>
+</div>
+</div>
+<!-- Metric Tiles -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-md mb-lg">
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="text-body-sm text-on-surface-variant mb-xs">Total Records</p>
+<p class="text-h3 font-h3 text-primary">10,000</p>
+<div class="mt-2 text-label-bold text-on-surface-variant opacity-60">100% of batch</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="text-body-sm text-on-surface-variant mb-xs">Accepted</p>
+<p class="text-h3 font-h3 text-primary">9,850</p>
+<div class="mt-2 flex items-center text-[#059669] font-label-bold">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span> 98.5%
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="text-body-sm text-on-surface-variant mb-xs">Rejected</p>
+<p class="text-h3 font-h3 text-primary">150</p>
+<div class="mt-2 flex items-center text-error font-label-bold">
+<span class="material-symbols-outlined text-sm mr-1">trending_down</span> 1.5%
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="text-body-sm text-on-surface-variant mb-xs">Warnings</p>
+<p class="text-h3 font-h3 text-primary">42</p>
+<div class="mt-2 flex items-center text-[#D97706] font-label-bold">
+<span class="material-symbols-outlined text-sm mr-1">warning</span> Action Required
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<p class="text-body-sm text-on-surface-variant mb-xs">Processing Time</p>
+<p class="text-h3 font-h3 text-primary">1m 24s</p>
+<div class="mt-2 text-label-bold text-on-surface-variant opacity-60">Avg. 8.4ms / record</div>
+</div>
+</div>
+<!-- Processing Timeline -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl mb-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<div class="relative flex justify-between items-center max-w-4xl mx-auto">
+<!-- Progress Line -->
+<div class="absolute h-1 bg-[#059669] top-1/2 left-0 right-0 -translate-y-1/2 z-0 rounded-full"></div>
+<!-- Steps -->
+<div class="relative z-10 flex flex-col items-center gap-xs">
+<div class="w-10 h-10 bg-[#059669] text-white rounded-full flex items-center justify-center ring-4 ring-white shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">download</span>
+</div>
+<span class="text-label-bold font-label-bold text-primary">Received</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs">
+<div class="w-10 h-10 bg-[#059669] text-white rounded-full flex items-center justify-center ring-4 ring-white shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">data_exploration</span>
+</div>
+<span class="text-label-bold font-label-bold text-primary">Parsed</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs">
+<div class="w-10 h-10 bg-[#059669] text-white rounded-full flex items-center justify-center ring-4 ring-white shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+</div>
+<span class="text-label-bold font-label-bold text-primary">Validated</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs">
+<div class="w-10 h-10 bg-[#059669] text-white rounded-full flex items-center justify-center ring-4 ring-white shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<span class="text-label-bold font-label-bold text-primary">Mastering</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-xs">
+<div class="w-10 h-10 bg-[#059669] text-white rounded-full flex items-center justify-center ring-4 ring-white shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-label-bold font-label-bold text-primary">Completed</span>
+</div>
+</div>
+</div>
+<!-- Two-Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<!-- Left Column (Metadata) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-md bg-surface-container-low border-b border-outline-variant flex items-center justify-between">
+<h3 class="text-h3 font-h3 text-primary">Batch Information</h3>
+<span class="material-symbols-outlined text-outline">info</span>
+</div>
+<div class="p-md space-y-md">
+<div class="grid grid-cols-2 gap-sm">
+<div>
+<p class="text-body-sm text-on-surface-variant">Batch ID</p>
+<p class="text-body-md font-label-bold">#B-8821</p>
+</div>
+<div>
+<p class="text-body-sm text-on-surface-variant">Reporting Month</p>
+<p class="text-body-md font-label-bold">Oct 2024</p>
+</div>
+</div>
+<div>
+<p class="text-body-sm text-on-surface-variant">Source Filename</p>
+<div class="flex items-center gap-xs mt-1">
+<span class="material-symbols-outlined text-primary">description</span>
+<p class="text-body-md font-label-bold text-secondary">FNB_RECORDS_OCT_24.txt</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<div>
+<p class="text-body-sm text-on-surface-variant">Submitted By</p>
+<p class="text-body-md font-label-bold">Lebo G. Molosi</p>
+</div>
+<div>
+<p class="text-body-sm text-on-surface-variant">Submission Channel</p>
+<p class="text-body-md font-label-bold">REST API</p>
+</div>
+</div>
+<div>
+<p class="text-body-sm text-on-surface-variant">Idempotency Key</p>
+<p class="text-data-tabular font-data-tabular text-on-surface-variant bg-surface-container px-2 py-1 rounded inline-block mt-1">550e8400-e29b-41d4-a716-446655440000</p>
+</div>
+</div>
+</div>
+<!-- Right Column (Outcome & Actions) -->
+<div class="flex flex-col gap-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-md bg-surface-container-low border-b border-outline-variant">
+<h3 class="text-h3 font-h3 text-primary">Processing Outcome</h3>
+</div>
+<div class="p-md">
+<p class="text-body-md text-on-surface-variant mb-lg leading-relaxed">
+                                The batch has been fully processed through the MFCB institutional pipeline. 98.5% of records have been successfully mastered and integrated into the national credit database. 150 records were rejected due to data validation failures or missing mandatory fields. Warnings were issued for 42 records with minor formatting inconsistencies.
+                            </p>
+<div class="flex flex-col gap-sm">
+<button class="w-full bg-primary text-white font-label-bold py-3 rounded-lg flex items-center justify-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">visibility</span>
+                                    View Errors
+                                </button>
+<button class="w-full border-[1.5px] border-[#75AADB] text-[#28628f] font-label-bold py-3 rounded-lg flex items-center justify-center gap-sm hover:bg-[#75AADB]/5 transition-colors">
+<span class="material-symbols-outlined">download</span>
+                                    Download Rejected (CSV)
+                                </button>
+<button class="w-full text-on-surface-variant font-label-bold py-3 rounded-lg flex items-center justify-center gap-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined">refresh</span>
+                                    Resubmit Batch
+                                </button>
+</div>
+</div>
+</div>
+<!-- Visual Summary Graphic -->
+<div class="relative h-48 rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<img alt="Institutional Trust Canvas" class="w-full h-full object-cover" data-alt="A clean, sophisticated data visualization dashboard showing abstract growth charts and financial interconnectivity. The design uses a professional palette of deep navy blues, soft whites, and emerald green highlights to represent financial health and stability. The lighting is bright and corporate, evoking a sense of institutional rigor and transparency in Botswana's financial sector." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdpfPC0xP0_y5pYKkYLfOkM78f_UC9QQA5pVI1Ryk3xE_oR-hg1GBUAB6ytnRHVjUB1RDdDA5ShFNm0JxYZI3EGhx-W4dUivgSfEUZ28IGkvS_OZfYsx-DRBybwZXTJzwXOVNInlU3lQ0FZktzL6uBnJkvYwk8KPuQnvgM_wn5x-5x1FAQVhhIQFX_9z0zi4Uq_Kmo7fP9ZXrYFm_FFdTjd8zqpDabVW_HiyS8_JrF48dug-RuH4JUqnhyEw67jtLZdpyukHSHaYhY"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center p-lg">
+<div class="text-white">
+<p class="text-h3 font-h3">Data Quality Index</p>
+<p class="text-h2 font-h2">99.2%</p>
+<p class="text-body-sm opacity-80 mt-1">Exceeds institutional threshold</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="flex justify-between items-center px-gutter py-md mt-auto w-full bg-surface-dim dark:bg-inverse-surface border-t border-outline-variant">
+<div class="flex items-center gap-lg">
+<p class="text-label-bold font-label-bold text-on-surface-variant dark:text-surface-variant">© 2024 Botswana Credit Bureau (MFCB). All rights reserved.</p>
+</div>
+<div class="flex items-center gap-lg">
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Security Disclosure</a>
+</div>
+</footer>
+</body></html>

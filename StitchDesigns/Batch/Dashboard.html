@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MFCB Portal - Batch Submissions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#97ccfe",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-container": "#2b3347",
+                        "on-surface-variant": "#43474f",
+                        "on-tertiary-container": "#949bb4",
+                        "on-secondary-fixed-variant": "#004a75",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#001d32",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed": "#131b2e",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d1",
+                        "surface-tint": "#3a5f94",
+                        "on-primary-fixed": "#001b3c",
+                        "primary-fixed": "#d5e3ff",
+                        "primary-container": "#003366",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a7c8ff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#dae2fd",
+                        "secondary-fixed-dim": "#97ccfe",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-container": "#175683",
+                        "secondary": "#28628f",
+                        "outline": "#737780",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "tertiary": "#161e31",
+                        "surface-container": "#eceef0",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#799dd6",
+                        "on-error-container": "#93000a",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed": "#cee5ff",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#001e40",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-background": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "lg": "48px",
+                        "xs": "8px",
+                        "xl": "64px",
+                        "sm": "16px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Public Sans"],
+                        "body-sm": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h3": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "data-tabular": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "data-tabular": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #f7f9fb;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-16 bg-surface-container-lowest dark:bg-tertiary-container border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<span class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed-dim">MFCB Portal</span>
+<div class="hidden md:flex items-center gap-6 h-16">
+<nav class="flex items-center h-full gap-4">
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors font-label-bold text-label-bold px-3 py-2 rounded" href="#">Overview</a>
+<a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary h-full flex items-center px-3 font-label-bold text-label-bold" href="#">Batch Submissions</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors font-label-bold text-label-bold px-3 py-2 rounded" href="#">Reports</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-sm w-64 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search data..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant ml-2">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a financial corporate officer in a clean, high-key office environment. The subject is wearing a crisp white shirt and navy blazer, looking directly at the camera with a confident expression. The background is a blurred modern office space with soft daylight coming from a large window. The aesthetic is clean, authoritative, and corporate-modern with a balanced high-contrast palette." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 flex flex-col pt-20 pb-4 bg-primary dark:bg-tertiary-container shadow-lg dark:shadow-none">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-on-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<h2 class="text-on-primary font-bold text-body-md leading-tight">MFCB Platform</h2>
+<p class="text-on-primary-container text-xs opacity-80">Institutional Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-tertiary-container hover:text-on-primary hover:bg-on-primary-fixed-variant rounded-lg mx-2 my-1 flex items-center gap-3 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<a class="bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 flex items-center gap-3 px-4 py-3 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+<span class="font-label-bold text-label-bold">Batch Submissions</span>
+</a>
+<a class="text-on-tertiary-container hover:text-on-primary hover:bg-on-primary-fixed-variant rounded-lg mx-2 my-1 flex items-center gap-3 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-bold text-label-bold">Credit Reports</span>
+</a>
+<a class="text-on-tertiary-container hover:text-on-primary hover:bg-on-primary-fixed-variant rounded-lg mx-2 my-1 flex items-center gap-3 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="font-label-bold text-label-bold">Data Management</span>
+</a>
+<a class="text-on-tertiary-container hover:text-on-primary hover:bg-on-primary-fixed-variant rounded-lg mx-2 my-1 flex items-center gap-3 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-bold text-label-bold">Audit Logs</span>
+</a>
+</nav>
+<div class="px-4 py-4">
+<button class="w-full bg-secondary-container text-on-secondary-container font-label-bold text-label-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add_circle</span>
+                New Submission
+            </button>
+</div>
+<div class="mt-auto border-t border-on-primary-fixed-variant/20 pt-4">
+<a class="text-on-tertiary-container hover:text-on-primary hover:bg-on-primary-fixed-variant rounded-lg mx-2 my-1 flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-label-bold text-label-bold">Support</span>
+</a>
+<a class="text-on-tertiary-container hover:text-on-primary hover:bg-on-primary-fixed-variant rounded-lg mx-2 my-1 flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-bold text-label-bold">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 pt-20 p-md min-h-screen">
+<!-- Page Header -->
+<div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-h1 text-h1 text-primary">Batch Submissions</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Monitor and manage your institutional data uploads.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container-lowest border border-outline text-primary font-label-bold text-label-bold px-6 py-2.5 rounded hover:bg-surface-container transition-colors">
+                    Export History
+                </button>
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-6 py-2.5 rounded flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+                    Upload Batch
+                </button>
+</div>
+</div>
+<!-- Summary Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md mb-lg">
+<!-- Total Submitted -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-start justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-2">Total Submitted</p>
+<h3 class="text-[32px] font-bold text-primary">124 <span class="text-body-sm font-normal text-on-surface-variant">Batches</span></h3>
+</div>
+<div class="w-10 h-10 bg-primary-container/10 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+</div>
+<!-- Acceptance Rate -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-start justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-2">Acceptance Rate</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-[32px] font-bold text-primary">98.4%</h3>
+<span class="text-emerald-600 font-label-bold text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            +0.2%
+                        </span>
+</div>
+</div>
+<div class="w-10 h-10 bg-emerald-50 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600">verified_user</span>
+</div>
+</div>
+<!-- Outstanding Errors -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-start justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-2">Outstanding Errors</p>
+<h3 class="text-[32px] font-bold text-error">12 <span class="text-body-sm font-normal text-on-surface-variant">Records</span></h3>
+</div>
+<div class="w-10 h-10 bg-error-container/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-error">error_outline</span>
+</div>
+</div>
+<!-- Pending Processing -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-start justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-2">Pending Processing</p>
+<h3 class="text-[32px] font-bold text-[#D97706]">3 <span class="text-body-sm font-normal text-on-surface-variant">Batches</span></h3>
+</div>
+<div class="w-10 h-10 bg-amber-50 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[#D97706]">pending_actions</span>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface-container-lowest p-sm rounded-lg border border-outline-variant shadow-sm mb-md flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[240px] relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Search by Batch ID" type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<label class="font-label-bold text-body-sm text-on-surface-variant">Month:</label>
+<select class="border border-outline-variant rounded bg-white px-3 py-2 text-body-sm focus:ring-1 focus:ring-primary">
+<option>All Months</option>
+<option>April 2026</option>
+<option>March 2026</option>
+<option>February 2026</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<label class="font-label-bold text-body-sm text-on-surface-variant">Status:</label>
+<select class="border border-outline-variant rounded bg-white px-3 py-2 text-body-sm focus:ring-1 focus:ring-primary">
+<option>All Statuses</option>
+<option>COMPLETED</option>
+<option>VALIDATING</option>
+<option>FAILED</option>
+<option>QUEUED</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<label class="font-label-bold text-body-sm text-on-surface-variant">Channel:</label>
+<select class="border border-outline-variant rounded bg-white px-3 py-2 text-body-sm focus:ring-1 focus:ring-primary">
+<option>All Channels</option>
+<option>REST API</option>
+<option>SFTP</option>
+<option>Portal</option>
+</select>
+</div>
+<button class="p-2 text-primary hover:bg-surface-container rounded transition-colors" title="Clear Filters">
+<span class="material-symbols-outlined">filter_alt_off</span>
+</button>
+</div>
+<!-- Data Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-primary">
+<tr>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary">Batch ID</th>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary">Reporting Month</th>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary">Type</th>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary">Channel</th>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary">Submitted At</th>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary text-right">Records</th>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary text-center">Acc / Rej</th>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary">Status</th>
+<th class="px-md py-4 font-label-bold text-label-bold text-primary text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-md py-4 font-data-tabular text-data-tabular font-bold text-primary">#B-8821</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular">Apr 2026</td>
+<td class="px-md py-4">
+<span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">LIVE</span>
+</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular">REST</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-on-surface-variant">10 mins ago</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-right">1,200</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-center">
+<span class="text-emerald-600">1,198</span> / <span class="text-error">2</span>
+</td>
+<td class="px-md py-4">
+<span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-[11px] font-bold flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span>
+                                COMPLETED
+                            </span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary font-label-bold text-label-bold hover:underline">View</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-container/30 transition-colors">
+<td class="px-md py-4 font-data-tabular text-data-tabular font-bold text-primary">#B-8820</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular">Apr 2026</td>
+<td class="px-md py-4">
+<span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">LIVE</span>
+</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular">SFTP</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-on-surface-variant">1 hour ago</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-right">5,000</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-center">
+<span class="text-on-surface-variant opacity-40">—</span>
+</td>
+<td class="px-md py-4">
+<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-[11px] font-bold flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
+                                VALIDATING
+                            </span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary font-label-bold text-label-bold hover:underline">View</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="px-md py-4 font-data-tabular text-data-tabular font-bold text-primary">#B-8819</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular">Mar 2026</td>
+<td class="px-md py-4">
+<span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">TEST</span>
+</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular">Portal</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-on-surface-variant">Yesterday</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-right">500</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-center">
+<span class="text-emerald-600">450</span> / <span class="text-error">50</span>
+</td>
+<td class="px-md py-4">
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full text-[11px] font-bold flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 bg-error rounded-full"></span>
+                                FAILED
+                            </span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary font-label-bold text-label-bold hover:underline">View</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-container/30 transition-colors">
+<td class="px-md py-4 font-data-tabular text-data-tabular font-bold text-primary">#B-8818</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular">Mar 2026</td>
+<td class="px-md py-4">
+<span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">LIVE</span>
+</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular">REST</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-on-surface-variant">2 days ago</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-right">2,500</td>
+<td class="px-md py-4 font-data-tabular text-data-tabular text-center">
+<span class="text-emerald-600">2,500</span> / <span class="text-emerald-600">0</span>
+</td>
+<td class="px-md py-4">
+<span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-[11px] font-bold flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span>
+                                COMPLETED
+                            </span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary font-label-bold text-label-bold hover:underline">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-md py-4 bg-surface-container-low flex items-center justify-between">
+<span class="text-body-sm text-on-surface-variant">Showing 1 to 4 of 124 results</span>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-white disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded text-body-sm font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-white text-body-sm">2</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-white text-body-sm">3</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-white">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Help/Context Card -->
+<div class="mt-xl grid grid-cols-1 lg:grid-cols-3 gap-md">
+<div class="lg:col-span-2 bg-primary-container p-lg rounded-2xl flex items-center gap-8 text-on-primary-container overflow-hidden relative">
+<div class="relative z-10 max-w-lg">
+<h2 class="font-h3 text-h3 mb-4">Master Data Compliance</h2>
+<p class="font-body-md mb-6 opacity-90">Ensure your batch files follow the M-BC1-2026 schema standards to avoid validation delays. Download the latest technical specification for REST API and SFTP channels.</p>
+<div class="flex gap-4">
+<button class="bg-secondary-container text-on-secondary-container font-label-bold text-label-bold px-6 py-3 rounded-lg hover:brightness-110 transition-all">Download Schema</button>
+<button class="border border-on-primary-container/40 font-label-bold text-label-bold px-6 py-3 rounded-lg hover:bg-white/10 transition-all">Integration Docs</button>
+</div>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 pointer-events-none">
+<img alt="Schema illustration" class="h-full w-full object-cover grayscale" data-alt="A highly complex and abstract digital architectural render showcasing intricate network nodes and data flows. The design uses a sophisticated corporate palette of deep navy blues and sharp whites, representing institutional data integrity. The lighting is low-key with sharp geometric reflections, suggesting a highly secure and structured technological environment suitable for a national credit bureau dashboard." src="https://lh3.googleusercontent.com/aida/ADBb0ugPSZySZRlsuhXF35gIV_b4WQpQIKHXUSYyfMplcdaX1f40xuAlk7Gy9hRbzNnep-xM0YFMwZkHQMDlW4BJT5MBBubbTTNQo_fAdVO9bduYq2WmDHc8sIlxDZKIn3p2kaUamzCSc3iug2yRk-xecTJGaSbongc9lWqY6bQBLIWfxLYRdROCflPM8g9_nOB3-Tu2JdaX62ISiyULw9YBiMvET5q1D33fUSwUYD01KOXi32hW_pw7VHOdeHWm"/>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md border border-outline-variant rounded-2xl shadow-sm">
+<h4 class="font-label-bold text-label-bold text-primary uppercase mb-4">Submission Trends</h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-body-sm text-on-surface-variant">Portal Uploads</span>
+<span class="text-body-sm font-bold">42%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-body-sm text-on-surface-variant">REST API</span>
+<span class="text-body-sm font-bold">38%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full">
+<div class="bg-secondary h-full rounded-full" style="width: 38%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-body-sm text-on-surface-variant">SFTP Automation</span>
+<span class="text-body-sm font-bold">20%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full">
+<div class="bg-secondary-container h-full rounded-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 text-secondary font-label-bold text-label-bold flex items-center justify-center gap-2 py-2 border border-outline-variant rounded hover:bg-surface-container transition-colors">
+                    View Channel Analytics
+                </button>
+</div>
+</div>
+</main>
+</body></html>
