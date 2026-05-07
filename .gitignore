@@ -12,3 +12,5 @@ firebase-debug.log
 coverage/
 *.tsbuildinfo
 .pnpm-store/
+service-account-key.json
+StitchDesigns/

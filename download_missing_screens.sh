@@ -1,2 +1,0 @@
-#!/bin/bash
-curl -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2JmODkwMWRhYjYyMzRjNWRhZDE3MzkxN2Q3NThkZDAxEgsSBxDd-cjOuBQYAZIBJAoKcHJvamVjdF9pZBIWQhQxMzgxNDU5MTYyNzkzNDg1MjY2Nw&filename=&opi=96797242" -o "StitchDesigns/Auth/MFAEnrollment.html"
