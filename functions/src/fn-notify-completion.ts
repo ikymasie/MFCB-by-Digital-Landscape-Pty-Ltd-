@@ -4,6 +4,12 @@ import { config } from './config';
 import { getDb } from './db';
 import { publishMessage } from './pubsub';
 import type { BatchCompleteMessage, WebhookOutboundMessage } from './types';
+import { sendMail } from './email.service';
+import {
+  buildBatchCompletedEmail,
+  buildBatchValidationFailedEmail,
+  buildBatchFailedEmail,
+} from './email.templates';
 
 export const fnNotifyCompletion = onMessagePublished(
   {
@@ -76,5 +82,63 @@ export const fnNotifyCompletion = onMessagePublished(
       retry_count: 0,
     };
     await publishMessage(config.pubsub.webhookOutboundTopic, webhookMsg);
+
+    // 6. Send Email Notifications
+    try {
+      const batch = await db('batches').where('batch_id', batch_id).first();
+      const admins = await db('users')
+        .join('roles', 'users.role_id', 'roles.role_id')
+        .where('users.institution_id', institution_id)
+        .where('roles.role_name', 'INSTITUTION_ADMIN')
+        .where('users.status', 'ACTIVE')
+        .select('users.email', 'users.full_name');
+
+      if (admins.length > 0) {
+        for (const admin of admins) {
+          let emailData: { subject: string; html: string };
+
+          if (status === 'COMPLETED') {
+            if (rejected_count > 0) {
+              emailData = buildBatchValidationFailedEmail({
+                recipientName: admin.full_name,
+                batchId: batch_id,
+                reportingMonth: batch?.reporting_month ?? 'N/A',
+                totalRecords: (batch?.accepted_count ?? 0) + (batch?.rejected_count ?? 0),
+                acceptedCount: accepted_count,
+                rejectedCount: rejected_count,
+                warningCount: warning_count,
+              });
+            } else {
+              emailData = buildBatchCompletedEmail({
+                recipientName: admin.full_name,
+                batchId: batch_id,
+                reportingMonth: batch?.reporting_month ?? 'N/A',
+                totalRecords: accepted_count,
+                acceptedCount: accepted_count,
+                warningCount: warning_count,
+                submittedAt: batch?.created_at ?? new Date(),
+                completedAt: new Date(),
+              });
+            }
+          } else {
+            emailData = buildBatchFailedEmail({
+              recipientName: admin.full_name,
+              batchId: batch_id,
+              reportingMonth: batch?.reporting_month ?? 'N/A',
+              submittedAt: batch?.created_at ?? new Date(),
+              failureReason: 'The batch could not be processed due to a system error or invalid file format.',
+            });
+          }
+
+          await sendMail({
+            to: admin.email,
+            subject: emailData.subject,
+            html: emailData.html,
+          });
+        }
+      }
+    } catch (err) {
+      console.error('[EMAIL] Failed to send batch completion notifications:', err);
+    }
   },
 );

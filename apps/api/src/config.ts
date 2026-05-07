@@ -12,4 +12,13 @@ export const config = {
     parallelism: parseInt(process.env.ARGON2_PARALLELISM ?? '4', 10),
   },
   databaseUrl: process.env.DATABASE_URL ?? 'postgresql://neondb_owner:npg_Uhl4LoVnKZg8@ep-withered-glade-apsk712t-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require',
+  email: {
+    smtpHost:     process.env.SMTP_HOST     ?? 'mail.mfcb.africa',
+    smtpPort:     parseInt(process.env.SMTP_PORT ?? '465', 10),
+    fromAddress:  process.env.SMTP_USER     ?? 'no-reply@mfcb.africa',
+    smtpPassword: process.env.SMTP_PASSWORD ?? '',
+    fromName:     process.env.EMAIL_FROM_NAME ?? 'MF Credit Bureau',
+    opsEmail:     process.env.EMAIL_OPS     ?? 'ops@mfcb.africa',
+    portalUrl:    process.env.PORTAL_BASE_URL ?? 'https://portal.mfcb.africa',
+  },
 } as const;

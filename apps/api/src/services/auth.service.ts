@@ -4,6 +4,11 @@ import argon2 from 'argon2';
 import { authenticator } from 'otplib';
 import { db } from '../db/client';
 import { config } from '../config';
+import { sendMail } from './email.service';
+import {
+  buildAccountLockedUserEmail,
+  buildAccountLockedAdminEmail,
+} from './email.templates';
 
 // ============================================================
 // Types
@@ -146,11 +151,55 @@ export async function loginStep1(
   if (!passwordValid) {
     // Increment failed login count
     const newCount = (user.failed_login_count ?? 0) + 1;
+    const lockedAt = new Date();
+    const unlockAt = new Date(lockedAt.getTime() + 30 * 60 * 1000);
     const updateData: Record<string, unknown> = { failed_login_count: newCount };
+
     if (newCount >= 5) {
       updateData.status = 'LOCKED';
-      updateData.locked_until = new Date(Date.now() + 15 * 60 * 1000);
+      updateData.locked_until = unlockAt;
+
+      // Notify the user
+      const userEmail = buildAccountLockedUserEmail({
+        fullName: user.full_name,
+        email: user.email,
+        lockedAt,
+        unlockAt,
+      });
+      sendMail({ to: user.email, ...userEmail }).catch((err) =>
+        console.error('[EMAIL] Account-locked user notification failed:', err)
+      );
+
+      // Notify the institution admin (if applicable)
+      if (user.institution_id) {
+        const admin = await db('users')
+          .join('roles', 'users.role_id', 'roles.role_id')
+          .where('users.institution_id', user.institution_id)
+          .where('roles.role_name', 'INSTITUTION_ADMIN')
+          .where('users.status', 'ACTIVE')
+          .select('users.email', 'users.full_name')
+          .first();
+
+        const institution = await db('institutions')
+          .where('institution_id', user.institution_id)
+          .select('name')
+          .first();
+
+        if (admin && institution) {
+          const adminEmail = buildAccountLockedAdminEmail({
+            adminName:       admin.full_name,
+            lockedUserName:  user.full_name,
+            lockedUserEmail: user.email,
+            institutionName: institution.name,
+            lockedAt,
+          });
+          sendMail({ to: admin.email, ...adminEmail }).catch((err) =>
+            console.error('[EMAIL] Account-locked admin notification failed:', err)
+          );
+        }
+      }
     }
+
     await db('users').where('user_id', user.user_id).update(updateData);
     return null;
   }

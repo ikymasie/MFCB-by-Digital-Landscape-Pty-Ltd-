@@ -57,6 +57,9 @@ importers:
       jsonwebtoken:
         specifier: ^9.0.0
         version: 9.0.3
+      nodemailer:
+        specifier: ^8.0.7
+        version: 8.0.7
       otplib:
         specifier: ^12.0.1
         version: 12.0.1
@@ -73,6 +76,9 @@ importers:
       '@types/node':
         specifier: ^20.0.0
         version: 20.19.39
+      '@types/nodemailer':
+        specifier: ^8.0.0
+        version: 8.0.0
       ts-node:
         specifier: ^10.9.0
         version: 10.9.2(@types/node@20.19.39)(typescript@5.9.3)
@@ -185,6 +191,9 @@ importers:
       knex:
         specifier: ^3.1.0
         version: 3.2.10(pg@8.20.0)
+      nodemailer:
+        specifier: ^8.0.7
+        version: 8.0.7
       pg:
         specifier: ^8.11.0
         version: 8.20.0
@@ -192,6 +201,9 @@ importers:
       '@types/node':
         specifier: ^20.0.0
         version: 20.19.39
+      '@types/nodemailer':
+        specifier: ^8.0.0
+        version: 8.0.0
       ts-node:
         specifier: ^10.9.0
         version: 10.9.2(@types/node@20.19.39)(typescript@5.9.3)
@@ -710,6 +722,9 @@ packages:
 
   '@types/node@22.19.17':
     resolution: {integrity: sha512-wGdMcf+vPYM6jikpS/qhg6WiqSV/OhG+jeeHT/KlVqxYfD40iYJf9/AE1uQxVWFvU7MipKRkRv8NSHiCGgPr8Q==}
+
+  '@types/nodemailer@8.0.0':
+    resolution: {integrity: sha512-fyf8jWULsCo0d0BuoQ75i6IeoHs47qcqxWc7yUdUcV0pOZGjUTTOvwdG1PRXUDqN/8A64yQdQdnA2pZgcdi+cA==}
 
   '@types/pg@8.20.0':
     resolution: {integrity: sha512-bEPFOaMAHTEP1EzpvHTbmwR8UsFyHSKsRisLIHVMXnpNefSbGA1bD6CVy+qKjGSqmZqNqBDV2azOBo8TgkcVow==}
@@ -2405,6 +2420,10 @@ packages:
   node-releases@2.0.38:
     resolution: {integrity: sha512-3qT/88Y3FbH/Kx4szpQQ4HzUbVrHPKTLVpVocKiLfoYvw9XSGOX2FmD2d6DrXbVYyAQTF2HeF6My8jmzx7/CRw==}
 
+  nodemailer@8.0.7:
+    resolution: {integrity: sha512-pkjE4mkBzQjdJT4/UmlKl3pX0rC9fZmjh7c6C9o7lv66Ac6w9WCnzPzhbPNxwZAzlF4mdq4CSWB5+FbK6FWCow==}
+    engines: {node: '>=6.0.0'}
+
   nopt@5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
     engines: {node: '>=6'}
@@ -3867,6 +3886,10 @@ snapshots:
   '@types/node@22.19.17':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/nodemailer@8.0.0':
+    dependencies:
+      '@types/node': 20.19.39
 
   '@types/pg@8.20.0':
     dependencies:
@@ -5805,6 +5828,8 @@ snapshots:
   node-forge@1.4.0: {}
 
   node-releases@2.0.38: {}
+
+  nodemailer@8.0.7: {}
 
   nopt@5.0.0:
     dependencies:

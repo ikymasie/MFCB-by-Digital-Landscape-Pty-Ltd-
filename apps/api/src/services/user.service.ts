@@ -1,7 +1,10 @@
 import { randomUUID, randomBytes } from 'crypto';
+import jwt from 'jsonwebtoken';
 import argon2 from 'argon2';
 import { db } from '../db/client';
 import { config } from '../config';
+import { sendMail } from './email.service';
+import { buildInvitationEmail } from './email.templates';
 
 interface SafeUser {
   user_id: string;
@@ -107,8 +110,34 @@ export async function inviteUser(input: {
     updated_at: now,
   });
 
-  // In production, send this via email
-  console.log(`[INVITE] User ${input.email} created with temp password: ${tempPassword}`);
+  // Generate single-use invite token (72-hour expiry)
+  const inviteToken = jwt.sign(
+    { sub: userId, type: 'INVITE', email: input.email.toLowerCase() },
+    config.jwtSecret,
+    { expiresIn: '72h' }
+  );
+
+  // Resolve invited-by user name for the email
+  const invitedByUser = await db('users')
+    .where('user_id', input.invited_by)
+    .select('full_name')
+    .first();
+
+  // Resolve institution name if applicable
+  const institution = input.institution_id
+    ? await db('institutions').where('institution_id', input.institution_id).select('name').first()
+    : null;
+
+  const { subject, html } = buildInvitationEmail({
+    fullName:        input.full_name,
+    email:           input.email.toLowerCase(),
+    tempPassword,
+    inviteToken,
+    invitedByName:   invitedByUser?.full_name ?? 'System Administrator',
+    institutionName: institution?.name,
+  });
+
+  await sendMail({ to: input.email.toLowerCase(), subject, html });
 
   return { user_id: userId, email: input.email };
 }

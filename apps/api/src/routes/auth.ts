@@ -14,6 +14,8 @@ import {
   confirmMfaEnrollment,
   skipMfaEnrollment,
 } from '../services/auth.service';
+import { sendMail } from '../services/email.service';
+import { buildPasswordResetEmail } from '../services/email.templates';
 
 const router: IRouter = Router();
 
@@ -171,13 +173,24 @@ router.post(
         .first();
 
       if (user) {
+        const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
         const resetToken = jwt.sign(
           { sub: user.user_id, type: 'PWD_RESET' },
           config.jwtSecret,
           { expiresIn: 3600 }
         );
-        // In production, send via email
-        console.log(`[PASSWORD_RESET] Token for ${email}: ${resetToken}`);
+
+        const { subject, html } = buildPasswordResetEmail({
+          fullName:   user.full_name,
+          email:      user.email,
+          resetToken,
+          expiresAt,
+        });
+
+        // Fire-and-forget — do not await to avoid timing oracle
+        sendMail({ to: user.email, subject, html }).catch((err) =>
+          console.error('[EMAIL] Password reset delivery failed:', err)
+        );
       }
 
       res.json({
